@@ -1078,7 +1078,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = videoplayer;
+				TEST_TARGET_NAME = MovieDB;
 			};
 			name = Debug;
 		};
@@ -1094,7 +1094,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = videoplayer;
+				TEST_TARGET_NAME = MovieDB;
 			};
 			name = Release;
 		};
