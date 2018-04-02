@@ -10,20 +10,20 @@ import Foundation
 extension VideoCollectionPresenter {
     static func newPresenter() -> VideoCollectionPresenter {
         let presenter = VideoCollectionPresenter()
-        presenter.dataProvider = VideoDataProvider()
+        presenter.repository = MovieRepository.repository()
         return presenter
-    }
+    }    
 }
 
 class VideoCollectionPresenter: Presenter {
-    typealias Response = DataProviderResponse<[VideoModel]>
+    typealias Response = DataProviderResponse<[MovieModel]>
 
     //MARK: - Module
-    private var dataProvider: VideoDataProvider?
+    private var repository: MovieRepository?
     
     //MARK: - ViewDataSource
     override func loadData() {
-        dataProvider?.loadData(completion: { [weak self] (response: Response) in
+        repository?.loadData(completion: { [weak self] (response: Response) in
             guard let viewState = self?.viewState(for: response) else { return }
             self?.userInterface?.render(state: viewState)
         })
@@ -31,6 +31,6 @@ class VideoCollectionPresenter: Presenter {
     
     //MARK: - private methods
     private func viewState(for response: Response) -> VideoCollectionViewState {
-        return VideoCollectionViewState(error: response.1, data: response.0)
+        return VideoCollectionViewState.hasLoaded(data: response.0, error: response.1)
     }
 }

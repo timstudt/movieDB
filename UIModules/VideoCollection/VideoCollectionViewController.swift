@@ -17,7 +17,7 @@ extension VideoCollectionViewController {
 
 class VideoCollectionViewController: View {
     //MARK: - Models
-    var videos: [VideoModel]?
+    var videos: [MovieModel]?
     
     //MARK: - subiews
     lazy var collectionView: UICollectionView = {
@@ -69,8 +69,8 @@ extension VideoCollectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let video = videos![indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! VideoCollectionViewCell
+        let video: MovieModel = videos![indexPath.row]
+        let cell: VideoCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! VideoCollectionViewCell
         cell.backgroundColor = .green
         cell.update(with: video)
         return cell

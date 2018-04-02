@@ -8,7 +8,7 @@
 
 import UIKit
 extension VideoCollectionViewCell {
-    func update(with model: VideoModel) {
+    func update(with model: MovieModel) {
         titleLabel.text = model.name
     }
 }

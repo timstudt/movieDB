@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import videoplayer
+@testable import MovieDB
 
-class videoplayerTests: XCTestCase {
+class MovieDBTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

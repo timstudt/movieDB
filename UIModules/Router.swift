@@ -15,7 +15,7 @@ struct Router {
     
     static let shared = Router()
 
-    var current: View?
+    weak var current: View?
     
     static func show(type: ViewType) -> View {
         var router = shared
@@ -23,10 +23,12 @@ struct Router {
     }
     
     mutating func show(type: ViewType) -> View {
+        var nextView: View!
         switch type {
         case .videoCollection:
-            current = VideoCollectionViewController.newView()
+            nextView = VideoCollectionViewController.newView()
         }
-        return current!
+        current = nextView
+        return nextView
     }
 }

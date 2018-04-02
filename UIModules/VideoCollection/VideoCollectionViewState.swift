@@ -8,22 +8,12 @@
 
 import Foundation
 
-class VideoCollectionViewState: ViewState<VideoModel> {
-    
-}
-
-class ViewState<T>: ViewStateProtocol {
-    var isLoading: Bool
-    var error: Error?
-    var data: [T]?
-
-    init(isLoading: Bool = false, error: Error? = nil, data: [T]? = nil) {
-        self.isLoading = isLoading
-        self.error = error
-        self.data = data
+class VideoCollectionViewState: ViewState<MovieModel> {
+    static func loading() -> VideoCollectionViewState {
+        return VideoCollectionViewState(isLoading: true, error: nil, data: nil)
     }
-
-//    static func data<T>(_ data: [T]) -> Self {
-//        return ViewState<T>.init(data: data)
-//    }
+    
+    static func hasLoaded(data: [MovieModel]?, error: Error?) -> VideoCollectionViewState {
+        return VideoCollectionViewState(isLoading: false, error: error, data: data)
+    }
 }

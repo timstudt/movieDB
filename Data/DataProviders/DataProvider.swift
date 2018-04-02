@@ -9,7 +9,8 @@
 import Foundation
 
 typealias DataProviderResponse<T> = (T?, Error?)
+typealias DataMapper<Output: Equatable, Input: Equatable> = ([Output], [Input])
 
-protocol DataSource {
+protocol DataProvider {
     func loadData<T>(completion: ((DataProviderResponse<T>) -> Void)?)
 }

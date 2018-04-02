@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import videoplayer
+@testable import MovieDB
 
 class ModuleBuilderTests: XCTestCase {
     var builder: ModuleBuilder?
@@ -26,6 +26,7 @@ class ModuleBuilderTests: XCTestCase {
         XCTAssertNil(builder?.view, "view is not nil")
         XCTAssertNil(builder?.presenter, "presenter is not nil")
     }
+    
     func testBuild() {
         let input = View()
         let presenter = Presenter()
@@ -36,7 +37,6 @@ class ModuleBuilderTests: XCTestCase {
         let output = builder?.build()
         XCTAssertNotNil(output)
         XCTAssertTrue(output == input, "Views don\t match")
-        
         
         XCTAssertTrue((output!.dataSource as! Presenter) == presenter, "dataSource not set correctly")
 //        XCTAssertTrue(builder!.presenter == presenter, "dataSource not set correctly")
