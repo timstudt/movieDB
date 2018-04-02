@@ -16,6 +16,7 @@ enum MovieDBNetwork {
         var totalResults: Int
         var results: [Result]
 
+        // swiftlint:disable nesting
         private enum CodingKeys: String, CodingKey {
             case page
             case totalPages = "total_pages"
@@ -24,4 +25,3 @@ enum MovieDBNetwork {
         }
     }
 }
-

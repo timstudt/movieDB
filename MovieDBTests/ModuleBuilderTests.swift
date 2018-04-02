@@ -11,22 +11,22 @@ import XCTest
 
 class ModuleBuilderTests: XCTestCase {
     var builder: ModuleBuilder?
-    
+
     override func setUp() {
         super.setUp()
         builder = ModuleBuilder()
     }
-    
+
     override func tearDown() {
         builder = nil
         super.tearDown()
     }
-    
+
     func testEmpty() {
         XCTAssertNil(builder?.view, "view is not nil")
         XCTAssertNil(builder?.presenter, "presenter is not nil")
     }
-    
+
     func testBuild() {
         let input = View()
         let presenter = Presenter()
@@ -37,11 +37,10 @@ class ModuleBuilderTests: XCTestCase {
         let output = builder?.build()
         XCTAssertNotNil(output)
         XCTAssertTrue(output == input, "Views don\t match")
-        
+
         XCTAssertTrue((output!.dataSource as! Presenter) == presenter, "dataSource not set correctly")
 //        XCTAssertTrue(builder!.presenter == presenter, "dataSource not set correctly")
     }
-    
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
@@ -49,5 +48,5 @@ class ModuleBuilderTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }

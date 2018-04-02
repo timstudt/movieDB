@@ -17,8 +17,9 @@ struct AlamofireConnector: NetworkProvider {
             completion?((response.value, response.error))
         }
     }
-    
-    func send<T>(request: URLRequest, serializer: Serializable?, completion: ((DataProviderResponse<[T]>) -> Void)?) where T: Decodable {
+
+    func send<T>(request: URLRequest, serializer: Serializable?,
+                 completion: ((DataProviderResponse<[T]>) -> Void)?) where T: Decodable {
         Alamofire
             .request(request)
             .validate()

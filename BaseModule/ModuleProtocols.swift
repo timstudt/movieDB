@@ -17,6 +17,6 @@ protocol PresenterOutput: class {
     func render(state: ViewStateProtocol)
 }
 
-protocol ViewDataSource {    
+protocol ViewDataSource {
     func loadData()
 }

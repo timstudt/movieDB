@@ -19,9 +19,9 @@ extension View {
 }
 
 class View: UIViewController, PresenterOutput {
-    //MARK: - Module
+    // MARK: - Module
     var dataSource: ViewDataSource?
-    
-    //MARK: - PresenterOutput
+
+    // MARK: - PresenterOutput
     func render(state: ViewStateProtocol) { }
 }

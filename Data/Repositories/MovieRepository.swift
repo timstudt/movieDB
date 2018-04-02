@@ -17,16 +17,16 @@ extension MovieRepository {
 }
 
 class MovieRepository {
-    //MARK: - DataServices
+    // MARK: - DataServices
     var networkService: MovieDataProvider?
     var dataBaseService: MovieDataProvider?
-    
+
     init(networkService: MovieDataProvider? = nil, dataBaseService: MovieDataProvider? = nil) {
         self.networkService = networkService
         self.dataBaseService = dataBaseService
     }
 
-    //MARK: - DataSource implementation
+    // MARK: - DataSource implementation
     func loadData(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
         if let networkService = networkService {
             networkService.fetch(completion: completion)

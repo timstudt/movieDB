@@ -16,12 +16,12 @@ class ViewStateTests: XCTestCase {
         viewState = ViewState<String>()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         viewState = nil
         super.tearDown()
     }
-    
+
     func testInit() {
         XCTAssert(viewState.isLoading == false, "loading state wrong")
         XCTAssert(viewState.data == nil, "loading state wrong")
@@ -40,5 +40,5 @@ class ViewStateTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }

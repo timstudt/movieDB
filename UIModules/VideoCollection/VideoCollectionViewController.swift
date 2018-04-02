@@ -11,27 +11,30 @@ import UIKit
 extension VideoCollectionViewController {
     static func newView() -> VideoCollectionViewController {
         let presenter = VideoCollectionPresenter.newPresenter()
+        // swiftlint:disable force_cast
         return newView(presenter: presenter) as! VideoCollectionViewController
+        // swiftlint:enable force_cast
     }
 }
 
 class VideoCollectionViewController: View {
-    //MARK: - Models
+    // MARK: - Models
     var videos: [MovieModel]?
-    
-    //MARK: - subiews
+
+    // MARK: - subiews
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
         flowLayout.scrollDirection = .vertical
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
+        let collectionView = UICollectionView(frame: view.bounds,
+                                              collectionViewLayout: flowLayout)
         return collectionView
     }()
-    
-    //MARK: - Constants
+
+    // MARK: - Constants
     let cellReuseIdentifier = "VideoCell"
-    
-    //MARK: - ViewController life cycle
+
+    // MARK: - ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -42,24 +45,25 @@ class VideoCollectionViewController: View {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //MARK: - View override
+
+    // MARK: - View override
     override func render(state: ViewStateProtocol) {
         guard let state = state as? VideoCollectionViewState else { return }
         videos = state.data
         collectionView.reloadData()
     }
-    
-    //MARK: - private methods
+
+    // MARK: - private methods
     private func setupViews() {
-        collectionView.register(VideoCollectionViewCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
+        collectionView.register(VideoCollectionViewCell.self,
+                                forCellWithReuseIdentifier: cellReuseIdentifier)
         collectionView.dataSource = self
         collectionView.backgroundColor = .white
         view.addSubview(collectionView)
     }
 }
 
-//MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension VideoCollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -67,10 +71,13 @@ extension VideoCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return videos?.count ?? 0
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let video: MovieModel = videos![indexPath.row]
-        let cell: VideoCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! VideoCollectionViewCell
+        //swiftlint:disable force_cast
+        let cell: VideoCollectionViewCell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier,
+                                 for: indexPath) as! VideoCollectionViewCell
         cell.backgroundColor = .green
         cell.update(with: video)
         return cell

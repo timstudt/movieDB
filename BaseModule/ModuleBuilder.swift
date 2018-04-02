@@ -17,13 +17,13 @@ class ModuleBuilder {
         self.view = view
         return self
     }
-    
+
     @discardableResult
     func add(presenter: Presenter) -> Self {
         self.presenter = presenter
         return self
     }
-    
+
     func build() -> View {
         view.dataSource = presenter
         presenter?.userInterface = view

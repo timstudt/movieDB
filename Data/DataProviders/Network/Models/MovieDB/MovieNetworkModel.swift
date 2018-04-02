@@ -10,19 +10,21 @@ import Foundation
 
 extension MovieDBNetwork {
     struct Movie: Codable {
+        // swiftlint:disable identifier_name
         var id: Int
         var voteAverage: Double
         var title: String
         var overview: String
         var posterPath: String?
-        
-        private enum CodingKeys: String, CodingKey {
+
+        // swiftlint:disable nesting
+       private enum CodingKeys: String, CodingKey {
             case id
             case voteAverage = "vote_average"
             case title
             case overview
             case posterPath = "poster_path"
-            
+
         }
     }
 }

@@ -11,33 +11,34 @@ import Foundation
 protocol MovieDBAPI: API { }
 
 extension MovieDBAPI {
-    
-    //MARK: - endpoints
+
+    // MARK: - endpoints
     var endpointVersion: String { return "3" }
     var movieEndpoint: String { return "movie" }
     var searchEndpoint: String { return "search" }
     var searchMoviePath: String { return "/\(endpointVersion)/\(searchEndpoint)/movie" }
-    //MARK: - query items
+    // MARK: - query items
     var APIKeyQuery: URLQueryItem { return URLQueryItem(name: "api_key", value: APIKey) }
-    //MARK: - urls
+    // MARK: - urls
     var searchMovieURL: URL {
         return buildURL(endpoint: searchEndpoint, pathComponent: "movie")
     }
 
-    //MARK: - requests
+    // MARK: - requests
+    // swiftlint:disable identifier_name
     func getMovie(id: Int) -> URLRequest {
         let url = buildURL(endpoint: movieEndpoint, pathComponent: "\(id)")
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         components.queryItems = [APIKeyQuery]
         return buildRequest(url: components.url!)
     }
-    
+
     func searchMovie(query: String) -> URLRequest {
         var components = URLComponents(url: searchMovieURL, resolvingAgainstBaseURL: false)!
         components.queryItems = [URLQueryItem(name: "query", value: query), APIKeyQuery]
         return buildRequest(url: components.url!)
     }
-    
+
     func buildURL(endpoint: String, pathComponent: String = "") -> URL {
         return baseURL
             .appendingPathComponent(endpointVersion, isDirectory: false)

@@ -12,7 +12,7 @@ class VideoCollectionViewState: ViewState<MovieModel> {
     static func loading() -> VideoCollectionViewState {
         return VideoCollectionViewState(isLoading: true, error: nil, data: nil)
     }
-    
+
     static func hasLoaded(data: [MovieModel]?, error: Error?) -> VideoCollectionViewState {
         return VideoCollectionViewState(isLoading: false, error: error, data: data)
     }

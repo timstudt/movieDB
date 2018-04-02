@@ -14,7 +14,7 @@ extension VideoCollectionViewCell {
 }
 
 class VideoCollectionViewCell: UICollectionViewCell {
-    //MARK: - subviews
+    // MARK: - subviews
     let titleLabel = UILabel()
     let imageView = UIImageView()
     private lazy var stackView: UIStackView = {
@@ -24,21 +24,21 @@ class VideoCollectionViewCell: UICollectionViewCell {
         stackView.alignment = .center
         return stackView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         stackView.frame = bounds
     }
-    
+
     private func setupViews() {
         contentView.addSubview(stackView)
     }

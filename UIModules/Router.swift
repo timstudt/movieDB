@@ -12,16 +12,16 @@ struct Router {
     enum ViewType {
         case videoCollection
     }
-    
+
     static let shared = Router()
 
     weak var current: View?
-    
+
     static func show(type: ViewType) -> View {
         var router = shared
         return router.show(type: type)
     }
-    
+
     mutating func show(type: ViewType) -> View {
         var nextView: View!
         switch type {

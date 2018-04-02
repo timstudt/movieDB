@@ -9,19 +9,21 @@
 import Foundation
 
 struct URLSessionConnector: NetworkProvider {
-    
+
     var session: URLSession = .shared
-    
+
     func send(request: URLRequest, completion: ((DataProviderResponse<Data>) -> Void)?) {
         session
-            .dataTask(with: request) { (data, response, error) in
+            .dataTask(with: request) { (data, _, error) in
                 completion?((data, error))
             }.resume()
     }
-    
-    func send<T>(request: URLRequest, serializer: Serializable?, completion: ((DataProviderResponse<[T]>) -> Void)?) where T : Decodable {
+
+    func send<T>(request: URLRequest,
+                 serializer: Serializable?,
+                 completion: ((DataProviderResponse<[T]>) -> Void)?) where T: Decodable {
         session
-            .dataTask(with: request) { (data, response, error) in
+            .dataTask(with: request) { (data, _, error) in
                 var results: [T]?
                 if let data = data {
                     results = serializer?.serialize(data: data)

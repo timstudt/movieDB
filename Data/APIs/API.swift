@@ -14,7 +14,7 @@ public protocol API {
     var cachePolicy: URLRequest.CachePolicy { get }
     var timeoutInterval: TimeInterval { get }
     var allHTTPHeaderFields: [String: String] { get }
-    
+
     var baseURLComponents: URLComponents { get }
 
     func buildRequest(url: URL, httpMethod: String) -> URLRequest
@@ -24,7 +24,7 @@ public extension API {
     var APIKey: String { return "" }
     var cachePolicy: URLRequest.CachePolicy { return .useProtocolCachePolicy }
     var timeoutInterval: TimeInterval { return 20.0 }
-    var allHTTPHeaderFields: [String : String] { return [String: String]() }
+    var allHTTPHeaderFields: [String: String] { return [String: String]() }
 
     var baseURLComponents: URLComponents {
         let components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)

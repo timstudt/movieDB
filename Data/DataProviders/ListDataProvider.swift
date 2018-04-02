@@ -10,6 +10,7 @@ import Foundation
 
 protocol ListDataProvider {
     func fetch<T>(completion: (([T]?, Error?) -> Void)?)
+    // swiftlint:disable identifier_name
     func fetch<T>(id: Int, completion: ((T?, Error?) -> Void)?)
     func search<T>(query: String?, completion: (([T]?, Error?) -> Void)?)
 }
