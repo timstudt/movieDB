@@ -20,3 +20,4 @@ xcode_workspace: MovieDB.xcworkspace
 branches:
   only:
     - master
+    - travis-ci-1
