@@ -11,12 +11,10 @@ before_install:
   - pod install --repo-update
   - gem install xcpretty-travis-formatter
   - xcrun simctl list
-#install: echo "<3"
-#pod install
+
 xcode_workspace: MovieDB.xcworkspace
 
 # whitelist
 branches:
   only:
     - master
-    - travis-ci-1
