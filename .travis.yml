@@ -1,0 +1,22 @@
+language: swift
+cache:
+  - bundler
+  - cocoapods
+osx_image: xcode9.3
+git:
+  depth: 10
+before_install:
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+  - gem install cocoapods -v 1.0.1
+  - gem install xcpretty -v 0.2.2
+  - gem install xcpretty-travis-formatter
+  - xcrun simctl list
+install: echo "<3"
+por install
+xcode_workspace: MovieDB.xcworkspace
+
+# whitelist
+branches:
+  only:
+    - master
