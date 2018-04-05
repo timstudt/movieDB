@@ -12,7 +12,12 @@ before_install:
   - gem install xcpretty-travis-formatter
   - xcrun simctl list
 
-xcode_workspace: MovieDB.xcworkspace
+#xcode_workspace: MovieDB.xcworkspace
+script:
+  - xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace build test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 # whitelist
 branches:
