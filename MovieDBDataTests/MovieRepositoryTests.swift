@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Alamofire
 
 private struct MockAPI: API {
     var baseURL: URL { return URL(string: "http://www.google.com")! }
@@ -39,12 +38,19 @@ struct TestDataSource {
 private class MockMovieNetworkService: NetworkService<MockAPI>, MovieDataProvider {
     let testDataSource = TestDataSource()
 
+    var didCallFetch = false
+    var didCallFetchID = false
+    var didCallSearch = false
+
     func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+        didCallFetch = true
         completion?((testDataSource.videos(), testDataSource.error()))
     }
     func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
+        didCallFetchID = true
     }
     func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+        didCallSearch = true
     }
 }
 
@@ -78,6 +84,11 @@ class MovieRepositoryTests: XCTestCase {
 
     func testNetworkService() {
         repository.networkService = testService
+
+        XCTAssertFalse(testService.didCallFetch, "unexpected fetch call")
+        XCTAssertFalse(testService.didCallFetchID, "unexpected fetchID call")
+        XCTAssertFalse(testService.didCallSearch, "unexpected search call")
+        
         repository.loadData { (response) in
             XCTAssertNotNil(response, "invalid response")
             XCTAssertNil(response.1, "load data unexpected error in response")
@@ -85,6 +96,7 @@ class MovieRepositoryTests: XCTestCase {
             XCTAssertNotNil(data)
             XCTAssert(data! == TestDataSource().videos()!, "load data unexpected data returned")
         }
+        XCTAssertTrue(testService.didCallFetch, "expected fetch call")
     }
 
     func testPerformanceExample() {
