@@ -2,7 +2,7 @@ language: swift
 cache:
   - bundler
   - cocoapods
-osx_image: xcode9.3
+osx_image: xcode9.3beta
 git:
   depth: 10
 before_install:
