@@ -8,7 +8,7 @@ git:
 before_install:
 #  - brew update
 #  - brew outdated xctool || brew upgrade xctool
-#  - pod install --repo-update
+  - pod install --repo-update
 #  - gem install xcpretty-travis-formatter
   - xcrun simctl list
 
