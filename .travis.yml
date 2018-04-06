@@ -6,15 +6,15 @@ osx_image: xcode9.3beta
 git:
   depth: 10
 before_install:
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
-  - pod install --repo-update
-  - gem install xcpretty-travis-formatter
+#  - brew update
+#  - brew outdated xctool || brew upgrade xctool
+#  - pod install --repo-update
+#  - gem install xcpretty-travis-formatter
   - xcrun simctl list
 
 #xcode_workspace: MovieDB.xcworkspace
 script:
-  - xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace build test
+  - xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator11.3 -destination "OS=11.3,name=iPhone 6S Plus"  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES clean build test | xcpretty;
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
