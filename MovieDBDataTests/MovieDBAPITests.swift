@@ -55,8 +55,8 @@ class MovieDBAPITests: XCTestCase {
     func testSearchMoviesRequests() {
         let queryString = "test"
         let query = [
-            "query=\(queryString)",
-            "api_key=\(MovieDBNetwork.Configuration.defaultAPIKey)"
+            "api_key=\(MovieDBNetwork.Configuration.defaultAPIKey)",
+            "query=\(queryString)"
             ].joined(separator: "&")
 
         let request = MovieDBNetwork.APIClient().searchMovie(query: queryString)

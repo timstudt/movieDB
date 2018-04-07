@@ -19,19 +19,20 @@ extension MovieRepository {
 class MovieRepository {
     // MARK: - DataServices
     var networkService: MovieDataProvider?
-    var dataBaseService: MovieDataProvider?
+    var cache: MovieDataProvider?
 
-    init(networkService: MovieDataProvider? = nil, dataBaseService: MovieDataProvider? = nil) {
+    init(networkService: MovieDataProvider? = nil,
+         dataBaseService: MovieDataProvider? = nil) {
         self.networkService = networkService
-        self.dataBaseService = dataBaseService
+        self.cache = dataBaseService
     }
 
     // MARK: - DataSource implementation
     func loadData(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        if let networkService = networkService {
+        if let cache = cache {
+            cache.fetch(completion: completion)
+        } else if let networkService = networkService {
             networkService.fetch(completion: completion)
-        } else if let dataBaseService = dataBaseService {
-            dataBaseService.fetch(completion: completion)
         }
     }
 }

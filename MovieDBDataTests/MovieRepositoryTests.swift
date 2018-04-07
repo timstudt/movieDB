@@ -55,11 +55,20 @@ private class MockMovieNetworkService: NetworkService<MockAPI>, MovieDataProvide
 }
 
 class MockConnector: NetworkProvider {
-    func send(request: URLRequest, completion: (((Data?, Error?)) -> Void)?) {
-        completion?((nil, nil))
+    var logger: NetworkLoggable?
+    var didCallSendData = false
+    var didCallSendArray = false
+
+    func send(request: URLRequest,
+              completion: @escaping (((Data?, Error?)) -> Void)) {
+        didCallSendData = true
+        completion((nil, nil))
     }
-    func send<T>(request: URLRequest, serializer: Serializable?, completion: ((([T]?, Error?)) -> Void)?) where T: Decodable {
-        completion?((nil, nil))
+    func send<T>(request: URLRequest,
+                 serializer: Serializable?,
+                 completion: @escaping ((([T]?, Error?)) -> Void)) where T: Decodable {
+        didCallSendData = false
+        completion((nil, nil))
     }
 }
 
@@ -79,7 +88,7 @@ class MovieRepositoryTests: XCTestCase {
 
     func testDefaultInit() {
         XCTAssertNil(repository.networkService)
-        XCTAssertNil(repository.dataBaseService)
+        XCTAssertNil(repository.cache)
     }
 
     func testNetworkService() {
@@ -88,7 +97,7 @@ class MovieRepositoryTests: XCTestCase {
         XCTAssertFalse(testService.didCallFetch, "unexpected fetch call")
         XCTAssertFalse(testService.didCallFetchID, "unexpected fetchID call")
         XCTAssertFalse(testService.didCallSearch, "unexpected search call")
-        
+
         repository.loadData { (response) in
             XCTAssertNotNil(response, "invalid response")
             XCTAssertNil(response.1, "load data unexpected error in response")

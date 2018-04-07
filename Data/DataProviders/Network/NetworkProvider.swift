@@ -9,8 +9,13 @@
 import Foundation
 
 protocol NetworkProvider {
-    func send(request: URLRequest, completion: ((DataProviderResponse<Data>) -> Void)?)
-    func send<T: Decodable>(request: URLRequest,
-                            serializer: Serializable?,
-                            completion: ((DataProviderResponse<[T]>) -> Void)?)
+    var logger: NetworkLoggable? { get set }
+    
+    func send(
+        request: URLRequest,
+        completion: @escaping (DataProviderResponse<Data>) -> Void)
+    func send<T: Decodable>(
+        request: URLRequest,
+        serializer: Serializable?,
+        completion: @escaping (DataProviderResponse<[T]>) -> Void)
 }

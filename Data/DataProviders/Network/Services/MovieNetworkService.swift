@@ -10,9 +10,10 @@ import Foundation
 
 extension MovieNetworkService {
     static func networkService() -> MovieNetworkService {
-        let connector = URLSessionConnector()
-        let networkService = MovieNetworkService(networkProvider: connector,
-                                                 api: MovieDBNetwork.APIClient())
+        let connector = URLSessionConnector()//AlamofireConnector()
+        let networkService = MovieNetworkService(
+            networkProvider: connector,
+            api: MovieDBNetwork.APIClient())
         networkService.defaultSerializer = MovieDBNetwork.Serializer()
         return networkService
     }
@@ -37,8 +38,8 @@ class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieDataPr
             }
         }
     }
-    // swiftlint:enable identifier_name
     
+    // swiftlint:enable identifier_name
     func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
         guard let query = query,
             let request = api?.searchMovie(query: query)

@@ -19,30 +19,29 @@ extension MovieDBAPI {
     var searchMoviePath: String { return "/\(endpointVersion)/\(searchEndpoint)/movie" }
     // MARK: - query items
     var APIKeyQuery: URLQueryItem { return URLQueryItem(name: "api_key", value: APIKey) }
-    // MARK: - urls
-    var searchMovieURL: URL {
-        return buildURL(endpoint: searchEndpoint, pathComponent: "movie")
-    }
 
+    var defaultURLBuilder: URLBuilder {
+        let builder = URLBuilder(baseURL: baseURL)
+        builder
+            .add(path: endpointVersion)
+            .defaultQueryItems = [APIKeyQuery]
+        return builder
+    }
+    
     // MARK: - requests
     // swiftlint:disable identifier_name
     func getMovie(id: Int) -> URLRequest {
-        let url = buildURL(endpoint: movieEndpoint, pathComponent: "\(id)")
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
-        components.queryItems = [APIKeyQuery]
-        return buildRequest(url: components.url!)
+        let builder = defaultURLBuilder
+            .add(path: movieEndpoint)
+            .add(path: "\(id)")
+        return buildRequest(url: builder.build()!)
     }
 
     func searchMovie(query: String) -> URLRequest {
-        var components = URLComponents(url: searchMovieURL, resolvingAgainstBaseURL: false)!
-        components.queryItems = [URLQueryItem(name: "query", value: query), APIKeyQuery]
-        return buildRequest(url: components.url!)
-    }
-
-    func buildURL(endpoint: String, pathComponent: String = "") -> URL {
-        return baseURL
-            .appendingPathComponent(endpointVersion, isDirectory: false)
-            .appendingPathComponent(endpoint)
-            .appendingPathComponent(pathComponent)
+        let builder = defaultURLBuilder
+            .add(path: searchEndpoint)
+            .add(path: movieEndpoint)
+            .add(query: URLQueryItem(name: "query", value: query))
+        return buildRequest(url: builder.build()!)
     }
 }

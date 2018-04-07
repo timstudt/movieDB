@@ -11,7 +11,7 @@ import Foundation
 public class NetworkService<T: API> {
     var api: T?
     var networkProvider: NetworkProvider?
-    //    var mapper:
+    
     init(networkProvider: NetworkProvider?, api: T?) {
         self.networkProvider = networkProvider
         self.api = api
