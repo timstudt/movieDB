@@ -10,7 +10,7 @@ import Foundation
 
 extension MovieDBNetwork {
     struct Serializer: Serializable {
-        func serialize<T>(data: Data) -> [T]? where T: Decodable {
+        func serialize<T>(data: Data) throws -> [T] where T: Decodable {
             do {
                 let decoder = JSONDecoder()
                 let response: MovieDBNetwork.Response<T> =
@@ -18,28 +18,31 @@ extension MovieDBNetwork {
                 return response.results
             } catch let err {
                 print("Err", err)
+                throw NetworkError.decodingFailed
             }
-            return nil
         }
     }
 }
 
 protocol Serializable {
-    func serialize<T>(data: Data) -> [T]? where T: Decodable
+    func serialize<T>(data: Data) throws -> [T] where T: Decodable
 }
 
 extension Serializable {
-    func serialize<T>(data: Data) -> T? where T: Decodable {
+    func serialize<T>(data: Data) throws -> T where T: Decodable {
         do {
             let decoder = JSONDecoder()
             let response: T = try decoder.decode(T.self, from: data)
             return response
         } catch let err {
             print("Err", err)
+            throw NetworkError.decodingFailed
         }
-        return nil
     }
-    func serialize<T>(data: Data) -> [T]? where T: Decodable {
-        return nil
+    /**
+     default serialize method
+     */
+    func serialize<T>(data: Data) throws -> [T] where T: Decodable {
+        throw NetworkError.decodingFailed
     }
 }

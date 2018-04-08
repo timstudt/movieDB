@@ -54,21 +54,31 @@ private class MockMovieNetworkService: NetworkService<MockAPI>, MovieDataProvide
     }
 }
 
+class MockNetworkTask: NetworkTask {
+    func cancel() { }
+    func resume() { }
+    func suspend() { }
+}
+
 class MockConnector: NetworkProvider {
     var logger: NetworkLoggable?
     var didCallSendData = false
     var didCallSendArray = false
 
     func send(request: URLRequest,
-              completion: @escaping (((Data?, Error?)) -> Void)) {
+              completion: @escaping (((Data?, Error?)) -> Void))
+        -> NetworkTask {
         didCallSendData = true
         completion((nil, nil))
+        return MockNetworkTask()
     }
     func send<T>(request: URLRequest,
                  serializer: Serializable?,
-                 completion: @escaping ((([T]?, Error?)) -> Void)) where T: Decodable {
+                 completion: @escaping ((([T]?, Error?)) -> Void))
+        -> NetworkTask where T: Decodable {
         didCallSendData = false
         completion((nil, nil))
+        return MockNetworkTask()
     }
 }
 
