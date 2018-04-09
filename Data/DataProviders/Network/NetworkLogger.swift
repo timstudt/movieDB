@@ -14,7 +14,10 @@ protocol NetworkLoggable {
 
 extension NetworkLoggable {
     func log(response: URLResponse?) {
-        print("Networking: \(response?.debugDescription ?? "response is nil")")
+        log(message: response?.debugDescription ?? "response is nil")
+    }
+    func log(message: String) {
+        print("Networking: \(message)")
     }
 }
 

@@ -16,19 +16,25 @@ struct URLSessionConnector: NetworkProvider {
         self.logger = logger
     }
 
+    @discardableResult
     func send(request: URLRequest,
-              completion: @escaping (DataProviderResponse<Data>) -> Void) {
-        session
+              completion: @escaping (DataProviderResponse<Data>) -> Void)
+        -> NetworkTask {
+        let task = session
             .dataTask(with: request) { (data, response, error) in
                 self.logger?.log(response: response)
                 completion((data, error))
-            }.resume()
+            }
+        task.resume()
+        return task
     }
 
+    @discardableResult
     func send<T>(request: URLRequest,
                  serializer: Serializable?,
-                 completion: @escaping (DataProviderResponse<[T]>) -> Void) where T: Decodable {
-        session
+                 completion: @escaping (DataProviderResponse<[T]>) -> Void)
+        -> NetworkTask where T: Decodable {
+        let task = session
             .dataTask(with: request) { (data, response, error) in
                 self.logger?.log(response: response)
                 let result: DataProviderResponse<[T]> =
@@ -37,17 +43,29 @@ struct URLSessionConnector: NetworkProvider {
                                 serializer: serializer)
                 completion(result)
             }
-            .resume()
+        task.resume()
+        return task
     }
     
     private func mapped<T>(data: Data?,
                            error: Error?,
-                           serializer: Serializable?) -> DataProviderResponse<[T]> where T : Decodable {
-        var results: [T]?
+                           serializer: Serializable?)
+        -> DataProviderResponse<[T]> where T : Decodable {
+        var outputData: [T]?
+        var outputError: Error?
         if let data = data {
-            results = serializer?.serialize(data: data)
+            do {
+                guard let serializer = serializer else { return DataProviderResponse(nil, NetworkError.missingSerializer) }
+                let serializedData: [T] = try serializer.serialize(data: data)
+                outputData = serializedData
+                outputError = error
+            } catch let err {
+                print("NetworkProvider Error", err)
+                outputError = err
+            }
         }
-        return DataProviderResponse(results, error)
+        return DataProviderResponse(outputData, outputError)
     }
-
 }
+
+extension URLSessionTask: NetworkTask { }

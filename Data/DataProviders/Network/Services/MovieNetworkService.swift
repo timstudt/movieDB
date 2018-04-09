@@ -19,6 +19,9 @@ extension MovieNetworkService {
     }
 }
 
+/**
+ MovieNetworkService - implements the MovieDataProvider and makes the calls to the MovieDB API using the specified NetworkService
+ */
 class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieDataProvider {
     var defaultSerializer: Serializable?
 
@@ -38,8 +41,8 @@ class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieDataPr
             }
         }
     }
-    
     // swiftlint:enable identifier_name
+
     func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
         guard let query = query,
             let request = api?.searchMovie(query: query)
