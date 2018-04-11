@@ -14,19 +14,21 @@ extension MovieDBAPI {
 
     // MARK: - endpoints
     var endpointVersion: String { return "3" }
-    var movieEndpoint: String { return "movie" }
+    var movieEndpoint: String { return "movie" } //TODO make endpoint enum
     var searchEndpoint: String { return "search" }
-    var searchMoviePath: String { return "/\(endpointVersion)/\(searchEndpoint)/movie" }
-    // MARK: - query items
-    var APIKeyQuery: URLQueryItem { return URLQueryItem(name: "api_key", value: APIKey) }
+    var configurationEndpoint: String { return "configuration" }
 
     var defaultURLBuilder: URLBuilder {
         let builder = URLBuilder(baseURL: baseURL)
         builder
             .add(path: endpointVersion)
-            .defaultQueryItems = [APIKeyQuery]
+            .defaultQueryItems = [APIKeyQuery()]
         return builder
     }
+    
+    // MARK: - query items
+    func APIKeyQuery() -> URLQueryItem { return URLQueryItem(name: "api_key", value: APIKey) }
+    func queryQuery(_ value: String) -> URLQueryItem { return URLQueryItem(name: "query", value: value) }
     
     // MARK: - requests
     // swiftlint:disable identifier_name
@@ -41,7 +43,7 @@ extension MovieDBAPI {
         let builder = defaultURLBuilder
             .add(path: searchEndpoint)
             .add(path: movieEndpoint)
-            .add(query: URLQueryItem(name: "query", value: query))
+            .add(query: queryQuery(query))
         return buildRequest(url: builder.build()!)
     }
 }

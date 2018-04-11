@@ -15,9 +15,7 @@ public protocol API {
     var timeoutInterval: TimeInterval { get }
     var allHTTPHeaderFields: [String: String] { get }
 
-    var baseURLComponents: URLComponents { get }
-
-    func buildRequest(url: URL, httpMethod: String) -> URLRequest
+    func buildRequest(url: URL, httpMethod: HTTPMethod) -> URLRequest
 }
 
 public extension API {
@@ -26,14 +24,9 @@ public extension API {
     var timeoutInterval: TimeInterval { return 20.0 }
     var allHTTPHeaderFields: [String: String] { return [String: String]() }
 
-    var baseURLComponents: URLComponents {
-        let components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
-        return components!
-    }
-
-    func buildRequest(url: URL, httpMethod: String = "GET") -> URLRequest {
+    func buildRequest(url: URL, httpMethod: HTTPMethod = .get) -> URLRequest {
         var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
-        request.httpMethod = httpMethod
+        request.httpMethod = httpMethod.rawValue
         request.allHTTPHeaderFields = allHTTPHeaderFields
         return request
     }

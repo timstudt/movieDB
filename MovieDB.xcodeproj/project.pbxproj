@@ -42,6 +42,8 @@
 		6A6B0D1D20613C3E003EDF16 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6B0D1C20613C3E003EDF16 /* API.swift */; };
 		6A6B0D232061902C003EDF16 /* MovieNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6B0D222061902C003EDF16 /* MovieNetworkService.swift */; };
 		6A6B0D2520619065003EDF16 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6B0D2420619065003EDF16 /* NetworkService.swift */; };
+		6A77B92E207D4604009C892D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A77B92D207D4604009C892D /* HTTPMethod.swift */; };
+		6A77B92F207D4604009C892D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A77B92D207D4604009C892D /* HTTPMethod.swift */; };
 		6A839585205861B600CD0CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A839584205861B600CD0CDD /* AppDelegate.swift */; };
 		6A839587205861B600CD0CDD /* VideoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A839586205861B600CD0CDD /* VideoCollectionViewController.swift */; };
 		6A83958A205861B600CD0CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A839588205861B600CD0CDD /* Main.storyboard */; };
@@ -123,6 +125,7 @@
 		6A6B0D1C20613C3E003EDF16 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		6A6B0D222061902C003EDF16 /* MovieNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetworkService.swift; sourceTree = "<group>"; };
 		6A6B0D2420619065003EDF16 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		6A77B92D207D4604009C892D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		6A839581205861B600CD0CDD /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A839584205861B600CD0CDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A839586205861B600CD0CDD /* VideoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +294,7 @@
 				6AB9BAFC207A344400212497 /* NetworkTask.swift */,
 				6AF4926A2078D8FD00332996 /* NetworkLogger.swift */,
 				6A59C9AA2079638C003C2BF8 /* URLBuilder.swift */,
+				6A77B92D207D4604009C892D /* HTTPMethod.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -375,6 +379,7 @@
 		6A8395BB205868F800CD0CDD /* UIModules */ = {
 			isa = PBXGroup;
 			children = (
+				6AE6BF41207BFC82002E551A /* Shared */,
 				6A8395CD2058879800CD0CDD /* Router.swift */,
 				6A8395B22058620500CD0CDD /* VideoCollection */,
 			);
@@ -785,6 +790,7 @@
 				6A4A2D8820710C9C008BF540 /* NetworkService.swift in Sources */,
 				6A5CABD320724DBC007B53DC /* ListDataProvider.swift in Sources */,
 				6A59C9AE20796693003C2BF8 /* URLBuilderTests.swift in Sources */,
+				6A77B92F207D4604009C892D /* HTTPMethod.swift in Sources */,
 				6A5CABD62072503C007B53DC /* MoiceDBAPIClient.swift in Sources */,
 				6A4A2D8920710C9F008BF540 /* MovieNetworkService.swift in Sources */,
 				6A5CABCC20724B0A007B53DC /* MovieDataProvider.swift in Sources */,
@@ -808,6 +814,7 @@
 				6A8395B42058626500CD0CDD /* VideoCollectionPresenter.swift in Sources */,
 				6A4A2D832070DAA4008BF540 /* AlamofireConnector.swift in Sources */,
 				6A8395CC2058810400CD0CDD /* VideoCollectionViewCell.swift in Sources */,
+				6A77B92E207D4604009C892D /* HTTPMethod.swift in Sources */,
 				6AB31920206FC58700E8E90E /* MovieDBAPI.swift in Sources */,
 				6A4A2D8F20710D61008BF540 /* NetworkProvider.swift in Sources */,
 				6A839585205861B600CD0CDD /* AppDelegate.swift in Sources */,
@@ -1039,6 +1046,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.moviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1055,6 +1063,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.moviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

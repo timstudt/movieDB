@@ -25,13 +25,14 @@ class VideoCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
 
+    //MARK: - view overrides
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 
     override func layoutSubviews() {
@@ -39,7 +40,15 @@ class VideoCollectionViewCell: UICollectionViewCell {
         stackView.frame = bounds
     }
 
+    //MARK: - setup
     private func setupViews() {
+        setupBorder()
         contentView.addSubview(stackView)
+        titleLabel.textAlignment = .left
+        titleLabel.font = UIFont.systemFont(ofSize: 10)
+    }
+    private func setupBorder() {
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 1.0
     }
 }

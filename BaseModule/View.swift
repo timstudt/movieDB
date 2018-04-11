@@ -9,7 +9,8 @@
 import UIKit
 
 extension View {
-    static func newView(presenter: Presenter = Presenter(), builder: ModuleBuilder = ModuleBuilder()) -> View {
+    static func newView(presenter: Presenter = Presenter(),
+                        builder: ModuleBuilder = ModuleBuilder()) -> View {
         let view = self.init()
         return builder
             .add(view: view)
