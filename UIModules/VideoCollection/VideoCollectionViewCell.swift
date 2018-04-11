@@ -7,11 +7,6 @@
 //
 
 import UIKit
-extension VideoCollectionViewCell {
-    func update(with model: MovieModel) {
-        titleLabel.text = model.name
-    }
-}
 
 class VideoCollectionViewCell: UICollectionViewCell {
     // MARK: - subviews
@@ -19,8 +14,8 @@ class VideoCollectionViewCell: UICollectionViewCell {
     let imageView = UIImageView()
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel])
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
+        stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
         stackView.alignment = .center
         return stackView
     }()

@@ -19,20 +19,26 @@ extension VideoCollectionViewController {
 
 class VideoCollectionViewController: View {
     // MARK: - Models
-    var videos: [MovieModel]?
 
     // MARK: - subiews
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
+        flowLayout.estimatedItemSize = CGSize(width: 100, height: 115)
         flowLayout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: view.bounds,
                                               collectionViewLayout: flowLayout)
         return collectionView
     }()
 
+    //MARK: - data sources
+    lazy var collectionViewDataSource: VideoCollectionViewDataSource = {
+        let dataSource = VideoCollectionViewDataSource(
+            collectionView: collectionView,
+            cellConfigurator: VideoCollectionViewCellConfigurator())
+        return dataSource
+    }()
+    
     // MARK: - Constants
-    let cellReuseIdentifier = "VideoCell"
 
     // MARK: - ViewController life cycle
     override func viewDidLoad() {
@@ -49,37 +55,12 @@ class VideoCollectionViewController: View {
     // MARK: - View override
     override func render(state: ViewStateProtocol) {
         guard let state = state as? VideoCollectionViewState else { return }
-        videos = state.data
-        collectionView.reloadData()
+        collectionViewDataSource.data = state.data
     }
 
     // MARK: - private methods
     private func setupViews() {
-        collectionView.register(VideoCollectionViewCell.self,
-                                forCellWithReuseIdentifier: cellReuseIdentifier)
-        collectionView.dataSource = self
         collectionView.backgroundColor = .white
         view.addSubview(collectionView)
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-extension VideoCollectionViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos?.count ?? 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let video: MovieModel = videos![indexPath.row]
-        //swiftlint:disable force_cast
-        let cell: VideoCollectionViewCell = collectionView
-            .dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier,
-                                 for: indexPath) as! VideoCollectionViewCell
-        cell.backgroundColor = .green
-        cell.update(with: video)
-        return cell
     }
 }
