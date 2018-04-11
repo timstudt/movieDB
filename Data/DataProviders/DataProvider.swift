@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias DataProviderResponse<T> = (T?, Error?)
+public typealias DataProviderResponse<T> = (T?, Error?)
 typealias DataMapper<Output: Equatable, Input: Equatable> = ([Output], [Input])
 
 protocol DataProvider {
