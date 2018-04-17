@@ -45,10 +45,9 @@ class MovieDBAPITests: XCTestCase {
     }
 
     func testRequests() {
-        let GETMethod = "GET"
-        let request = apiClient.buildRequest(url: testURL, httpMethod: GETMethod)
+        let request = apiClient.buildRequest(url: testURL, httpMethod: .get)
 
-        XCTAssert(request.httpMethod == GETMethod, "")
+        XCTAssert(request.httpMethod == "GET", "")
         XCTAssert(request.url == testURL, "")
     }
 

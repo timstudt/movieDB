@@ -14,6 +14,6 @@ class VideoCollectionViewCellConfigurator: NSObject, UICollectionViewCellConfigu
     
     func configure(_ cell: VideoCollectionViewCell, with model: MovieModel) {
         cell.titleLabel.text = model.name
-        cell.imageView.setImage(url: model.imageURL)
+//        cell.imageView.setImage(url: model.imageURL) //TODO
     }
 }

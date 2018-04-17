@@ -23,8 +23,9 @@ extension MovieDBNetwork {
     }
 
     struct Configuration {
-        static let defaultAPIKey = "12345"
+        static let defaultAPIKey = "d318cadd0a6df0e48f26a8c07eeee5b2"
         static let defaultBaseURL = URL(string: "https://api.themoviedb.org")!
+        static let defaultImageURL = URL(string: "https://image.tmdb.org/t/p")! //NOTE: get from configuration API instead of hardcoding
 
         var APIKey: String
         var baseURL: URL

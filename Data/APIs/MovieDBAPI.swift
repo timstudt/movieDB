@@ -46,4 +46,11 @@ extension MovieDBAPI {
             .add(query: queryQuery(query))
         return buildRequest(url: builder.build()!)
     }
+    
+    func getImage(path: String, size: String = "w300") -> URLRequest {
+        let builder = URLBuilder(baseURL: MovieDBNetwork.Configuration.defaultImageURL)
+            .add(path: size)
+            .add(path: path)
+        return buildRequest(url: builder.build()!)
+    }
 }
