@@ -23,7 +23,7 @@ class VideoCollectionViewController: View {
     // MARK: - subiews
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.estimatedItemSize = CGSize(width: 100, height: 115)
+        flowLayout.estimatedItemSize = CGSize(width: 80, height: 135)
         flowLayout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: view.bounds,
                                               collectionViewLayout: flowLayout)

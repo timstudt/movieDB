@@ -15,7 +15,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel])
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .equalSpacing
         stackView.alignment = .center
         return stackView
     }()
@@ -34,14 +34,19 @@ class VideoCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         stackView.frame = bounds
     }
-
+    
     //MARK: - setup
     private func setupViews() {
         setupBorder()
         contentView.addSubview(stackView)
+        
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont.systemFont(ofSize: 10)
+        titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
     }
+    
     private func setupBorder() {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1.0

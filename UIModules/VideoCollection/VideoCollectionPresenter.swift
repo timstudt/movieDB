@@ -31,6 +31,6 @@ class VideoCollectionPresenter: Presenter {
 
     // MARK: - private methods
     private func viewState(for response: Response) -> VideoCollectionViewState {
-        return VideoCollectionViewState.hasLoaded(data: response.0, error: response.1)
+        return VideoCollectionViewState.hasLoaded(data: response.data, error: response.error)
     }
 }

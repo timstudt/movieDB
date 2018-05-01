@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ImageDataProvider {
-    func downloadImage(relativePath: String, completion: ((DataProviderResponse<UIImage>) -> Void)?)
+    func downloadImage(relativePath: String, completion: ((DataProviderResponse<Data>) -> Void)?)
 }

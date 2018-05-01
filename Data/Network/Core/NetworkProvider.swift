@@ -27,21 +27,11 @@ protocol DataRequestable {
         -> NetworkTask
 }
 
-//protocol ImageDownloadRequestable {
-//    @discardableResult
-//    func download(
-//        request: URLRequest,
-//        progress: @escaping (Progress) -> Void,
-//        completion: @escaping (DataProviderResponse<UIImage>) -> Void) //TODO get rid of UIKit references here
-//        -> NetworkTask
-//}
-//
-//protocol DownloadRequestable {
-//    @discardableResult
-//    func download<T: Decodable>(
-//        request: URLRequest,
-//        serializer: Serializable?,
-//        progress: @escaping (Progress) -> Void,
-//        completion: @escaping (DataProviderResponse<T>) -> Void)
-//        -> NetworkTask
-//}
+protocol ImageDownloadRequestable {
+    @discardableResult
+    func download(
+        request: URLRequest,
+        progress: @escaping (Progress) -> Void,
+        completion: @escaping (DataProviderResponse<Data>) -> Void) //TODO get rid of UIKit references here
+        -> NetworkTask
+}
