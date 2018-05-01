@@ -29,7 +29,7 @@ class ImageRepository {
     
     // MARK: - DataSource implementation
     func loadImageData(path: String, completion: ((DataProviderResponse<Data>) -> Void)?) {
-        if let cache = cache {
+        if let _ = cache {
 //            cache.downloadImage(relativePath: path, completion: completion)
         } else if let networkService = networkService {
             networkService.downloadImage(relativePath: path, completion: completion)

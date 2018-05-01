@@ -70,6 +70,7 @@
 		6A8395CC2058810400CD0CDD /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8395CB2058810400CD0CDD /* VideoCollectionViewCell.swift */; };
 		6A8395CE2058879800CD0CDD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8395CD2058879800CD0CDD /* Router.swift */; };
 		6A84AF9A20990A960012AA84 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A84AF9920990A960012AA84 /* ImageRepository.swift */; };
+		6A84AF9B209916B20012AA84 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A84AF9920990A960012AA84 /* ImageRepository.swift */; };
 		6AB31920206FC58700E8E90E /* MovieDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB3191F206FC58700E8E90E /* MovieDBAPI.swift */; };
 		6AB9BAFA207A210800212497 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB9BAF9207A210800212497 /* NetworkError.swift */; };
 		6AB9BAFB207A210800212497 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB9BAF9207A210800212497 /* NetworkError.swift */; };
@@ -824,6 +825,7 @@
 				6AF4926C2078D8FD00332996 /* NetworkLogger.swift in Sources */,
 				6A4A2D7F206FD34B008BF540 /* MovieDBAPITests.swift in Sources */,
 				6A4A2D8620710BD3008BF540 /* MovieRepository.swift in Sources */,
+				6A84AF9B209916B20012AA84 /* ImageRepository.swift in Sources */,
 				6A4A2D81206FD357008BF540 /* MovieDBAPI.swift in Sources */,
 				6A4A2D8520710BC2008BF540 /* MovieRepositoryTests.swift in Sources */,
 				6A4A2D8820710C9C008BF540 /* NetworkService.swift in Sources */,
@@ -948,6 +950,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MovieDBDataTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DTESTING";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.MovieDBDataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -963,6 +966,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MovieDBDataTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DTESTING";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.MovieDBDataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -14,13 +14,13 @@ private struct MockAPI: API {
 
 extension MovieModel {
     static var batman: MovieModel {
-        return MovieModel(id: 1, name: "Batman", caption: "relklfs dlfkdlfk", imageURL: nil)
+        return MovieModel(id: 1, name: "Batman", caption: "relklfs dlfkdlfk", imagePath: nil)
     }
     static var superman: MovieModel {
-        return MovieModel(id: 2, name: "Superman", caption: nil, imageURL: nil)
+        return MovieModel(id: 2, name: "Superman", caption: nil, imagePath: nil)
     }
     static var spiderman: MovieModel {
-        return MovieModel(id: 3, name: "Spiderman", caption: "dl dlfkdlfk", imageURL: nil)
+        return MovieModel(id: 3, name: "Spiderman", caption: "dl dlfkdlfk", imagePath: nil)
     }
 }
 
@@ -66,7 +66,7 @@ class MockConnector: NetworkProvider {
     var didCallSendArray = false
 
     func send(request: URLRequest,
-              completion: @escaping (((Data?, Error?)) -> Void))
+              completion: @escaping (((data: Data?, error: Error?)) -> Void))
         -> NetworkTask {
         didCallSendData = true
         completion((nil, nil))
@@ -74,7 +74,7 @@ class MockConnector: NetworkProvider {
     }
     func send<T>(request: URLRequest,
                  serializer: Serializable?,
-                 completion: @escaping ((([T]?, Error?)) -> Void))
+                 completion: @escaping (((data: [T]?, error: Error?)) -> Void))
         -> NetworkTask where T: Decodable {
         didCallSendData = false
         completion((nil, nil))

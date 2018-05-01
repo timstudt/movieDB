@@ -7,9 +7,14 @@
 //
 
 import Foundation
+
 extension ImageNetworkService {
     static func networkService() -> ImageNetworkService {
+        #if TESTING
+        let connector = URLSessionConnector()
+        #else
         let connector = AlamofireConnector()
+        #endif //TESTING
         let networkService = ImageNetworkService(
             networkProvider: connector,
             api: MovieDBNetwork.APIClient())
