@@ -14,7 +14,7 @@ struct MovieModel {
     // swiftlint:enable identifier_name
     var name: String?
     var caption: String?
-    var imageURL: URL?
+    var imagePath: String?
 }
 
 extension MovieModel: Equatable {

@@ -9,8 +9,10 @@
 import Alamofire
 
 struct AlamofireConnector: NetworkProvider {
-    var logger: NetworkLoggable?
 
+    var logger: NetworkLoggable?
+    let sessionManager = Alamofire.SessionManager.default
+    
     init(logger: NetworkLoggable? = NetworkLogger()) {
         self.logger = logger
     }
@@ -19,7 +21,7 @@ struct AlamofireConnector: NetworkProvider {
     func send(request: URLRequest,
               completion: @escaping (DataProviderResponse<Data>) -> Void)
         -> NetworkTask {
-        return Alamofire
+        return sessionManager
             .request(request)
             .validate()
             .responseData { (response) in
@@ -33,7 +35,7 @@ struct AlamofireConnector: NetworkProvider {
                  serializer: Serializable?,
                  completion: @escaping (DataProviderResponse<[T]>) -> Void)
         -> NetworkTask where T: Decodable {
-        return Alamofire
+        return sessionManager
             .request(request)
             .validate()
             .responseSerialization(
@@ -43,21 +45,62 @@ struct AlamofireConnector: NetworkProvider {
     }
 }
 
+extension AlamofireConnector: ImageDownloadRequestable {
+    func download(request: URLRequest,
+                  progress: @escaping (Progress) -> Void,
+                  completion: @escaping (DataProviderResponse<Data>) -> Void)
+        -> NetworkTask {
+        
+        return sessionManager
+            .request(request)
+            .validate()
+            .responseDataParser(
+                logger: logger,
+                completionHandler: completion)
+    }
+}
+
 extension Alamofire.DataRequest: NetworkTask {
+    @discardableResult
+    func responseDataParser(
+        logger: NetworkLoggable? = nil,
+        completionHandler: @escaping (DataProviderResponse<Data>) -> Void)
+        -> Self {
+        return
+            log(logger)
+            .responseData { (response) in
+                let mappedResponse = self.mapped(response: response)
+                completionHandler(mappedResponse)
+        }
+    }
+
     @discardableResult
     func responseSerialization<T>(
         serializer: Serializable?,
         logger: NetworkLoggable? = nil,
         completionHandler: @escaping (DataProviderResponse<[T]>) -> Void)
         -> Self where T : Decodable {
-        return responseData { (response) in
-            logger?.log(response: response.response)
+        return
+            log(logger)
+            .responseData { (response) in
             completionHandler(
                 self.mapped(response: response,
                             serializer: serializer))
         }
     }
-
+    
+    //MARK: - Logging
+    func log(_ logger:NetworkLoggable? = nil) -> Self {
+        logger?.log(response: self.response)
+        return self
+    }
+    
+    //MARK: - Mapping
+    private func mapped(response: Alamofire.DataResponse<Data>)
+        -> DataProviderResponse<Data> {
+            return (response.data, response.error)
+    }
+    
     private func mapped<T>(response: Alamofire.DataResponse<Data>,
                            serializer: Serializable?)
         -> DataProviderResponse<[T]> where T: Decodable {

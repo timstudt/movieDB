@@ -8,19 +8,19 @@
 
 import XCTest
 
-private struct MockAPI: API {
+struct MockAPI: API {
     var baseURL: URL { return URL(string: "http://www.google.com")! }
 }
 
 extension MovieModel {
     static var batman: MovieModel {
-        return MovieModel(id: 1, name: "Batman", caption: "relklfs dlfkdlfk", imageURL: nil)
+        return MovieModel(id: 1, name: "Batman", caption: "relklfs dlfkdlfk", imagePath: nil)
     }
     static var superman: MovieModel {
-        return MovieModel(id: 2, name: "Superman", caption: nil, imageURL: nil)
+        return MovieModel(id: 2, name: "Superman", caption: nil, imagePath: nil)
     }
     static var spiderman: MovieModel {
-        return MovieModel(id: 3, name: "Spiderman", caption: "dl dlfkdlfk", imageURL: nil)
+        return MovieModel(id: 3, name: "Spiderman", caption: "dl dlfkdlfk", imagePath: nil)
     }
 }
 
@@ -60,13 +60,14 @@ class MockNetworkTask: NetworkTask {
     func suspend() { }
 }
 
-class MockConnector: NetworkProvider {
+class MockConnector: NetworkProvider, ImageDownloadRequestable {
     var logger: NetworkLoggable?
     var didCallSendData = false
     var didCallSendArray = false
-
+    var didCallDownloadData = false
+    
     func send(request: URLRequest,
-              completion: @escaping (((Data?, Error?)) -> Void))
+              completion: @escaping (((data: Data?, error: Error?)) -> Void))
         -> NetworkTask {
         didCallSendData = true
         completion((nil, nil))
@@ -74,9 +75,17 @@ class MockConnector: NetworkProvider {
     }
     func send<T>(request: URLRequest,
                  serializer: Serializable?,
-                 completion: @escaping ((([T]?, Error?)) -> Void))
+                 completion: @escaping (((data: [T]?, error: Error?)) -> Void))
         -> NetworkTask where T: Decodable {
-        didCallSendData = false
+        didCallSendData = true
+        completion((nil, nil))
+        return MockNetworkTask()
+    }
+    func download(request: URLRequest,
+                  progress: @escaping (Progress) -> Void,
+                  completion: @escaping ((data: Data?, error: Error?)) -> Void)
+        -> NetworkTask {
+        didCallDownloadData = true
         completion((nil, nil))
         return MockNetworkTask()
     }
@@ -110,8 +119,8 @@ class MovieRepositoryTests: XCTestCase {
 
         repository.loadData { (response) in
             XCTAssertNotNil(response, "invalid response")
-            XCTAssertNil(response.1, "load data unexpected error in response")
-            let data = response.0
+            XCTAssertNil(response.error, "load data unexpected error in response")
+            let data = response.data
             XCTAssertNotNil(data)
             XCTAssert(data! == TestDataSource().videos()!, "load data unexpected data returned")
         }

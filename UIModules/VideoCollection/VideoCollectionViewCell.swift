@@ -7,11 +7,6 @@
 //
 
 import UIKit
-extension VideoCollectionViewCell {
-    func update(with model: MovieModel) {
-        titleLabel.text = model.name
-    }
-}
 
 class VideoCollectionViewCell: UICollectionViewCell {
     // MARK: - subviews
@@ -19,7 +14,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     let imageView = UIImageView()
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel])
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
         return stackView
@@ -39,14 +34,19 @@ class VideoCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         stackView.frame = bounds
     }
-
+    
     //MARK: - setup
     private func setupViews() {
         setupBorder()
         contentView.addSubview(stackView)
+        
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont.systemFont(ofSize: 10)
+        titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
     }
+    
     private func setupBorder() {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1.0

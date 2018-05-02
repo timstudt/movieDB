@@ -17,6 +17,10 @@ DerivedData
 *.ipa
 *.dSYM.zip
 *.xcuserstate
+
+#AppCode
+.idea/*
+
 Carthage/*
 *.DS_Store
 

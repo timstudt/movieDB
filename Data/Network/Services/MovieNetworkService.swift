@@ -62,14 +62,10 @@ class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieDataPr
 
     // MARK: - mapping
     func mapped(movie: MovieDBNetwork.Movie) -> MovieModel {
-        var imageURL: URL?
-        if let path = movie.posterPath {
-          imageURL = URL(fileURLWithPath: path, relativeTo: api?.baseURL)
-        }
         let mapped = MovieModel(id: movie.id,
                                 name: movie.title,
                                 caption: movie.overview,
-                                imageURL: imageURL)
+                                imagePath: movie.posterPath)
         return mapped
     }
 }
