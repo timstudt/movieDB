@@ -19,7 +19,7 @@ extension MovieDBNetwork {
         init(configuration: Configuration = MovieDBNetwork.Configuration()) {
             self.APIKey = configuration.APIKey
             self.baseURL = configuration.baseURL
-            assert(!self.APIKey.isEmpty, "APIClient - Error: please use a valid API key")
+            print("APIClient - Error: please use a valid API key")
         }
     }
 

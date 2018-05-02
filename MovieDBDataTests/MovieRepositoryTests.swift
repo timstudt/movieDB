@@ -8,7 +8,7 @@
 
 import XCTest
 
-private struct MockAPI: API {
+struct MockAPI: API {
     var baseURL: URL { return URL(string: "http://www.google.com")! }
 }
 
@@ -60,11 +60,12 @@ class MockNetworkTask: NetworkTask {
     func suspend() { }
 }
 
-class MockConnector: NetworkProvider {
+class MockConnector: NetworkProvider, ImageDownloadRequestable {
     var logger: NetworkLoggable?
     var didCallSendData = false
     var didCallSendArray = false
-
+    var didCallDownloadData = false
+    
     func send(request: URLRequest,
               completion: @escaping (((data: Data?, error: Error?)) -> Void))
         -> NetworkTask {
@@ -76,7 +77,15 @@ class MockConnector: NetworkProvider {
                  serializer: Serializable?,
                  completion: @escaping (((data: [T]?, error: Error?)) -> Void))
         -> NetworkTask where T: Decodable {
-        didCallSendData = false
+        didCallSendData = true
+        completion((nil, nil))
+        return MockNetworkTask()
+    }
+    func download(request: URLRequest,
+                  progress: @escaping (Progress) -> Void,
+                  completion: @escaping ((data: Data?, error: Error?)) -> Void)
+        -> NetworkTask {
+        didCallDownloadData = true
         completion((nil, nil))
         return MockNetworkTask()
     }
@@ -110,8 +119,8 @@ class MovieRepositoryTests: XCTestCase {
 
         repository.loadData { (response) in
             XCTAssertNotNil(response, "invalid response")
-            XCTAssertNil(response.1, "load data unexpected error in response")
-            let data = response.0
+            XCTAssertNil(response.error, "load data unexpected error in response")
+            let data = response.data
             XCTAssertNotNil(data)
             XCTAssert(data! == TestDataSource().videos()!, "load data unexpected data returned")
         }

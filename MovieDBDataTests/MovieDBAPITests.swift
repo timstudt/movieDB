@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MovieDB
+//@testable import MovieDB
 
 class MovieDBAPITests: XCTestCase {
     let testKey = "123456"
