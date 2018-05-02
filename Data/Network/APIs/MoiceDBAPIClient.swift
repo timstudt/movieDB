@@ -19,11 +19,12 @@ extension MovieDBNetwork {
         init(configuration: Configuration = MovieDBNetwork.Configuration()) {
             self.APIKey = configuration.APIKey
             self.baseURL = configuration.baseURL
+            assert(!self.APIKey.isEmpty, "APIClient - Error: please use a valid API key")
         }
     }
 
     struct Configuration {
-        static let defaultAPIKey = "d318cadd0a6df0e48f26a8c07eeee5b2"
+        static let defaultAPIKey = ""
         static let defaultBaseURL = URL(string: "https://api.themoviedb.org")!
         static let defaultImageURL = URL(string: "https://image.tmdb.org/t/p")! //NOTE: get from configuration API instead of hardcoding
 
