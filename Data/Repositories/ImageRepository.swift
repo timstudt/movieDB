@@ -18,11 +18,11 @@ extension ImageRepository {
 
 class ImageRepository {
     // MARK: - DataServices
-    var networkService: ImageDataProvider?
-    var cache: ImageDataProvider?
+    var networkService: ImageService?
+    var cache: ImageService?
     
-    init(networkService: ImageDataProvider? = nil,
-         dataBaseService: ImageDataProvider? = nil) {
+    init(networkService: ImageService? = nil,
+         dataBaseService: ImageService? = nil) {
         self.networkService = networkService
         self.cache = dataBaseService
     }

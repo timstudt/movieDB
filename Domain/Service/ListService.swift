@@ -1,5 +1,5 @@
 //
-//  ListDataProvider.swift
+//  ListService.swift
 //  MovieDB
 //
 //  Created by Tim Studt on 02/04/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ListDataProvider {
+protocol ListService {
     func fetch<T>(completion: (([T]?, Error?) -> Void)?)
     // swiftlint:disable identifier_name
     func fetch<T>(id: Int, completion: ((T?, Error?) -> Void)?)

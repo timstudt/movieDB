@@ -1,5 +1,5 @@
 //
-//  MovieDataProvider.swift
+//  MovieService.swift
 //  MovieDB
 //
 //  Created by Tim Studt on 02/04/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MovieDataProvider {
+protocol MovieService {
     func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?)
     // swiftlint:disable identifier_name
     func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?)

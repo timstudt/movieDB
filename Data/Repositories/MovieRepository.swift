@@ -18,11 +18,11 @@ extension MovieRepository {
 
 class MovieRepository {
     // MARK: - DataServices
-    var networkService: MovieDataProvider?
-    var cache: MovieDataProvider?
+    var networkService: MovieService?
+    var cache: MovieService?
 
-    init(networkService: MovieDataProvider? = nil,
-         dataBaseService: MovieDataProvider? = nil) {
+    init(networkService: MovieService? = nil,
+         dataBaseService: MovieService? = nil) {
         self.networkService = networkService
         self.cache = dataBaseService
     }

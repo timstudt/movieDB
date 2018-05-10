@@ -20,9 +20,9 @@ extension MovieNetworkService {
 }
 
 /**
- MovieNetworkService - implements the MovieDataProvider and makes the calls to the MovieDB API using the specified NetworkService
+ MovieNetworkService - implements the MovieService and makes the calls to the MovieDB API using the specified NetworkService
  */
-class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieDataProvider {
+class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieService {
     var defaultSerializer: Serializable?
 
     func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
