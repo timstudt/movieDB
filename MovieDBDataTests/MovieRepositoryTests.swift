@@ -35,7 +35,7 @@ struct TestDataSource {
     }
 }
 
-private class MockMovieNetworkService: NetworkService<MockAPI>, MovieDataProvider {
+private class MockMovieNetworkService: NetworkService<MockAPI>, MovieService {
     let testDataSource = TestDataSource()
 
     var didCallFetch = false
@@ -91,6 +91,25 @@ class MockConnector: NetworkProvider, ImageDownloadRequestable {
     }
 }
 
+private class MockMovieCache: MovieService {
+    let testDataSource = TestDataSource()
+    
+    var didCallFetch = false
+    var didCallFetchID = false
+    var didCallSearch = false
+    
+    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+        didCallFetch = true
+        completion?((testDataSource.videos(), testDataSource.error()))
+    }
+    func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
+        didCallFetchID = true
+    }
+    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+        didCallSearch = true
+    }
+}
+
 class MovieRepositoryTests: XCTestCase {
     var repository: MovieRepository!
     fileprivate let testService = MockMovieNetworkService(networkProvider: nil, api: nil)
@@ -110,6 +129,12 @@ class MovieRepositoryTests: XCTestCase {
         XCTAssertNil(repository.cache)
     }
 
+    func testRepositoryFactoryMethod() {
+        let repository = MovieRepository.repository()
+        XCTAssertNotNil(repository.networkService, "unexpected cache found")
+        XCTAssertNil(repository.cache, "unexpected cache found")
+    }
+    
     func testNetworkService() {
         repository.networkService = testService
 
@@ -127,6 +152,24 @@ class MovieRepositoryTests: XCTestCase {
         XCTAssertTrue(testService.didCallFetch, "expected fetch call")
     }
 
+    func testCache() {
+        let cache = MockMovieCache()
+        repository.cache = cache
+        
+        XCTAssertFalse(testService.didCallFetch, "unexpected fetch call")
+        XCTAssertFalse(testService.didCallFetchID, "unexpected fetchID call")
+        XCTAssertFalse(testService.didCallSearch, "unexpected search call")
+        
+        repository.loadData { (response) in
+            XCTAssertNotNil(response, "invalid response")
+            XCTAssertNil(response.error, "load data unexpected error in response")
+            let data = response.data
+            XCTAssertNotNil(data)
+            XCTAssert(data! == TestDataSource().videos()!, "load data unexpected data returned")
+        }
+        XCTAssertTrue(cache.didCallFetch, "expected fetch call")
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

@@ -23,13 +23,13 @@ extension ImageNetworkService {
 }
 
 /**
- ImageDownloader - implements the ImageDataProvider and makes the calls to the MovieDB API using the specified NetworkService
+ ImageDownloader - implements the ImageService and makes the calls to the MovieDB API using the specified NetworkService
  */
-class ImageNetworkService: NetworkService<MovieDBNetwork.APIClient>, ImageDataProvider {
+class ImageNetworkService: NetworkService<MovieDBNetwork.APIClient>, ImageService {
 
     //    var defaultSerializer: Serializable?
     
-    //MARK: - ImageDataProvider
+    //MARK: - ImageService
     func downloadImage(relativePath: String, completion: ((DataProviderResponse<Data>) -> Void)?) {
         guard let request = api?.getImage(path: relativePath) else { completion?((nil, nil)); return }
         if let imageDownloader = networkProvider as? ImageDownloadRequestable {
