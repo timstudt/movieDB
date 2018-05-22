@@ -54,10 +54,12 @@ class URLBuilderTests: XCTestCase {
         XCTAssertEqual(builder.build(), expectedURL, "unexpected url returned")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func testURLBuilderPerformance() {
         self.measure {
-            // Put the code you want to measure the time of here.
+            builder.add(queries: [URLQueryItem(name: "query", value: "hello")])
+            builder.add(queries: [URLQueryItem(name: "name", value: "tim")])
+            builder.add(path: "hello")
+            let _ = builder.build()
         }
     }
     
