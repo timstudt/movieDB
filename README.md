@@ -1,6 +1,12 @@
 # movieDB
 
 [![Build Status](https://travis-ci.org/timstudt/movieDB.svg?branch=master)](https://travis-ci.org/timstudt/movieDB) [![codecov.io](https://codecov.io/gh/timstudt/movieDB/branch/master/graphs/badge.svg)](https://codecov.io/gh/timstudt/movieDB/branch/master)
+[![docs](https://cdn.rawgit.com/timstudt/movieDB/master/docs/badge.svg)](https://cdn.rawgit.com/timstudt/movieDB/master/docs/index.html)
+
+## Documentation
+
+Full documentation for the latest release is available [here](https://cdn.rawgit.com/timstudt/movieDB/master/docs/index.html).
+
 
 
 ## related articles

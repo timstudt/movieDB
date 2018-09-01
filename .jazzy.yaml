@@ -1,0 +1,7 @@
+author: Tim Studt
+author_url: https://github.com/timstudt
+module: MovieDB
+module_version: 0.1.0
+github_url: https://github.com/timstudt/movieDB
+copyright: 'Copyright © 2018 Tim Studt. All rights reserved.'
+readme: About.md
