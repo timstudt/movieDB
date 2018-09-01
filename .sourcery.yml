@@ -1,0 +1,13 @@
+sources:
+  - <sources path>
+  - <sources path>
+templates:
+  - <templates path>
+  - <templates path>
+force-parse:
+  - <string value>
+  - <string value>
+output:
+  ./Sources/
+args:
+  <name>: <value>
