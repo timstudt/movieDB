@@ -2,7 +2,7 @@
 cache:
 - bundler
 - cocoapods
-osx_image: xcode9.3beta
+osx_image: xcode9.4
 git:
   depth: 10
 before_install:
