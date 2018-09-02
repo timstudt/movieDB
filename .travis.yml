@@ -8,19 +8,16 @@ git:
 before_install:
 - gem install bundler
 - bundle install
-#- bundle info cocoapods-keys #debug
 - bundle exec pod env #debug
-#- gem install cocoapods-keys #should be in bundle install (Gemfile)
-- bundle exec pod keys #debug
 - bundle exec pod keys set MovieDBApiKey $MOVIE_DB_API_KEY MovieDB
-- bundle exec pod keys #debug
+#- bundle exec pod keys #debug
 - xcrun simctl list
 install:
 - bundle exec pod install --repo-update
 script:
 - set -o pipefail
-- xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator11.3
-  -destination "OS=11.3,name=iPhone 6S Plus"  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+- xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator11.4
+  -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4"  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
   ENABLE_TESTABILITY=YES clean build test | xcpretty;
 after_success:
 - bash <(curl -s https://codecov.io/bash)
