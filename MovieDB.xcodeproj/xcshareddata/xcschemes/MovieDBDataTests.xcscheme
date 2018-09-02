@@ -9,9 +9,9 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A839580205861B600CD0CDD"
@@ -21,30 +21,16 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "NO"
-            buildForRunning = "NO"
+            buildForTesting = "YES"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A4A2D74206FD337008BF540"
                BuildableName = "MovieDBDataTests.xctest"
                BlueprintName = "MovieDBDataTests"
-               ReferencedContainer = "container:MovieDB.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A839594205861B600CD0CDD"
-               BuildableName = "MovieDBTests.xctest"
-               BlueprintName = "MovieDBTests"
                ReferencedContainer = "container:MovieDB.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -54,16 +40,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A839594205861B600CD0CDD"
-               BuildableName = "MovieDBTests.xctest"
-               BlueprintName = "MovieDBTests"
+               BlueprintIdentifier = "6A4A2D74206FD337008BF540"
+               BuildableName = "MovieDBDataTests.xctest"
+               BlueprintName = "MovieDBDataTests"
                ReferencedContainer = "container:MovieDB.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -71,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A839580205861B600CD0CDD"
-            BuildableName = "MovieDB.app"
-            BlueprintName = "MovieDB"
+            BlueprintIdentifier = "6A4A2D74206FD337008BF540"
+            BuildableName = "MovieDBDataTests.xctest"
+            BlueprintName = "MovieDBDataTests"
             ReferencedContainer = "container:MovieDB.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -90,16 +75,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A839580205861B600CD0CDD"
-            BuildableName = "MovieDB.app"
-            BlueprintName = "MovieDB"
+            BlueprintIdentifier = "6A4A2D74206FD337008BF540"
+            BuildableName = "MovieDBDataTests.xctest"
+            BlueprintName = "MovieDBDataTests"
             ReferencedContainer = "container:MovieDB.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -109,16 +93,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A839580205861B600CD0CDD"
-            BuildableName = "MovieDB.app"
-            BlueprintName = "MovieDB"
-            ReferencedContainer = "container:MovieDB.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

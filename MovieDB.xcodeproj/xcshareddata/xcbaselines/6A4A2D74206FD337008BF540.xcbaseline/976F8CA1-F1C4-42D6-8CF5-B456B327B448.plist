@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>classNames</key>
+	<dict>
+		<key>ImageNetworkServiceTests</key>
+		<dict>
+			<key>testPerformanceExample()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>2.2375e-06</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>22 May 2018 at 22.50.33</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>URLBuilderTests</key>
+		<dict>
+			<key>testURLBuilderPerformance()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.00022839</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>22 May 2018 at 22.51.39</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

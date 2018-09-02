@@ -32,6 +32,6 @@ protocol ImageDownloadRequestable {
     func download(
         request: URLRequest,
         progress: @escaping (Progress) -> Void,
-        completion: @escaping (DataProviderResponse<Data>) -> Void) //TODO get rid of UIKit references here
+        completion: @escaping (DataProviderResponse<Data>) -> Void)
         -> NetworkTask
 }
