@@ -18,6 +18,7 @@ script:
 - set -o pipefail
 - xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator11.4 -destination "platform=iOS Simulator,name=iPhone 8,OS=11.4" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES clean build | xcpretty;
   #Data layer unit tests
+- xcodebuild -scheme MovieDBTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4' test | xcpretty;
 - xcodebuild -scheme MovieDBDataTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4' test | xcpretty;
 #   clean \
 after_success:
