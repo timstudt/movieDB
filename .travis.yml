@@ -16,23 +16,9 @@ install:
 - bundle exec pod install --repo-update
 script:
 - set -o pipefail
-- xcodebuild \
-   -scheme MovieDB \
-   -workspace MovieDB.xcworkspace \
-   -sdk iphonesimulator11.4 \
-   -destination "platform=iOS Simulator,name=iPhone 8,OS=11.4"  \
-   CODE_SIGN_IDENTITY="" \
-   CODE_SIGNING_REQUIRED=NO \
-   ENABLE_TESTABILITY=YES \
-   clean \
-   build \
-   test | xcpretty;
+- xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator11.4 -destination "platform=iOS Simulator,name=iPhone 8,OS=11.4" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES clean build test | xcpretty;
   #Data layer unit tests
-- xcodebuild \
-   -scheme MovieDBDataTests \
-   -workspace MovieDB.xcworkspace \
-   -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4' \
-   test | xcodepretty;
+- xcodebuild -scheme MovieDBDataTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4' test | xcodepretty;
 #   clean \
 after_success:
 - bash <(curl -s https://codecov.io/bash)
