@@ -7,9 +7,10 @@ git:
   depth: 10
 before_install:
 - bundle install
-- bundle exec pod env
+- bundle info cocoapods-keys #debug
+- bundle exec pod env #debug
 - gem install cocoapods-keys #should be in bundle install (Gemfile)
-- bundle exec pod keys set MovieDBApiKey $MOVIE_DB_API_KEY MovieDB
+- pod keys set MovieDBApiKey $MOVIE_DB_API_KEY MovieDB
 - xcrun simctl list
 install:
 - bundle exec pod install --repo-update
