@@ -1,14 +1,14 @@
-#language: swift
+language: objective-c
 cache:
 - bundler
-#- cocoapods
+- cocoapods
 osx_image: xcode9.4
 git:
   depth: 10
 before_install:
 - gem install bundler
 - bundle install
-- bundle info cocoapods-keys #debug
+#- bundle info cocoapods-keys #debug
 - bundle exec pod env #debug
 #- gem install cocoapods-keys #should be in bundle install (Gemfile)
 - bundle exec pod keys #debug
