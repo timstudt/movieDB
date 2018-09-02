@@ -1,15 +1,16 @@
 #language: swift
 cache:
 - bundler
-- cocoapods
+#- cocoapods
 osx_image: xcode9.4
 git:
   depth: 10
 before_install:
 - bundle install
 - bundle exec pod keys set MovieDBApiKey $MOVIE_DB_API_KEY MovieDB
-- bundle exec pod install --repo-update
 - xcrun simctl list
+install:
+- bundle exec pod install --repo-update
 script:
 - set -o pipefail
 - xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator11.3
