@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/timstudt/movieDB.svg?branch=master)](https://travis-ci.org/timstudt/movieDB) [![codecov.io](https://codecov.io/gh/timstudt/movieDB/branch/master/graphs/badge.svg)](https://codecov.io/gh/timstudt/movieDB/branch/master)
 [![docs](https://cdn.rawgit.com/timstudt/movieDB/master/docs/badge.svg)](https://cdn.rawgit.com/timstudt/movieDB/master/docs/index.html)
+[![codebeat badge](https://codebeat.co/badges/563bdbae-0ac9-47ee-9ca6-4affd9062d39)](https://codebeat.co/projects/github-com-timstudt-moviedb-master)
 
 ## Documentation
 
@@ -11,9 +12,7 @@ Full documentation for the latest release is available [here](https://cdn.rawgit
 - **Github Apps**
   - **CodeCov** - measures code coverage for unit tests
   - **Travis CI** - CI for iOS projects on Github
-
-  ***To Add***
-  - ***CodeBeat*** - static code quality check on Github
+  - **CodeBeat** - code quality check
 
 
 - **Bundler** -
@@ -51,7 +50,7 @@ Full documentation for the latest release is available [here](https://cdn.rawgit
 ## Screenshots
 generated screenshot for iPhone X; see *fastlane screenshots* lane
 
-![screen](screenshots/en-US/iPhone X-0Launch.png)
+![screen](screenshots/en-US/iPhone%20X-0Launch.png)
 
 ## related articles about iOS App Architecture
 - [agostini: Data Layer example iOS](https://agostini.tech/2017/03/27/using-dependency-injection/)
