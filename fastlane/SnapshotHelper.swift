@@ -3,6 +3,7 @@
 //  Example
 //
 //  Created by Felix Krause on 10/8/15.
+//  Copyright © 2015 Felix Krause. All rights reserved.
 //
 
 // -----------------------------------------------------
@@ -160,7 +161,11 @@ open class Snapshot: NSObject {
                 return
             }
             
-            let window = app.windows.firstMatch
+            guard let window = app.windows.allElementsBoundByIndex.first(where: { $0.frame.isEmpty == false }) else {
+                print("Couldn't find an element window in XCUIApplication with a non-empty frame.")
+                return
+            }
+
             let screenshot = window.screenshot()
             guard let simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"], let screenshotsDir = screenshotsDirectory else { return }
             let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name).png")
@@ -253,7 +258,7 @@ private extension XCUIElementQuery {
     }
 
     var deviceStatusBars: XCUIElementQuery {
-        let deviceWidth = XCUIApplication().windows.firstMatch.frame.width
+        let deviceWidth = XCUIApplication().frame.width
 
         let isStatusBar = NSPredicate { (evaluatedObject, _) in
             guard let element = evaluatedObject as? XCUIElementAttributes else { return false }
@@ -273,4 +278,4 @@ private extension CGFloat {
 
 // Please don't remove the lines below
 // They are used to detect outdated configuration files
-// SnapshotHelperVersion [1.12]
+// SnapshotHelperVersion [1.10]
