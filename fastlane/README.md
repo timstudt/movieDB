@@ -21,6 +21,16 @@ or alternatively using `brew cask install fastlane`
 fastlane ios screenshots
 ```
 Generate new localized screenshots
+### ios build
+```
+fastlane ios build
+```
+Builds and archives MovieDB, set clean:false for incremental build
+### ios tests
+```
+fastlane ios tests
+```
+
 
 ----
 

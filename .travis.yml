@@ -6,8 +6,11 @@ osx_image: xcode9.4
 git:
   depth: 10
 before_install:
+# - brew install xctool
+- gem --version
 - gem install bundler
 - bundle install
+- bundle
 - bundle exec pod env #debug
 - bundle exec pod keys set MovieDBApiKey $MOVIE_DB_API_KEY MovieDB
 #- bundle exec pod keys #debug

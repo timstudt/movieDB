@@ -13,7 +13,10 @@ target 'MovieDB' do
 
   # Pods for MovieDB
   pod 'Alamofire'
-  #pod 'AlamofireImage', '~> 3.3'
+  # pod 'SwiftLint'
+  # pod 'lottie-ios'
+  # pod 'sourcery'
+  # pod 'Firebase'
 
   target 'MovieDBTests' do
     inherit! :search_paths

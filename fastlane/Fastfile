@@ -14,10 +14,74 @@
 # update_fastlane
 
 default_platform(:ios)
+#xcversion(version: "8.4.1")
+
+def change_log_since_last_tag
+  # http://git-scm.com/docs/pretty-formats
+  # <short hash> <commit title>
+  return changelog_from_git_commits(pretty: '%h %s')
+end
+
+def version_string(version_number, build_number)
+  "#{version_number} (#{build_number})"
+end
+
+def tag_name(build_type, version_number, build_number)
+  "#{build_type}/#{version_number}/#{build_number}"
+end
+
+def workspace
+  return "MovieDB.xcworkspace"
+end
 
 platform :ios do
   desc "Generate new localized screenshots"
   lane :screenshots do
-    capture_screenshots(workspace: "MovieDB.xcworkspace", scheme: "MovieDBUITests")
+    capture_screenshots(workspace: workspace, scheme: "MovieDBUITests")
   end
+
+  desc "Builds and archives MovieDB, set clean:false for incremental build"
+  lane :build do |options|
+    clean = options[:clean] || true
+
+    change_log = change_log_since_last_tag
+
+    #cert
+    sigh(force: true,
+         adhoc: true
+    )
+
+    gym(
+      scheme: "MovieDB",
+      workspace: workspace,
+      export_method: "ad-hoc",
+      clean: clean
+    )
+  end
+
+  # desc "Runs all the tests"
+  lane :tests do
+    devices = ["iPhone X"]
+    run_tests(workspace: workspace,
+              devices: devices,
+              scheme: "MovieDBTests"
+            )
+    run_tests(workspace: workspace,
+              devices: devices,
+              scheme: "MovieDBDataTests"
+            )
+  end
+  # desc "Run Unit Tests"
+  # lane :utests do |options|
+  #   sh "xcodebuild -scheme MovieDBTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4' test | xcpretty;"
+  #   sh "xcodebuild -scheme MovieDBDataTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4' test | xcpretty;"
+  # end
+
+  # error do |lane, exception|
+  #    slack(
+  #      message: exception.message,
+  #      success: false
+  #    )
+  # end
+
 end
