@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RxBlocking
 
 struct MockAPI: API {
     var baseURL: URL { return URL(string: "http://www.google.com")! }
@@ -112,11 +113,11 @@ private class MockMovieCache: MovieService {
 
 class MovieRepositoryTests: XCTestCase {
     var repository: MovieRepository!
-    fileprivate let testService = MockMovieNetworkService(networkProvider: nil, api: nil)
+    fileprivate var testService: MockMovieNetworkService! = nil
 
     override func setUp() {
+        testService = MockMovieNetworkService(networkProvider: nil, api: nil)
         super.setUp()
-        repository = MovieRepository()
     }
 
     override func tearDown() {
@@ -136,37 +137,32 @@ class MovieRepositoryTests: XCTestCase {
     }
     
     func testNetworkService() {
-        repository.networkService = testService
+        repository = MovieRepository(networkService: testService)
 
         XCTAssertFalse(testService.didCallFetch, "unexpected fetch call")
         XCTAssertFalse(testService.didCallFetchID, "unexpected fetchID call")
         XCTAssertFalse(testService.didCallSearch, "unexpected search call")
 
-        repository.loadData { (response) in
-            XCTAssertNotNil(response, "invalid response")
-            XCTAssertNil(response.error, "load data unexpected error in response")
-            let data = response.data
-            XCTAssertNotNil(data)
-            XCTAssert(data! == TestDataSource().videos()!, "load data unexpected data returned")
-        }
+        XCTAssertNoThrow(try repository.getMovies().toBlocking().single(), "")
+        let result = try? repository.getMovies().toBlocking().single()
+        XCTAssertNotNil(result, "invalid response")
+        XCTAssertNotNil(result)
+        XCTAssert(result! == TestDataSource().videos()!, "load data unexpected data returned")
         XCTAssertTrue(testService.didCallFetch, "expected fetch call")
     }
 
     func testCache() {
         let cache = MockMovieCache()
-        repository.cache = cache
+        repository = MovieRepository(networkService: nil, dataBaseService: cache)
         
         XCTAssertFalse(testService.didCallFetch, "unexpected fetch call")
         XCTAssertFalse(testService.didCallFetchID, "unexpected fetchID call")
         XCTAssertFalse(testService.didCallSearch, "unexpected search call")
         
-        repository.loadData { (response) in
-            XCTAssertNotNil(response, "invalid response")
-            XCTAssertNil(response.error, "load data unexpected error in response")
-            let data = response.data
-            XCTAssertNotNil(data)
-            XCTAssert(data! == TestDataSource().videos()!, "load data unexpected data returned")
-        }
+        XCTAssertNoThrow(try repository.getMovies().toBlocking().single(), "")
+        let result = try? repository.getMovies().toBlocking().single()
+        XCTAssertNotNil(result, "invalid response")
+        XCTAssert(result == TestDataSource().videos()!, "load data unexpected data returned")
         XCTAssertTrue(cache.didCallFetch, "expected fetch call")
     }
     

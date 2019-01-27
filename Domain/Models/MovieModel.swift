@@ -10,15 +10,11 @@ import Foundation
 
 struct MovieModel {
     // swiftlint:disable identifier_name
-    var id: Int
+    let id: Int
     // swiftlint:enable identifier_name
-    var name: String?
-    var caption: String?
-    var imagePath: String?
+    let name: String?
+    let caption: String?
+    let imagePath: String?
 }
 
-extension MovieModel: Equatable {
-    public static func == (lhs: MovieModel, rhs: MovieModel) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
+extension MovieModel: Equatable {}

@@ -8,4 +8,4 @@
 
 import UIKit
 
-class VideoCollectionViewDataSource: CollectionViewDataSource<VideoCollectionViewCellConfigurator> { }
+final class VideoCollectionViewDataSource: CollectionViewDataSource<VideoCollectionViewCellConfigurator> { }

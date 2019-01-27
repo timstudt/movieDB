@@ -16,7 +16,7 @@ extension ImageRepository {
     }
 }
 
-class ImageRepository {
+final class ImageRepository {
     // MARK: - DataServices
     var networkService: ImageService?
     var cache: ImageService?

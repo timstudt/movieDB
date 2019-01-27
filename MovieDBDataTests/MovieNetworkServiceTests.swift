@@ -13,7 +13,9 @@ class MovieNetworkServiceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        networkService = MovieNetworkService(networkProvider: nil, api: nil)
+        networkService = MovieNetworkService(defaultSerializer: nil,
+                                             networkProvider: nil,
+                                             api: nil)
     }
 
     override func tearDown() {
@@ -62,8 +64,14 @@ class MovieNetworkServiceTests: XCTestCase {
     }
     
     func testConnectorAlamofire() {
-        networkService = MovieNetworkService.networkService()
-        networkService.networkProvider = AlamofireConnector()
+        let connector = URLSessionConnector()//AlamofireConnector()
+        let defaultSerializer = MovieDBNetwork.Serializer()
+        let api = MovieDBNetwork.APIClient()
+        networkService = MovieNetworkService(
+            defaultSerializer: defaultSerializer,
+            networkProvider: connector,
+            api: api
+        )
         XCTAssertNotNil(networkService.networkProvider, "")
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
         networkService.fetch { (data, error) in

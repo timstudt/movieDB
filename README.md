@@ -37,6 +37,7 @@ Full documentation for the latest release is available [here](https://cdn.rawgit
  - installed Pods
   - **Alamofire** - network layer for Swift projects
   - **Cocoapods-Keys** - saver way to handle API keys, private keys in xcode projects
+  - **RxSwift** - Reactive programming in Swift
 
   ***To Add***
    - ***SwiftLint*** -  a tool to enforce Swift style and conventions - [see Repo](https://github.com/realm/SwiftLint)
