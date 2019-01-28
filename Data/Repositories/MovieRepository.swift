@@ -10,6 +10,13 @@ import Foundation
 import RxSwift
 
 extension MovieRepository {
+    enum Errors: Error {
+        case requestAfterDeinit
+        case malformedResponse
+    }
+}
+
+extension MovieRepository {
     static func repository() -> MovieRepository {
         let networkService = MovieNetworkService.networkService()
         return MovieRepository(networkService: networkService,
@@ -33,33 +40,41 @@ final class MovieRepository {
 
     // MARK: - DataSource implementation
     func getMovies() -> Single<[MovieModel]> {
+//        guard let fetch = cache?.fetch ?? networkService.fetch else { return }
+        
         return Single<[MovieModel]>.create { [weak self] (single) -> Disposable in
             guard let strongSelf = self else {
                 single(.error(Errors.requestAfterDeinit))
                 return Disposables.create()
             }
             
-            if let cache = strongSelf.cache {
-                cache.fetch { response in
-                    if let data = response.data {
-                        single(.success(data))
-                    }
-                }
-            } else if let networkService = strongSelf.networkService {
-                networkService.fetch { response in
-                    if let data = response.data {
-                        single(.success(data))
-                    } else if let error = response.error {
-                        single(.error(error))
-                    }
-                }
-            }
+            strongSelf.fetchMovies(single)
             return Disposables.create()
         }
     }
-    enum Errors: Error {
-        case requestAfterDeinit
-        case malformedResponse
+    
+    private func fetchMovies(_ single: @escaping (SingleEvent<[MovieModel]>) -> Void) {
+        let dataSource: MovieService?
+        if let cache = cache {
+            dataSource = cache
+        } else if let networkService = networkService {
+            dataSource = networkService
+        } else {
+            assertionFailure("unexpectedly found no data source for \(#file)")
+            dataSource = nil
+        }
+        
+        dataSource?.fetch { [weak self] response in
+            self?.onDidFetchResponse(response, single: single)
+        }
+    }
+    
+    private func onDidFetchResponse(_ response: DataProviderResponse<[MovieModel]>, single: (SingleEvent<[MovieModel]>) -> Void) {
+        if let data = response.data {
+            single(.success(data))
+        } else if let error = response.error {
+            single(.error(error))
+        }
     }
 }
 
