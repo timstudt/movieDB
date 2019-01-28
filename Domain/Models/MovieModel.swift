@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieModel {
+struct MovieModel: Equatable {
     // swiftlint:disable identifier_name
     let id: Int
     // swiftlint:enable identifier_name
@@ -16,5 +16,3 @@ struct MovieModel {
     let caption: String?
     let imagePath: String?
 }
-
-extension MovieModel: Equatable {}

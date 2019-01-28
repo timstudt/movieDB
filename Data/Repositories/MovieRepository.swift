@@ -26,6 +26,7 @@ extension MovieRepository {
 
 final class MovieRepository {
     // MARK: - DataServices
+    
     let networkService: MovieService?
     let cache: MovieService?
 //    let parser: Parser<[MovieModel]>
@@ -39,9 +40,8 @@ final class MovieRepository {
     }
 
     // MARK: - DataSource implementation
+
     func getMovies() -> Single<[MovieModel]> {
-//        guard let fetch = cache?.fetch ?? networkService.fetch else { return }
-        
         return Single<[MovieModel]>.create { [weak self] (single) -> Disposable in
             guard let strongSelf = self else {
                 single(.error(Errors.requestAfterDeinit))
