@@ -12,8 +12,8 @@ import Foundation
  NetworkService<T:API> - base class for a network service that uses a network provider to make calls to the API specified
 */
 public class NetworkService<T: API> {
-    var api: T?
-    var networkProvider: NetworkProvider?
+    let api: T?
+    let networkProvider: NetworkProvider?
     
     init(networkProvider: NetworkProvider?, api: T?) {
         self.networkProvider = networkProvider

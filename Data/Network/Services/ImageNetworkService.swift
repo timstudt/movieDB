@@ -25,7 +25,7 @@ extension ImageNetworkService {
 /**
  ImageDownloader - implements the ImageService and makes the calls to the MovieDB API using the specified NetworkService
  */
-class ImageNetworkService: NetworkService<MovieDBNetwork.APIClient>, ImageService {
+final class ImageNetworkService: NetworkService<MovieDBNetwork.APIClient>, ImageService {
 
     //    var defaultSerializer: Serializable?
     

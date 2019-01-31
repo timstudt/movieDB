@@ -12,9 +12,9 @@ extension MovieNetworkService {
     static func networkService() -> MovieNetworkService {
         let connector = URLSessionConnector()//AlamofireConnector()
         let networkService = MovieNetworkService(
+            defaultSerializer: MovieDBNetwork.Serializer(),
             networkProvider: connector,
             api: MovieDBNetwork.APIClient())
-        networkService.defaultSerializer = MovieDBNetwork.Serializer()
         return networkService
     }
 }
@@ -22,9 +22,27 @@ extension MovieNetworkService {
 /**
  MovieNetworkService - implements the MovieService and makes the calls to the MovieDB API using the specified NetworkService
  */
-class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieService {
-    var defaultSerializer: Serializable?
+final class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient> {
+    let defaultSerializer: Serializable?
 
+    init(defaultSerializer: Serializable?,
+         networkProvider: NetworkProvider?,
+         api: MovieDBNetwork.APIClient?) {
+        self.defaultSerializer = defaultSerializer
+        super.init(networkProvider: networkProvider, api: api)
+    }
+
+    // MARK: - mapping
+    private func mapped(movie: MovieDBNetwork.Movie) -> MovieModel {
+        let mapped = MovieModel(id: movie.id,
+                                name: movie.title,
+                                caption: movie.overview,
+                                imagePath: movie.posterPath)
+        return mapped
+    }
+}
+
+extension MovieNetworkService: MovieService {
     func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
         search(query: "hello", completion: completion) //TODO
     }
@@ -36,9 +54,7 @@ class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieServic
             request: request,
             serializer: defaultSerializer) { (_: DataProviderResponse<[MovieDBNetwork.Movie]>) in
             print("")
-            DispatchQueue.main.async {
-                completion?((nil, nil)) //TODO
-            }
+            completion?((nil, nil)) // TODO
         }
     }
     // swiftlint:enable identifier_name
@@ -49,23 +65,14 @@ class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient>, MovieServic
             else { completion?((nil, nil)); return }
 
         networkProvider?
-            .send(request: request,
-                  serializer: defaultSerializer) { (response: DataProviderResponse<[MovieDBNetwork.Movie]>) in
-            print("")
-            let outputData: [MovieModel]? = response.0?.map { self.mapped(movie: $0) }
-            let error = response.1
-            DispatchQueue.main.async {
+            .send(
+                request: request,
+                serializer: defaultSerializer
+            ) { (response: DataProviderResponse<[MovieDBNetwork.Movie]>) in
+                print("")
+                let outputData: [MovieModel]? = response.0?.map { self.mapped(movie: $0) }
+                let error = response.1
                 completion?((outputData, error))
-            }
         }
-    }
-
-    // MARK: - mapping
-    func mapped(movie: MovieDBNetwork.Movie) -> MovieModel {
-        let mapped = MovieModel(id: movie.id,
-                                name: movie.title,
-                                caption: movie.overview,
-                                imagePath: movie.posterPath)
-        return mapped
     }
 }

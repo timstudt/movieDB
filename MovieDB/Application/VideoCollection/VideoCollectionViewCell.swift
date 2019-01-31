@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoCollectionViewCell: UICollectionViewCell {
+final class VideoCollectionViewCell: UICollectionViewCell {
     // MARK: - subviews
     let titleLabel = UILabel()
     let imageView = UIImageView()

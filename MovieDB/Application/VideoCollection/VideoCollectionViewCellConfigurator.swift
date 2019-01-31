@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoCollectionViewCellConfigurator: NSObject, UICollectionViewCellConfigurable {
+final class VideoCollectionViewCellConfigurator: NSObject, UICollectionViewCellConfigurable {
     typealias Cell = VideoCollectionViewCell
     typealias Model = MovieModel
     

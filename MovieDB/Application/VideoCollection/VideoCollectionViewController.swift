@@ -10,14 +10,14 @@ import UIKit
 
 extension VideoCollectionViewController {
     static func newView() -> VideoCollectionViewController {
-        let presenter = VideoCollectionPresenter.newPresenter()
+        let presenter = VideoCollectionPresenter()
         // swiftlint:disable force_cast
         return newView(presenter: presenter) as! VideoCollectionViewController
         // swiftlint:enable force_cast
     }
 }
 
-class VideoCollectionViewController: View {
+final class VideoCollectionViewController: View {
     // MARK: - Models
 
     // MARK: - subiews
