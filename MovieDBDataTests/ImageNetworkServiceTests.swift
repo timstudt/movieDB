@@ -22,6 +22,7 @@ class ImageNetworkServiceTests: XCTestCase {
     }
     
     func testDefaultInit() {
+        networkService = ImageNetworkService(networkProvider: nil, api: nil)
         XCTAssertNil(networkService.networkProvider)
         XCTAssertNil(networkService.api)
     }

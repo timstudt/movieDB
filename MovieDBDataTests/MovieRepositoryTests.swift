@@ -126,12 +126,13 @@ class MovieRepositoryTests: XCTestCase {
     }
 
     func testDefaultInit() {
+        repository = MovieRepository()
         XCTAssertNil(repository.networkService)
         XCTAssertNil(repository.cache)
     }
 
     func testRepositoryFactoryMethod() {
-        let repository = MovieRepository.repository()
+        repository = MovieRepository.repository()
         XCTAssertNotNil(repository.networkService, "unexpected cache found")
         XCTAssertNil(repository.cache, "unexpected cache found")
     }
