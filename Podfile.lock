@@ -1,21 +1,25 @@
 PODS:
-  - Alamofire (4.7.2)
+  - Alamofire (4.8.1)
   - Keys (1.0.1)
-  - RxBlocking (4.3.1):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.3.1)
-  - SwiftLint (0.29.3)
+  - RxAtomic (4.4.2)
+  - RxBlocking (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+  - SwiftLint (0.31.0)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.8.0)
   - Keys (from `Pods/CocoaPodsKeys`)
-  - RxBlocking (~> 4.0)
-  - RxSwift (~> 4.0)
+  - RxBlocking (~> 4.4.0)
+  - RxSwift (~> 4.4.0)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - RxAtomic
     - RxBlocking
     - RxSwift
     - SwiftLint
@@ -25,12 +29,13 @@ EXTERNAL SOURCES:
     :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
-  RxBlocking: 64c051285261ca2339481e91b5f70eb06b03660a
-  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
-  SwiftLint: bfa7ca7b4d170cfaf0d236ca3ffd969e88a2f002
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxBlocking: e96fdda1473d81332a6ed2cface935dc2167a122
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 88169bfbe877da146dd8122c26741d9bab01cda3
+PODFILE CHECKSUM: 27a6e925127855a86455389fbe8bd3aa97369042
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.6.1

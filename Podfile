@@ -3,9 +3,8 @@ platform :ios, '11.0'
 
 def moviedb_pods
     # Pods for MovieDB
-    pod 'Alamofire'
-    pod 'RxSwift',    '~> 4.0'
-    # pod 'SwiftLint'
+    pod 'Alamofire', '~> 4.8.0'
+    pod 'RxSwift',    '~> 4.4.0'
     # pod 'lottie-ios'
     # pod 'sourcery'
     # pod 'Firebase'
@@ -16,13 +15,18 @@ def project_pods
 end
 
 def moviedb_tests
-    pod 'RxBlocking', '~> 4.0'
+    pod 'RxBlocking', '~> 4.4.0'
 end
 
-target 'MovieDB' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+# plugin 'cocoapods-no-dev-schemes'
+plugin 'cocoapods-static-swift-framework'
+plugin 'cocoapods-binary' #builds frameworks in pod install when all_binary!; note: must enable use_frameworks!
 
+target 'MovieDB' do
+  use_frameworks!
+  all_binary!
+
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   moviedb_pods
   project_pods
 

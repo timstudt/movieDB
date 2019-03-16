@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'travis'
+gem 'travis', '~> 1.8.0'
 #gem 'jazzy'
-gem "fastlane"
-gem "cocoapods"
-gem "cocoapods-keys"
-gem "xcode-install"
-gem 'xcpretty'
+gem "fastlane", '~> 2.117.0'
+gem "cocoapods", '~> 1.6.1'
+gem "cocoapods-keys", '~> 2.1.0'
+gem 'cocoapods-no-dev-schemes', '~> 1.0.0'
+gem 'cocoapods-binary', '~> 0.4.1'
+gem 'cocoapods-static-swift-framework'
+gem "xcode-install", '~> 2.5.0'
+gem 'xcpretty', '~> 0.3.0'
