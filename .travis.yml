@@ -1,7 +1,7 @@
 language: objective-c
 cache:
 - bundler
-# - cocoapods
+- cocoapods
 osx_image: xcode10.1
 git:
   depth: 10

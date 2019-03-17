@@ -18,6 +18,8 @@ def moviedb_tests
     pod 'RxBlocking', '~> 4.4.0'
 end
 
+keep_source_code_for_prebuilt_frameworks!
+
 # plugin 'cocoapods-no-dev-schemes'
 plugin 'cocoapods-static-swift-framework'
 plugin 'cocoapods-binary' #builds frameworks in pod install when all_binary!; note: must enable use_frameworks!
