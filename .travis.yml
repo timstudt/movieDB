@@ -16,7 +16,8 @@ before_install:
 #- bundle exec pod keys #debug
 - xcrun simctl list
 install:
-- bundle exec pod install --repo-update
+- bundle exec pod repo update
+- bundle exec pod install
 script:
 - set -o pipefail
 - xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator12.1 -destination "platform=iOS Simulator,name=iPhone 8,OS=12.1" ONLY_ACTIVE_ARCH=YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO COMPILER_INDEX_STORE_ENABLE=NO ENABLE_TESTABILITY=YES clean build | xcpretty;
