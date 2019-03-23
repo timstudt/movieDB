@@ -7,30 +7,33 @@
 //
 
 import Foundation
-extension VideoCollectionPresenter {
-    static func newPresenter() -> VideoCollectionPresenter {
-        let presenter = VideoCollectionPresenter()
-        presenter.repository = MovieRepository.repository()
-        return presenter
-    }
-}
+import RxSwift
 
-class VideoCollectionPresenter: Presenter {
-    typealias Response = DataProviderResponse<[MovieModel]>
+final class VideoCollectionPresenter: Presenter {
+    typealias Response = Single<[MovieModel]>
 
     // MARK: - Module
-    private var repository: MovieRepository?
-
+    private let loadMovies: GetMovies.usecase
+    private let disposeBag: DisposeBag
+    
+    init(
+        loadMovies: @escaping GetMovies.usecase = GetMovies().execute,
+        disposeBag: DisposeBag = .init()) {
+        self.loadMovies = loadMovies
+        self.disposeBag = disposeBag
+    }
+    
     // MARK: - ViewDataSource
     override func loadData() {
-        repository?.loadData(completion: { [weak self] (response: Response) in
-            guard let viewState = self?.viewState(for: response) else { return }
-            self?.userInterface?.render(state: viewState)
-        })
+        loadMovies()
+            .subscribe(onSuccess: { [weak self] (movies) in
+                let state = VideoCollectionViewState.hasLoaded(data: movies, error: nil)
+                self?.userInterface?.render(state: state)
+            }, onError: { [weak self] (error) in
+                let state = VideoCollectionViewState.hasLoaded(data: nil, error: error)
+                self?.userInterface?.render(state: state)
+            }).disposed(by: disposeBag)
     }
 
     // MARK: - private methods
-    private func viewState(for response: Response) -> VideoCollectionViewState {
-        return VideoCollectionViewState.hasLoaded(data: response.data, error: response.error)
-    }
 }

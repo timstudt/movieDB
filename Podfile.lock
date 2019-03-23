@@ -1,21 +1,45 @@
 PODS:
-  - Alamofire (4.7.0)
-  - PathKit (0.8.0)
+  - Alamofire (4.8.1)
+  - Keys (1.0.1)
+  - RxAtomic (4.4.2)
+  - RxBlocking (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
   - Sourcery (0.14.0)
-  - Stencil (0.8.0):
-    - PathKit (~> 0.8.0)
+  - SwiftLint (0.31.0)
 
 DEPENDENCIES:
   - Alamofire
-  - Sourcery
-  - Stencil (~> 0.8.0)
+  - Keys (from `Pods/CocoaPodsKeys`)
+  - RxBlocking (~> 4.0)
+  - RxSwift (~> 4.0)
+  - Sourcery (~> 0.14.0)
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - RxAtomic
+    - RxBlocking
+    - RxSwift
+    - Sourcery
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
-  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
-  PathKit: dcab05d701474011aae0e40cf892298a831f63d6
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxBlocking: e96fdda1473d81332a6ed2cface935dc2167a122
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   Sourcery: 51332d15c2fc40e4ac5956e149a5d95607c63154
-  Stencil: 6669684db0262e6eb316ce233e7e02d6df0a6cd9
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 6894981c75cb2586396e451e82e2ea487208788d
+PODFILE CHECKSUM: 99046523b88bf9f5dbda3b2862d93437eecbfaff
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.2

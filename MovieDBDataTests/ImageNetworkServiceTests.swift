@@ -14,7 +14,6 @@ class ImageNetworkServiceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        networkService = ImageNetworkService(networkProvider: nil, api: nil)
     }
     
     override func tearDown() {
@@ -23,6 +22,7 @@ class ImageNetworkServiceTests: XCTestCase {
     }
     
     func testDefaultInit() {
+        networkService = ImageNetworkService(networkProvider: nil, api: nil)
         XCTAssertNil(networkService.networkProvider)
         XCTAssertNil(networkService.api)
     }
@@ -35,7 +35,8 @@ class ImageNetworkServiceTests: XCTestCase {
     
     func testConnectorNoAPI() {
         let connector = MockConnector()
-        networkService.networkProvider = connector
+        networkService = ImageNetworkService(networkProvider: connector, api: nil)
+
         XCTAssertNil(networkService.api)
         XCTAssertNotNil(networkService.networkProvider, "")
         XCTAssertFalse(connector.didCallDownloadData, "unexpected download called")
@@ -48,8 +49,7 @@ class ImageNetworkServiceTests: XCTestCase {
 
     func testConnectorAPI() {
         let connector = MockConnector()
-        networkService.networkProvider = connector
-        networkService.api = MovieDBNetwork.APIClient() //TODO use mock instead
+        networkService = ImageNetworkService(networkProvider: connector, api: MovieDBNetwork.APIClient()) //TODO use mock instead
         XCTAssertNotNil(networkService.api)
         XCTAssertNotNil(networkService.networkProvider, "")
         XCTAssertFalse(connector.didCallDownloadData, "unexpected download called")

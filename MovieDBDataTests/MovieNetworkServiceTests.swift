@@ -13,7 +13,9 @@ class MovieNetworkServiceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        networkService = MovieNetworkService(networkProvider: nil, api: nil)
+        networkService = MovieNetworkService(defaultSerializer: nil,
+                                             networkProvider: nil,
+                                             api: nil)
     }
 
     override func tearDown() {
@@ -34,11 +36,55 @@ class MovieNetworkServiceTests: XCTestCase {
         XCTAssertNotNil(networkService.defaultSerializer)
     }
 
-    func testConnector() {
-        networkService.networkProvider = MockConnector()
-        XCTAssertNotNil(networkService.networkProvider, "")
-    }
+//    func testConnector() {
+//        let mockConnector = MockConnector()
+//        networkService.networkProvider = mockConnector
+//        XCTAssertNotNil(networkService.networkProvider, "")
+//        XCTAssertFalse(mockConnector.didCallSendData, "")
+//        networkService.fetch { (data, error) in
+//
+//        }
+//        XCTAssertTrue(mockConnector.didCallSendData, "")
+//    }
 
+    // MARK: - integration tests
+    func testConnector() {
+        networkService = MovieNetworkService.networkService()
+        XCTAssertNotNil(networkService.networkProvider, "")
+        let expectation = XCTestExpectation(description: "Fetch movies using url session")
+        networkService.fetch { (data, error) in
+            // Make sure we downloaded some data.
+            XCTAssertNotNil(data, "No data was downloaded.")
+            
+            // Fulfill the expectation to indicate that the background task has finished successfully.
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 4.0)
+    }
+    
+    func testConnectorAlamofire() {
+        let connector = URLSessionConnector()//AlamofireConnector()
+        let defaultSerializer = MovieDBNetwork.Serializer()
+        let api = MovieDBNetwork.APIClient()
+        networkService = MovieNetworkService(
+            defaultSerializer: defaultSerializer,
+            networkProvider: connector,
+            api: api
+        )
+        XCTAssertNotNil(networkService.networkProvider, "")
+        let expectation = XCTestExpectation(description: "Fetch movies using url session")
+        networkService.fetch { (data, error) in
+            // Make sure we downloaded some data.
+            XCTAssertNotNil(data, "No data was downloaded.")
+            
+            // Fulfill the expectation to indicate that the background task has finished successfully.
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 4.0)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

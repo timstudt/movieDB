@@ -11,10 +11,10 @@ import Foundation
 enum MovieDBNetwork {
     ///the response model all resources are wrapped in
     struct Response<Result: Decodable>: Decodable {
-        var page: Int
-        var totalPages: Int
-        var totalResults: Int
-        var results: [Result]
+        let page: Int
+        let totalPages: Int
+        let totalResults: Int
+        let results: [Result]
 
         // swiftlint:disable nesting
         private enum CodingKeys: String, CodingKey {

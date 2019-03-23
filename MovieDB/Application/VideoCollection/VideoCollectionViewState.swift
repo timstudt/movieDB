@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VideoCollectionViewState: ViewState<MovieModel> {
+final class VideoCollectionViewState: ViewState<MovieModel> {
     static func loading() -> VideoCollectionViewState {
         return VideoCollectionViewState(isLoading: true, error: nil, data: nil)
     }
