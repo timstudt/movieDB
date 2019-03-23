@@ -1,13 +1,8 @@
 sources:
-  - <sources path>
-  - <sources path>
+  - MovieDBDataTests/Mocks/Automockable/
+  - Domain/
+  - Data/
 templates:
-  - <templates path>
-  - <templates path>
-force-parse:
-  - <string value>
-  - <string value>
+  - SourceryTemplates/
 output:
-  ./Sources/
-args:
-  <name>: <value>
+  ./generated/

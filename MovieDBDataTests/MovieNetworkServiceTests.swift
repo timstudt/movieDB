@@ -15,8 +15,8 @@ class MovieNetworkServiceTests: XCTestCase {
     
     // MARK: - dependencies
     
-    private var connector: URLSessionConnector!//AlamofireConnector()
-    private var defaultSerializer: MovieDBNetwork.Serializer!
+    private var connector: NetworkProvider!//AlamofireConnector()
+    private var defaultSerializer: Serializable!
     private var api: MovieDBNetwork.APIClient!
 
     override func setUp() {

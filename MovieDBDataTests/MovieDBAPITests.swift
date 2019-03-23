@@ -12,19 +12,23 @@ import XCTest
 class MovieDBAPITests: XCTestCase {
     let testKey = "123456"
     let testURL = URL(string: "www.google.com")!
-    var apiClient: MovieDBNetwork.APIClient!
-    var apiConfig: MovieDBNetwork.Configuration!
+    
+    var sut: MovieDBNetwork.APIClient!
+
+    // MARK: - Dependencies
+
+    private var apiConfig: MovieDBNetwork.Configuration!
 
     override func setUp() {
         super.setUp()
         apiConfig = MovieDBNetwork.Configuration.init(APIKey: testKey, baseURL: testURL)
-        apiClient = MovieDBNetwork.APIClient.init(configuration: apiConfig)
+        sut = MovieDBNetwork.APIClient.init(configuration: apiConfig)
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         apiConfig = nil
-        apiClient = nil
+        sut = nil
         super.tearDown()
     }
 
@@ -40,12 +44,12 @@ class MovieDBAPITests: XCTestCase {
     }
 
     func testClientInit() {
-        XCTAssert(apiClient.APIKey == testKey, "invalid api key init")
-        XCTAssert(apiClient.baseURL == testURL, "invalid base URL init")
+        XCTAssert(sut.APIKey == testKey, "invalid api key init")
+        XCTAssert(sut.baseURL == testURL, "invalid base URL init")
     }
 
     func testRequests() {
-        let request = apiClient.buildRequest(url: testURL, httpMethod: .get)
+        let request = sut.buildRequest(url: testURL, httpMethod: .get)
 
         XCTAssert(request.httpMethod == "GET", "")
         XCTAssert(request.url == testURL, "")
