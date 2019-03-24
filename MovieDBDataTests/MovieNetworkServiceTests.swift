@@ -9,28 +9,41 @@
 import XCTest
 
 class MovieNetworkServiceTests: XCTestCase {
-    var networkService: MovieNetworkService!
+    typealias SUT = MovieNetworkService
+    
+    var networkService: SUT!
+    
+    // MARK: - dependencies
+    
+    private var connector: NetworkProvider!//AlamofireConnector()
+    private var defaultSerializer: Serializable!
+    private var api: MovieDBNetwork.APIClient!
 
     override func setUp() {
         super.setUp()
-        networkService = MovieNetworkService(defaultSerializer: nil,
-                                             networkProvider: nil,
-                                             api: nil)
     }
 
     override func tearDown() {
         networkService = nil
+        connector = nil
+        defaultSerializer = nil
+        api = nil
         super.tearDown()
     }
 
     func testDefaultInit() {
+        networkService = SUT(
+            defaultSerializer: defaultSerializer,
+            networkProvider: connector,
+            api: api
+        )
         XCTAssertNil(networkService.networkProvider)
         XCTAssertNil(networkService.api)
         XCTAssertNil(networkService.defaultSerializer)
     }
 
     func testFactoryInit() {
-        networkService = MovieNetworkService.networkService()
+        networkService = SUT.networkService()
         XCTAssertNotNil(networkService.networkProvider)
         XCTAssertNotNil(networkService.api)
         XCTAssertNotNil(networkService.defaultSerializer)
@@ -49,7 +62,7 @@ class MovieNetworkServiceTests: XCTestCase {
 
     // MARK: - integration tests
     func testConnector() {
-        networkService = MovieNetworkService.networkService()
+        networkService = SUT.networkService()
         XCTAssertNotNil(networkService.networkProvider, "")
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
         networkService.fetch { (data, error) in
@@ -64,14 +77,10 @@ class MovieNetworkServiceTests: XCTestCase {
     }
     
     func testConnectorAlamofire() {
-        let connector = URLSessionConnector()//AlamofireConnector()
-        let defaultSerializer = MovieDBNetwork.Serializer()
-        let api = MovieDBNetwork.APIClient()
-        networkService = MovieNetworkService(
-            defaultSerializer: defaultSerializer,
-            networkProvider: connector,
-            api: api
-        )
+        connector = URLSessionConnector()//AlamofireConnector()
+        defaultSerializer = MovieDBNetwork.Serializer()
+        api = MovieDBNetwork.APIClient()
+        setupSUT()
         XCTAssertNotNil(networkService.networkProvider, "")
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
         networkService.fetch { (data, error) in
@@ -90,5 +99,13 @@ class MovieNetworkServiceTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    private func setupSUT() {
+        networkService = SUT(
+            defaultSerializer: defaultSerializer,
+            networkProvider: connector,
+            api: api
+        )
     }
 }

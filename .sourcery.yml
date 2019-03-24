@@ -1,0 +1,8 @@
+sources:
+  - MovieDBDataTests/Mocks/Automockable/
+  - Domain/
+  - Data/
+templates:
+  - SourceryTemplates/
+output:
+  ./generated/

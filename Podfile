@@ -7,17 +7,19 @@ def moviedb_pods
     pod 'RxSwift',    '~> 4.0'
     # pod 'SwiftLint'
     # pod 'lottie-ios'
-    # pod 'sourcery'
     # pod 'Firebase'
 end
 
 def project_pods
     pod 'SwiftLint'
+    pod 'Sourcery', '~> 0.14.0'
+    # pod 'Stencil', '~> 0.8.0'
 end
 
 def moviedb_tests
     pod 'RxBlocking', '~> 4.0'
 end
+
 
 target 'MovieDB' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks

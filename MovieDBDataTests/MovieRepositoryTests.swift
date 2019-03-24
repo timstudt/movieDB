@@ -36,24 +36,24 @@ struct TestDataSource {
     }
 }
 
-private class MockMovieNetworkService: NetworkService<MockAPI>, MovieService {
-    let testDataSource = TestDataSource()
-
-    var didCallFetch = false
-    var didCallFetchID = false
-    var didCallSearch = false
-
-    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        didCallFetch = true
-        completion?((testDataSource.videos(), testDataSource.error()))
-    }
-    func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
-        didCallFetchID = true
-    }
-    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        didCallSearch = true
-    }
-}
+//private class MockMovieNetworkService: NetworkService<MockAPI>, MovieService {
+//    let testDataSource = TestDataSource()
+//
+//    var didCallFetch = false
+//    var didCallFetchID = false
+//    var didCallSearch = false
+//
+//    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+//        didCallFetch = true
+//        completion?((testDataSource.videos(), testDataSource.error()))
+//    }
+//    func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
+//        didCallFetchID = true
+//    }
+//    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+//        didCallSearch = true
+//    }
+//}
 
 class MockNetworkTask: NetworkTask {
     func cancel() { }
@@ -92,79 +92,74 @@ class MockConnector: NetworkProvider, ImageDownloadRequestable {
     }
 }
 
-private class MockMovieCache: MovieService {
-    let testDataSource = TestDataSource()
-    
-    var didCallFetch = false
-    var didCallFetchID = false
-    var didCallSearch = false
-    
-    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        didCallFetch = true
-        completion?((testDataSource.videos(), testDataSource.error()))
-    }
-    func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
-        didCallFetchID = true
-    }
-    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        didCallSearch = true
-    }
-}
-
 class MovieRepositoryTests: XCTestCase {
-    var repository: MovieRepository!
-    fileprivate var testService: MockMovieNetworkService! = nil
+    var sut: MovieRepository!
+    
+    // MARK: - Dependencies
+    
+    fileprivate var networkService: MovieServiceMock!
+    fileprivate var cache: MovieServiceMock!
 
     override func setUp() {
-        testService = MockMovieNetworkService(networkProvider: nil, api: nil)
         super.setUp()
     }
 
     override func tearDown() {
-        repository = nil
+        sut = nil
+        networkService = nil
+        cache = nil
         super.tearDown()
     }
 
     func testDefaultInit() {
-        repository = MovieRepository()
-        XCTAssertNil(repository.networkService)
-        XCTAssertNil(repository.cache)
+        sut = MovieRepository()
+        XCTAssertNil(sut.networkService)
+        XCTAssertNil(sut.cache)
     }
 
     func testRepositoryFactoryMethod() {
-        repository = MovieRepository.repository()
-        XCTAssertNotNil(repository.networkService, "unexpected cache found")
-        XCTAssertNil(repository.cache, "unexpected cache found")
+        sut = MovieRepository.repository()
+        XCTAssertNotNil(sut.networkService, "unexpected cache found")
+        XCTAssertNil(sut.cache, "unexpected cache found")
     }
     
     func testNetworkService() {
-        repository = MovieRepository(networkService: testService)
+        networkService = MovieServiceMock()
+        networkService.fetchCompletionClosure = { response in
+            let testDataSource = TestDataSource()
+            response?((testDataSource.videos(), testDataSource.error()))
+        }
+        setupSUT()
 
-        XCTAssertFalse(testService.didCallFetch, "unexpected fetch call")
-        XCTAssertFalse(testService.didCallFetchID, "unexpected fetchID call")
-        XCTAssertFalse(testService.didCallSearch, "unexpected search call")
+        XCTAssertFalse(networkService._fetchCompletion.called, "unexpected fetch call")
+        XCTAssertFalse(networkService._fetchIdCompletion.called, "unexpected fetchID call")
+        XCTAssertFalse(networkService._searchQueryCompletion.called, "unexpected search call")
 
-        XCTAssertNoThrow(try repository.getMovies().toBlocking().single(), "")
-        let result = try? repository.getMovies().toBlocking().single()
+        XCTAssertNoThrow(try sut.getMovies().toBlocking().single(), "")
+        let result = try? sut.getMovies().toBlocking().single()
         XCTAssertNotNil(result, "invalid response")
         XCTAssertNotNil(result)
         XCTAssert(result! == TestDataSource().videos()!, "load data unexpected data returned")
-        XCTAssertTrue(testService.didCallFetch, "expected fetch call")
+        XCTAssertTrue(networkService._fetchCompletion.called, "expected fetch call")
     }
 
     func testCache() {
-        let cache = MockMovieCache()
-        repository = MovieRepository(networkService: nil, dataBaseService: cache)
+        cache = MovieServiceMock()
+        cache.fetchCompletionClosure = { response in
+            let testDataSource = TestDataSource()
+            response?((testDataSource.videos(), testDataSource.error()))
+        }
+        setupSUT()
         
-        XCTAssertFalse(testService.didCallFetch, "unexpected fetch call")
-        XCTAssertFalse(testService.didCallFetchID, "unexpected fetchID call")
-        XCTAssertFalse(testService.didCallSearch, "unexpected search call")
+        XCTAssertFalse(cache._fetchCompletion.called, "unexpected fetch call")
+        XCTAssertFalse(cache._fetchIdCompletion.called, "unexpected fetchID call")
+        XCTAssertFalse(cache._searchQueryCompletion.called, "unexpected search call")
         
-        XCTAssertNoThrow(try repository.getMovies().toBlocking().single(), "")
-        let result = try? repository.getMovies().toBlocking().single()
+        XCTAssertNoThrow(try sut.getMovies().toBlocking().single(), "")
+        let result = try? sut.getMovies().toBlocking().single()
         XCTAssertNotNil(result, "invalid response")
         XCTAssert(result == TestDataSource().videos()!, "load data unexpected data returned")
-        XCTAssertTrue(cache.didCallFetch, "expected fetch call")
+        XCTAssertTrue(cache._fetchCompletion.called, "expected fetch call")
     }
     
     func testPerformanceExample() {
@@ -172,5 +167,10 @@ class MovieRepositoryTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    private func setupSUT() {
+        sut = MovieRepository(networkService: networkService,
+                              dataBaseService: cache)
     }
 }

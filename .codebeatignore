@@ -1,2 +1,4 @@
-docs/*
-
+docs/**
+MovieDBDataTests/Mocks/**
+generated/**
+fastlane/**
