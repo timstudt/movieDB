@@ -38,11 +38,12 @@ Full documentation for the latest release is available [here](https://cdn.rawgit
   - **Alamofire** - network layer for Swift projects
   - **Cocoapods-Keys** - saver way to handle API keys, private keys in xcode projects
   - **RxSwift** - Reactive programming in Swift
+  - **Sourcery** - autogenerates boiler plate code (mocks, equatable, constructors)
+
 
   ***To Add***
    - ***SwiftLint*** -  a tool to enforce Swift style and conventions - [see Repo](https://github.com/realm/SwiftLint)
    - *.swiftlint.yml*
-   - ***Sourcery*** - autogenerates boiler plate code (mocks, equatable, constructors)
    - ***Lottie***
    - ***Firebase*** - Google dev suite for tracking, notifications, crash reports...
    (- ***Taplytics*** - A/B-Testing)
