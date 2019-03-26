@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A839580205861B600CD0CDD"
-            BuildableName = "MovieDB.app"
-            BlueprintName = "MovieDB"
+            BlueprintIdentifier = "6A839594205861B600CD0CDD"
+            BuildableName = "MovieDBTests.xctest"
+            BlueprintName = "MovieDBTests"
             ReferencedContainer = "container:MovieDB.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -78,9 +78,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A839580205861B600CD0CDD"
-            BuildableName = "MovieDB.app"
-            BlueprintName = "MovieDB"
+            BlueprintIdentifier = "6A839594205861B600CD0CDD"
+            BuildableName = "MovieDBTests.xctest"
+            BlueprintName = "MovieDBTests"
             ReferencedContainer = "container:MovieDB.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,15 +93,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A839580205861B600CD0CDD"
-            BuildableName = "MovieDB.app"
-            BlueprintName = "MovieDB"
-            ReferencedContainer = "container:MovieDB.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

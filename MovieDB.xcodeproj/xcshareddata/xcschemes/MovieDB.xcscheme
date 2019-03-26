@@ -28,6 +28,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6A839594205861B600CD0CDD"
+               BuildableName = "MovieDBTests.xctest"
+               BlueprintName = "MovieDBTests"
+               ReferencedContainer = "container:MovieDB.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A4A2D74206FD337008BF540"
                BuildableName = "MovieDBDataTests.xctest"
                BlueprintName = "MovieDBDataTests"
@@ -42,9 +56,9 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A839594205861B600CD0CDD"
-               BuildableName = "MovieDBTests.xctest"
-               BlueprintName = "MovieDBTests"
+               BlueprintIdentifier = "6A83959F205861B600CD0CDD"
+               BuildableName = "MovieDBUITests.xctest"
+               BlueprintName = "MovieDBUITests"
                ReferencedContainer = "container:MovieDB.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -54,16 +68,43 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      enableThreadSanitizer = "YES"
       codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A839594205861B600CD0CDD"
                BuildableName = "MovieDBTests.xctest"
                BlueprintName = "MovieDBTests"
+               ReferencedContainer = "container:MovieDB.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6A4A2D74206FD337008BF540"
+               BuildableName = "MovieDBDataTests.xctest"
+               BlueprintName = "MovieDBDataTests"
+               ReferencedContainer = "container:MovieDB.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6A83959F205861B600CD0CDD"
+               BuildableName = "MovieDBUITests.xctest"
+               BlueprintName = "MovieDBUITests"
                ReferencedContainer = "container:MovieDB.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -78,6 +119,11 @@
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
+         <AdditionalOption
+            key = "NSZombieEnabled"
+            value = "YES"
+            isEnabled = "YES">
+         </AdditionalOption>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
