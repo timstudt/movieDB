@@ -15,12 +15,15 @@ final class VideoCollectionPresenter: Presenter {
     // MARK: - Module
     private let loadMovies: GetMovies.usecase
     private let disposeBag: DisposeBag
+    private let notificationService: NotificationService
     
     init(
         loadMovies: @escaping GetMovies.usecase = GetMovies().execute,
-        disposeBag: DisposeBag = .init()) {
+        disposeBag: DisposeBag = .init(),
+        notificationService: NotificationService = .init()) {
         self.loadMovies = loadMovies
         self.disposeBag = disposeBag
+        self.notificationService = notificationService
     }
     
     // MARK: - ViewDataSource
@@ -33,7 +36,14 @@ final class VideoCollectionPresenter: Presenter {
                 let state = VideoCollectionViewState.hasLoaded(data: nil, error: error)
                 self?.userInterface?.render(state: state)
             }).disposed(by: disposeBag)
+        sendTestNotifications()
     }
 
     // MARK: - private methods
+    
+    private func sendTestNotifications() {
+        notificationService.requestPermission { [weak self] (granted) in
+            self?.notificationService.sendTestNotifications()
+        }
+    }
 }
