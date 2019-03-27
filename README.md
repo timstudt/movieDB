@@ -12,7 +12,7 @@ Full documentation for the latest release is available [here](https://cdn.rawgit
 - **Github Apps**
   - **CodeCov** - measures code coverage for unit tests
   - **Travis CI** - CI for iOS projects on Github
-  - **CodeBeat** - code quality check
+  - **CodeBeat** - code quality check - [CodeBeat](https://codebeat.co/open-source/swift)
 
 
 - **Bundler** -
