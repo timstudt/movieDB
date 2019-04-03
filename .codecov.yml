@@ -1,0 +1,28 @@
+coverage:
+  status:
+    project:
+      default: off
+      ui:
+        flags: ui
+      domain:
+        flags: domain
+      data:
+        target: 89%
+        flags: data
+
+flags:
+  # filter the folder(s) you wish to measure by that flag
+  ui:
+    paths:
+      - MovieDB/
+  domain:
+    paths:
+      - Domain/
+  data:
+    paths:
+      - Data/
+  tests:
+    paths:
+      - MovieDBTests/
+      - MovieDBDataTests/
+      - MovieDBUITests/
