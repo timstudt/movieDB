@@ -25,11 +25,11 @@ flags:
   data:
     paths:
       - Data/
-#   tests:
-#     paths:
-#       - MovieDBTests/
-#       - MovieDBDataTests/
-#       - MovieDBUITests/
+  tests:
+    paths:
+      - MovieDBTests/
+      - MovieDBDataTests/
+      - MovieDBUITests/
 
 ignore:
   - Pods/.*
