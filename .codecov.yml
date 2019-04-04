@@ -1,7 +1,6 @@
 coverage:
   status:
     project:
-      default: off
       ui:
         flags: ui
       domain:
