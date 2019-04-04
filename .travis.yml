@@ -25,7 +25,7 @@ script:
 - xcodebuild -scheme MovieDBDataTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1' test | xcpretty;
 #   clean \
 after_success:
-- bash <(curl -s https://codecov.io/bash) -X gcov
+- bash <(curl -s https://codecov.io/bash) -J 'MovieDB' -X gcov
 branches:
   only:
   - master
