@@ -9,6 +9,10 @@ coverage:
       data:
         target: 89%
         flags: data
+        
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
 
 flags:
   # filter the folder(s) you wish to measure by that flag
@@ -21,8 +25,11 @@ flags:
   data:
     paths:
       - Data/
-  tests:
-    paths:
-      - MovieDBTests/
-      - MovieDBDataTests/
-      - MovieDBUITests/
+#   tests:
+#     paths:
+#       - MovieDBTests/
+#       - MovieDBDataTests/
+#       - MovieDBUITests/
+
+ignore:
+  - Pods/.*
