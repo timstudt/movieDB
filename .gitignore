@@ -1,6 +1,7 @@
 # Xcode
 #
 build/
+.build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -39,4 +40,3 @@ fastlane/report*
 fastlane/keys
 fastlane/Appfile
 *.mobileprovision
-

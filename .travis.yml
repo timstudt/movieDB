@@ -5,18 +5,8 @@ cache:
 osx_image: xcode10.1
 git:
   depth: 10
-before_install:
-# - brew install xctool
-- gem --version
-- gem install bundler
-- bundle install
-- bundle
-- bundle exec pod env #debug
-- bundle exec pod keys set MovieDBApiKey $MOVIE_DB_API_KEY MovieDB
-#- bundle exec pod keys #debug
-- xcrun simctl list
 install:
-- bundle exec pod install --repo-update
+- sh install.sh
 script:
 - set -o pipefail
 - xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator12.1 -destination "platform=iOS Simulator,name=iPhone 8,OS=12.1" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES clean build | xcpretty;
@@ -24,7 +14,9 @@ script:
 - xcodebuild -scheme MovieDBTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1' test | xcpretty;
 - xcodebuild -scheme MovieDBDataTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1' test | xcpretty;
 #   clean \
+# - bundle exec danger
 after_success:
+#- danger-swift ci
 - bash <(curl -s https://codecov.io/bash)
 branches:
   only:
