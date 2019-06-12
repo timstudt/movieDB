@@ -14,7 +14,7 @@ install_bundler()
   bundle
 }
 
-# install Danger
+# install Danger-swift
 install_packages()
 {
   swift build
@@ -37,7 +37,7 @@ install_pods()
 # MAIN
 set -o pipefail
 install_gems
-#install_bundler #obsolete: using Gems
-install_packages
+install_bundler
+# install_packages
 install_pods
 list_simulators

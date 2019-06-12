@@ -35,11 +35,11 @@ end
 # Test Coverage report
 def run_xcov()
   xcov.report(
-    workspace: 'MovieDB.xcworkspace',
     scheme: 'MovieDB',
-    exclude_targets: 'MovieDB.app',
+    workspace: 'MovieDB.xcworkspace',
+    include_targets: 'MovieDB.app',
     minimum_coverage_percentage: 60.0,
-    include_test_targets: true,
+    include_test_targets: false,
     ignore_file_path: '.xcovignore',
     output_directory: 'danger_output/xcov_output'
   )
@@ -47,5 +47,5 @@ end
 
 # MAIN
 run_lint()
-#run_xcode_summary() #buggy
+# run_xcode_summary() #buggy
 run_xcov()
