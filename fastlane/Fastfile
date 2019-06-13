@@ -52,24 +52,15 @@ platform :ios do
     )
 
     gym(
-      scheme: "MovieDB",
-      workspace: workspace,
       export_method: "ad-hoc",
+      include_symbols: true,
       clean: clean
     )
   end
 
   # desc "Runs all the tests"
-  lane :tests do
-    devices = ["iPhone X"]
-    run_tests(workspace: workspace,
-              devices: devices,
-              scheme: "MovieDBTests"
-            )
-    run_tests(workspace: workspace,
-              devices: devices,
-              scheme: "MovieDBDataTests"
-            )
+  lane :all_tests do
+    scan()
   end
   # desc "Run Unit Tests"
   # lane :utests do |options|
