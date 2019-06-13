@@ -28,7 +28,8 @@ Full documentation for the latest release is available [here](https://cdn.rawgit
       - screenshots/*
     - **xcode-install** - CLI for Xcode tools
     - **xcpretty** - pretty/readable console print out for xcode output
-    - **xctool** - FB tool to run all test targets
+    - ~**xctool** - FB tool to run all test targets~
+    - **Danger** - automatic evaluation of Pull Requests  [Danger](https://github.com/danger/danger)
     - **Cocoapods** - dependency management
       - *Podfile*
       - Pods/*
