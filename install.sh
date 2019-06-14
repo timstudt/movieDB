@@ -4,6 +4,7 @@
 install_gems()
 {
   gem --version
+  gem update --system
   gem install bundler
 }
 
