@@ -30,7 +30,8 @@
       .test.passing { background-color: #CAF59F;}
       .test.failing.odd { background-color: #EEC7CC;}
       .test.passing.odd { background-color: #E5FBCF;}
-      .details { background-color: #F4DDE0; border: 1px solid #C84F5E;}
+      .details.failing { background-color: #F4DDE0; border: 1px solid #C84F5E;}
+      .details.passing { background-color: #E5F4DC; border: 1px solid #A1D761;}
       .test .test-detail:last-child { padding-bottom: 8px;}
       .test .title { float: left; font-size: 0.9em; margin-top: 8px; font-family: Menlo, Monaco, monospace;}
       .test .time { float: left;margin: 4px 10px 0 20px;}
@@ -109,7 +110,9 @@
       </section>
       <section class="right">
         <section id="counters">
-          <h2 id="test-count"><span class="number">0</span> tests</h2>
+          <h2 id="test-count"><span class="number">35</span> tests</h2>
+          
+            <h2 id="fail-count"><span class="number">2</span> failures</h2>
           
         </section>
         <section id="segment-bar">
@@ -118,6 +121,517 @@
       </section>
     </header>
     <section id="test-suites">
+      
+        
+        <section class="test-suite passing" id="MovieDBTests.ModuleBuilderTests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">MovieDBTests.ModuleBuilderTests</h3>
+          </section>
+          <section class="tests">
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testBuild');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">testBuild</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testEmpty');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testEmpty</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testPerformanceExample');">
+                <td>
+                  
+                    <h3 class="time">0.343s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPerformanceExample</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="MovieDBTests.MovieDBTests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">MovieDBTests.MovieDBTests</h3>
+          </section>
+          <section class="tests">
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testExample');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testExample</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testPerformanceExample');">
+                <td>
+                  
+                    <h3 class="time">0.252s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPerformanceExample</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="MovieDBTests.ViewStateTests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">MovieDBTests.ViewStateTests</h3>
+          </section>
+          <section class="tests">
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testInit');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testInit</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testLoading');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testLoading</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testPerformanceExample');">
+                <td>
+                  
+                    <h3 class="time">0.253s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPerformanceExample</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="MovieDBDataTests.ImageNetworkServiceTests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">MovieDBDataTests.ImageNetworkServiceTests</h3>
+          </section>
+          <section class="tests">
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testConnectorAPI');">
+                <td>
+                  
+                    <h3 class="time">0.004s</h3>
+                  
+                </td>
+                <td><h3 class="title">testConnectorAPI</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testConnectorNoAPI');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testConnectorNoAPI</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testDefaultInit');">
+                <td>
+                  
+                    <h3 class="time">0.000s</h3>
+                  
+                </td>
+                <td><h3 class="title">testDefaultInit</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testFactoryInit');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testFactoryInit</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testPerformanceExample');">
+                <td>
+                  
+                    <h3 class="time">0.362s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPerformanceExample</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="MovieDBDataTests.MovieDBAPITests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">MovieDBDataTests.MovieDBAPITests</h3>
+          </section>
+          <section class="tests">
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testClientInit');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testClientInit</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testConfig');">
+                <td>
+                  
+                    <h3 class="time">0.000s</h3>
+                  
+                </td>
+                <td><h3 class="title">testConfig</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testDefaultConfig');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testDefaultConfig</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testPerformanceExample');">
+                <td>
+                  
+                    <h3 class="time">0.252s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPerformanceExample</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testRequests');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testRequests</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testSearchMoviesRequests');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testSearchMoviesRequests</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite failing" id="MovieDBDataTests.MovieNetworkServiceTests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">MovieDBDataTests.MovieNetworkServiceTests</h3>
+          </section>
+          <section class="tests">
+            <table>
+            
+              
+              <tr class="test failing "  onclick="toggleDetails('testConnector');">
+                <td>
+                  
+                </td>
+                <td><h3 class="title">testConnector</h3></td>
+              </tr>
+              
+                <tr class="details failing testConnector">
+                  <td></td>
+                  <td>
+                    
+                      <section class="test-detail reason">XCTAssertNotNil failed - No data was downloaded. Optional(MovieDBDataTests.NetworkError.decodingFailed)</section>
+                    
+                    
+                      <section class="test-detail snippet">            <span class="c1">// Make sure we downloaded some data.</span>
+            <span class="kt">XCTAssertNotNil</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">"No data was downloaded. </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+            
+</section>
+                      <section class="test-detail">/Users/tim/work/repos/movieDB/MovieDBDataTests/MovieNetworkServiceTests.swift:70</section>
+                    
+                    
+                  </td>
+                </tr>
+              
+            
+              
+              <tr class="test failing odd"  onclick="toggleDetails('testConnectorAlamofire');">
+                <td>
+                  
+                </td>
+                <td><h3 class="title">testConnectorAlamofire</h3></td>
+              </tr>
+              
+                <tr class="details failing testConnectorAlamofire">
+                  <td></td>
+                  <td>
+                    
+                      <section class="test-detail reason">XCTAssertNotNil failed - No data was downloaded. Optional(MovieDBDataTests.NetworkError.decodingFailed)</section>
+                    
+                    
+                      <section class="test-detail snippet">            <span class="c1">// Make sure we downloaded some data.</span>
+            <span class="kt">XCTAssertNotNil</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">"No data was downloaded. </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+            
+</section>
+                      <section class="test-detail">/Users/tim/work/repos/movieDB/MovieDBDataTests/MovieNetworkServiceTests.swift:88</section>
+                    
+                    
+                  </td>
+                </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testDefaultInit');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testDefaultInit</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testFactoryInit');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testFactoryInit</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testPerformanceExample');">
+                <td>
+                  
+                    <h3 class="time">0.252s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPerformanceExample</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="MovieDBDataTests.MovieRepositoryTests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">MovieDBDataTests.MovieRepositoryTests</h3>
+          </section>
+          <section class="tests">
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testCache');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">testCache</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testDefaultInit');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testDefaultInit</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testNetworkService');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testNetworkService</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testPerformanceExample');">
+                <td>
+                  
+                    <h3 class="time">0.253s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPerformanceExample</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testRepositoryFactoryMethod');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testRepositoryFactoryMethod</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="MovieDBDataTests.URLBuilderTests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">MovieDBDataTests.URLBuilderTests</h3>
+          </section>
+          <section class="tests">
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testInit');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testInit</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testPath');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPath</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testPAthAndQuery');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPAthAndQuery</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testQueries');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testQueries</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testQuery');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testQuery</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testURLBuilderPerformance');">
+                <td>
+                  
+                    <h3 class="time">0.253s</h3>
+                  
+                </td>
+                <td><h3 class="title">testURLBuilderPerformance</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
       
     </section>
     <footer>Report generated with <a href="https://github.com/supermarin/xcpretty">xcpretty</a></footer>

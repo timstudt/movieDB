@@ -25,10 +25,15 @@ Generate new localized screenshots
 ```
 fastlane ios build
 ```
-Builds and archives MovieDB, set clean:false for incremental build
-### ios tests
+Clean Build of MovieDB
+### ios archive
 ```
-fastlane ios tests
+fastlane ios archive
+```
+Builds and archives MovieDB, set clean:false for incremental build
+### ios all_tests
+```
+fastlane ios all_tests
 ```
 
 

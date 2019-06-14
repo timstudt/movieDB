@@ -1,0 +1,15 @@
+# For more information about this configuration visit
+# https://docs.fastlane.tools/actions/scan/#scanfile
+
+# In general, you can use the options available
+# fastlane scan --help
+
+scheme("MovieDB")
+
+devices(["iPhone X"])
+
+# skip_detect_devices(true)
+
+output_types("html")
+
+# open_report(true)

@@ -14,7 +14,7 @@
 # update_fastlane
 
 default_platform(:ios)
-#xcversion(version: "8.4.1")
+xcversion(version: "10.2.1")
 
 def change_log_since_last_tag
   # http://git-scm.com/docs/pretty-formats
@@ -41,7 +41,7 @@ platform :ios do
   end
 
   desc "Builds and archives MovieDB, set clean:false for incremental build"
-  lane :build do |options|
+  lane :archive do |options|
     clean = options[:clean] || true
 
     change_log = change_log_since_last_tag
@@ -52,24 +52,15 @@ platform :ios do
     )
 
     gym(
-      scheme: "MovieDB",
-      workspace: workspace,
       export_method: "ad-hoc",
+      include_symbols: true,
       clean: clean
     )
   end
 
   # desc "Runs all the tests"
-  lane :tests do
-    devices = ["iPhone X"]
-    run_tests(workspace: workspace,
-              devices: devices,
-              scheme: "MovieDBTests"
-            )
-    run_tests(workspace: workspace,
-              devices: devices,
-              scheme: "MovieDBDataTests"
-            )
+  lane :all_tests do
+    scan()
   end
   # desc "Run Unit Tests"
   # lane :utests do |options|
