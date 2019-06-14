@@ -4,8 +4,8 @@
 install_gems()
 {
   gem --version
-  gem update --system
-  gem install bundler 2.0.1
+  gem update --system 2.5.2
+  gem install bundler 2.0.2
 }
 
 # install Bundler - see Gemfile
