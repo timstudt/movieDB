@@ -1,4 +1,8 @@
 language: objective-c
+xcode_workspace: MovieDB.xcworkspace
+xcode_scheme: MovieDB
+# xcode_destination: platform=iOS Simulator,name=iPhone 8,OS=12.2
+# xcode_sdk: iphonesimulator12.2
 cache:
 - bundler
 - cocoapods
@@ -9,8 +13,7 @@ install:
 - sh install.sh
 script:
 - set -eo pipefail
-- ls -al
-- xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator12.2 -destination "platform=iOS Simulator,name=iPhone 8,OS=12.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES clean build | xcpretty;
+- xcodebuild -destination "platform=iOS Simulator,name=iPhone 8,OS=12.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES clean build | xcpretty;
   #Data layer unit tests
 - bundle exec fastlane all_tests
 after_success:
