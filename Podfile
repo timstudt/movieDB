@@ -12,7 +12,7 @@ end
 
 def project_pods
     pod 'SwiftLint'
-    pod 'Sourcery', '~> 0.14.0'
+    pod 'Sourcery', '~> 0.16.0'
     # pod 'Stencil', '~> 0.8.0'
 end
 
@@ -43,7 +43,7 @@ target 'MovieDB' do
   target 'MovieDBDataTests' do
     inherit! :search_paths
     moviedb_tests
-    # Pods for testing
+    script_phase :name => 'Sourcery', :script => '${PODS_ROOT}/Sourcery/bin/sourcery --config ${SRCROOT}/.sourcery.yml', :execution_position => :before_compile
   end
 
   target 'MovieDBUITests' do
