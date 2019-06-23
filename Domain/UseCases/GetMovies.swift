@@ -11,13 +11,13 @@ import RxSwift
 
 struct GetMovies {
     typealias usecase = () -> Single<[MovieModel]>
-    
+
     private let repository: MovieRepository
-    
+
     init(repository: MovieRepository = .repository()) {
         self.repository = repository
     }
-    
+
     func execute() -> Single<[MovieModel]> {
         return repository
             .getMovies()

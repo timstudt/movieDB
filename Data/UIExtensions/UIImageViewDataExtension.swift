@@ -12,7 +12,7 @@ import AlamofireImage
 extension UIImageView {
     func setImage(url: URL?, imageDownloader: ImageDataProvider = ImageDownloader.shared) {
         guard let url = url else { image = nil; return }
-        imageDownloader.downloadImage(relativePath: url.path) { [weak self] (image, error) in
+        imageDownloader.downloadImage(relativePath: url.path) { [weak self] (image, _) in
             self?.image = image
         }
     }

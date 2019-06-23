@@ -570,6 +570,7 @@
 			buildConfigurationList = 6A8395A9205861B600CD0CDD /* Build configuration list for PBXNativeTarget "MovieDB" */;
 			buildPhases = (
 				FF775BA769769DEA70EDE92C /* [CP] Check Pods Manifest.lock */,
+				AC143690E07C18E08AB87618 /* [CP-User] SwiftLint */,
 				6A83957D205861B600CD0CDD /* Sources */,
 				6A83957E205861B600CD0CDD /* Frameworks */,
 				6A83957F205861B600CD0CDD /* Resources */,
@@ -782,7 +783,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/Sourcery/bin/sourcery --config ${SRCROOT}/.sourcery.yml";
+			shellScript = "${PODS_ROOT}/Sourcery/bin/sourcery --config ${SRCROOT}/.sourcery.yml\n";
+		};
+		AC143690E07C18E08AB87618 /* [CP-User] SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP-User] SwiftLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
 		};
 		B4B55D6F67618CB9759CD724 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

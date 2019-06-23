@@ -13,7 +13,7 @@ protocol ViewStateProtocol {
     var error: Error? { get }
 }
 
-protocol PresenterOutput: class {
+protocol PresenterOutput: AnyObject {
     func render(state: ViewStateProtocol)
 }
 

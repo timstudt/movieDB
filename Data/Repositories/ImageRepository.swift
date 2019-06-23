@@ -20,13 +20,13 @@ final class ImageRepository {
     // MARK: - DataServices
     var networkService: ImageService?
     var cache: ImageService?
-    
+
     init(networkService: ImageService? = nil,
          dataBaseService: ImageService? = nil) {
         self.networkService = networkService
         self.cache = dataBaseService
     }
-    
+
     // MARK: - DataSource implementation
     func loadImageData(path: String, completion: ((DataProviderResponse<Data>) -> Void)?) {
         if let _ = cache {

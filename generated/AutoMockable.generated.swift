@@ -111,3 +111,55 @@ class MovieServiceMock: MovieService {
         searchQueryCompletionClosure?(query, completion)
     }
 }
+// MARK: - NetworkTask
+
+class NetworkTaskMock: NetworkTask {
+
+    //MARK: - cancel
+
+    struct Cancel {
+      var callsCount = 0
+      var called: Bool { return callsCount > 0 }
+    }
+
+    var cancelClosure: (() -> Void)?
+
+    var _cancel = Cancel()
+
+    func cancel() {
+        _cancel.callsCount += 1
+        cancelClosure?()
+    }
+
+    //MARK: - resume
+
+    struct Resume {
+      var callsCount = 0
+      var called: Bool { return callsCount > 0 }
+    }
+
+    var resumeClosure: (() -> Void)?
+
+    var _resume = Resume()
+
+    func resume() {
+        _resume.callsCount += 1
+        resumeClosure?()
+    }
+
+    //MARK: - suspend
+
+    struct Suspend {
+      var callsCount = 0
+      var called: Bool { return callsCount > 0 }
+    }
+
+    var suspendClosure: (() -> Void)?
+
+    var _suspend = Suspend()
+
+    func suspend() {
+        _suspend.callsCount += 1
+        suspendClosure?()
+    }
+}

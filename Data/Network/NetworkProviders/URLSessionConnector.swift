@@ -46,11 +46,11 @@ struct URLSessionConnector: NetworkProvider {
         task.resume()
         return task
     }
-    
+
     private func mapped<T>(data: Data?,
                            error: Error?,
                            serializer: Serializable?)
-        -> DataProviderResponse<[T]> where T : Decodable {
+        -> DataProviderResponse<[T]> where T: Decodable {
         var outputData: [T]?
         var outputError: Error?
         if let data = data {
