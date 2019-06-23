@@ -1,23 +1,23 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '11.2'
 
 def moviedb_pods
     # Pods for MovieDB
     pod 'Alamofire'
-    pod 'RxSwift',    '~> 4.0'
+    pod 'RxSwift',    '~> 5.0'
     # pod 'SwiftLint'
     # pod 'lottie-ios'
     # pod 'Firebase'
 end
 
 def project_pods
-    pod 'SwiftLint'
-    pod 'Sourcery', '~> 0.16.0'
+    pod 'SwiftLint', '~> 0.33'
+    pod 'Sourcery', '~> 0.16.1'
     # pod 'Stencil', '~> 0.8.0'
 end
 
 def moviedb_tests
-    pod 'RxBlocking', '~> 4.0'
+    pod 'RxBlocking', '~> 5.0'
 end
 
 
@@ -27,6 +27,8 @@ target 'MovieDB' do
 
   moviedb_pods
   project_pods
+
+  script_phase :name => 'SwiftLint', :script => '${PODS_ROOT}/SwiftLint/swiftlint', :execution_position => :before_compile
 
   plugin 'cocoapods-keys', {
     :project => "MovieDB",
