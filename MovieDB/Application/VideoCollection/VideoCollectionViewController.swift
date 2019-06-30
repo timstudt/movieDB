@@ -30,14 +30,14 @@ final class VideoCollectionViewController: View {
         return collectionView
     }()
 
-    //MARK: - data sources
+    // MARK: - data sources
     lazy var collectionViewDataSource: VideoCollectionViewDataSource = {
         let dataSource = VideoCollectionViewDataSource(
             collectionView: collectionView,
             cellConfigurator: VideoCollectionViewCellConfigurator())
         return dataSource
     }()
-    
+
     // MARK: - Constants
 
     // MARK: - ViewController life cycle

@@ -13,12 +13,13 @@ script:
 - xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator12.2 -destination "platform=iOS Simulator,name=iPhone 8,OS=12.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES clean build | xcpretty;
   #Data layer unit tests
 - bundle exec fastlane all_tests
-after_success:
 - bundle exec danger dry_run #TODO run CI
+after_success:
 - bash <(curl -s https://codecov.io/bash)
 branches:
   only:
   - master
+  - develop
 env:
   global:
     secure: vt1lp+qb9aKThzlae0wJssY6Pg7/8gjQGaA5BwHXexxifAdDSv06c16SoR2kghPR67S+mhQ97XwkA14+ecsjxZ2v2BsGobjJz6hTFe2LzV8o61cpLxKJXASUhOoX3bQs4XKuQWwLZdN7pex7wIUFW2XZEkulErbzNSzXM1wih9vxsiojGHRTxsy10nvGIraTBxztuh15NnKOdaCMURXEYeOfM5QbSHYswibqU4uDXHnMrsXuM2lr3/pMSfio/FB0DFP3uAde7q0lNzRNccZgBJ5qy7b83NO5gF/K9OhwC1wTHUnqpP5a0rg9yRAho7Eq6d7B/9ZFroEvOOtLuqKMM1OzDYosiQtdiuzdUJ0uOfFKWlJlVIAukLk1t9XFt18o7VWdHDUJkhlETNMuBQIB+r8lJxh/hWkTKNUtXylZb1F2fWy60RlZUQ7I4OgTKP+XWDXkPOvMfjaEqvsdcc6wJ4T40rFpqT4ZcKc7rLQ8s1oowzGjKcO3e72o+fM4HYpJq7QtWdXs2qycJGYPihL+RbjVs3mv2Utecu2QvrXkA2y19nJNXlzKOQnNLX8X7UtTKxPxygDn0k6KKWefAi0sXvgl6ch9BSnYkCJqfXW4HXMpSo+CN6MXIr0Y32L+IWOQzmxbQwyrQaAe/53KhxFOFxYHln4MTL+LrY6fh4BkPt4=

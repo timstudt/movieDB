@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.14.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 // swiftlint:disable line_length
@@ -109,5 +109,57 @@ class MovieServiceMock: MovieService {
         _searchQueryCompletion.callsCount += 1
         _searchQueryCompletion.receivedArguments = (query: query, completion: completion)
         searchQueryCompletionClosure?(query, completion)
+    }
+}
+// MARK: - NetworkTask
+
+class NetworkTaskMock: NetworkTask {
+
+    //MARK: - cancel
+
+    struct Cancel {
+      var callsCount = 0
+      var called: Bool { return callsCount > 0 }
+    }
+
+    var cancelClosure: (() -> Void)?
+
+    var _cancel = Cancel()
+
+    func cancel() {
+        _cancel.callsCount += 1
+        cancelClosure?()
+    }
+
+    //MARK: - resume
+
+    struct Resume {
+      var callsCount = 0
+      var called: Bool { return callsCount > 0 }
+    }
+
+    var resumeClosure: (() -> Void)?
+
+    var _resume = Resume()
+
+    func resume() {
+        _resume.callsCount += 1
+        resumeClosure?()
+    }
+
+    //MARK: - suspend
+
+    struct Suspend {
+      var callsCount = 0
+      var called: Bool { return callsCount > 0 }
+    }
+
+    var suspendClosure: (() -> Void)?
+
+    var _suspend = Suspend()
+
+    func suspend() {
+        _suspend.callsCount += 1
+        suspendClosure?()
     }
 }

@@ -3,6 +3,10 @@ sources:
   - Domain/
   - Data/
 templates:
-  - SourceryTemplates/
+  - SourceryTemplates
 output:
-  ./generated/
+  path: ./generated/
+  link:
+    project: MovieDB.xcodeproj
+    target: MovieDBDataTests
+    group: MovieDBDataTests/generated

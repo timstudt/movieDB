@@ -10,7 +10,6 @@
 		18022FE3C9C502594C675B1F /* Pods_MovieDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA1E40FD23FE80449D9E978 /* Pods_MovieDBUITests.framework */; };
 		223B1E8021FE451E00C40CED /* GetMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223B1E7F21FE451E00C40CED /* GetMovies.swift */; };
 		22775EDD224689F7004E62ED /* API+Automockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22775EDB224688C2004E62ED /* API+Automockable.swift */; };
-		22775EE022468F32004E62ED /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22775EDF22468F32004E62ED /* AutoMockable.generated.swift */; };
 		22BD8FB121AF02B000CA3D23 /* Observable+CompletionBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8FB021AF02B000CA3D23 /* Observable+CompletionBlock.swift */; };
 		22BD8FB321AF035200CA3D23 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8FB221AF035200CA3D23 /* Result.swift */; };
 		6A026584213C0C6200EC0FB0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A026583213C0C6200EC0FB0 /* SnapshotHelper.swift */; };
@@ -91,6 +90,7 @@
 		6AF4926C2078D8FD00332996 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF4926A2078D8FD00332996 /* NetworkLogger.swift */; };
 		7A5A973CBF85599855F1D096 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F50C91E7F7F3D368FD5897 /* Pods_MovieDB.framework */; };
 		AFE4FF37DCDC1782893000F9 /* Pods_MovieDBDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B494616445FDD1E23757E7C /* Pods_MovieDBDataTests.framework */; };
+		BF_536934829607 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22775EDF22468F32004E62ED /* AutoMockable.generated.swift */; };
 		FEB6E535C9D93CD19E353A12 /* Pods_MovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3282CEF9D87ABACB5BA637F9 /* Pods_MovieDBTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -549,6 +549,7 @@
 			buildConfigurationList = 6A4A2D7C206FD338008BF540 /* Build configuration list for PBXNativeTarget "MovieDBDataTests" */;
 			buildPhases = (
 				FB7AE1A1C2354E8E3995E31C /* [CP] Check Pods Manifest.lock */,
+				A6E66254252C11794085D1A1 /* [CP-User] Sourcery */,
 				6A4A2D71206FD337008BF540 /* Sources */,
 				6A4A2D72206FD337008BF540 /* Frameworks */,
 				6A4A2D73206FD337008BF540 /* Resources */,
@@ -569,6 +570,7 @@
 			buildConfigurationList = 6A8395A9205861B600CD0CDD /* Build configuration list for PBXNativeTarget "MovieDB" */;
 			buildPhases = (
 				FF775BA769769DEA70EDE92C /* [CP] Check Pods Manifest.lock */,
+				AC143690E07C18E08AB87618 /* [CP-User] SwiftLint */,
 				6A83957D205861B600CD0CDD /* Sources */,
 				6A83957E205861B600CD0CDD /* Frameworks */,
 				6A83957F205861B600CD0CDD /* Resources */,
@@ -718,13 +720,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MovieDBTests/Pods-MovieDBTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 			);
@@ -758,13 +758,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MovieDBDataTests/Pods-MovieDBDataTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 			);
@@ -772,6 +770,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieDBDataTests/Pods-MovieDBDataTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A6E66254252C11794085D1A1 /* [CP-User] Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP-User] Sourcery";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Sourcery/bin/sourcery --config ${SRCROOT}/.sourcery.yml\n";
+		};
+		AC143690E07C18E08AB87618 /* [CP-User] SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP-User] SwiftLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
 		};
 		B4B55D6F67618CB9759CD724 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -800,14 +826,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -859,7 +883,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A4A2D8C20710CCE008BF540 /* MovieModel.swift in Sources */,
-				22775EE022468F32004E62ED /* AutoMockable.generated.swift in Sources */,
 				6A5CABD9207250A6007B53DC /* URLSessionConnector.swift in Sources */,
 				6A4A2D9020710D61008BF540 /* NetworkProvider.swift in Sources */,
 				6A4A2D8720710C93008BF540 /* DataService.swift in Sources */,
@@ -889,6 +912,7 @@
 				22775EDD224689F7004E62ED /* API+Automockable.swift in Sources */,
 				6A39EDD52085257B00EE1B0C /* ImageService.swift in Sources */,
 				6A5CABCC20724B0A007B53DC /* MovieService.swift in Sources */,
+				BF_536934829607 /* AutoMockable.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1011,7 +1035,7 @@
 				OTHER_SWIFT_FLAGS = "-DTESTING $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.MovieDBDataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieDB.app/MovieDB";
 			};
@@ -1028,7 +1052,7 @@
 				OTHER_SWIFT_FLAGS = "-DTESTING $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.MovieDBDataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieDB.app/MovieDB";
 			};
@@ -1157,7 +1181,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ts.moviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1174,7 +1198,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ts.moviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1183,14 +1207,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBA3AFBD27E0C7B3FFC37057 /* Pods-MovieDBTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MovieDBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.videoplayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieDB.app/MovieDB";
 			};
@@ -1200,14 +1224,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9C0EF95CF3BEE0B63459D3F /* Pods-MovieDBTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MovieDBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.videoplayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieDB.app/MovieDB";
 			};
@@ -1224,7 +1248,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.MovieDBUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MovieDB;
 			};
@@ -1241,7 +1265,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = ts.MovieDBUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MovieDB;
 			};
