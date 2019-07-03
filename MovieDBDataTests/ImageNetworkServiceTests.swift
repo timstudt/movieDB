@@ -9,30 +9,30 @@
 import XCTest
 
 class ImageNetworkServiceTests: XCTestCase {
-    
+
     var networkService: ImageNetworkService!
-    
+
     override func setUp() {
         super.setUp()
     }
-    
+
     override func tearDown() {
         networkService = nil
         super.tearDown()
     }
-    
+
     func testDefaultInit() {
         networkService = ImageNetworkService(networkProvider: nil, api: nil)
         XCTAssertNil(networkService.networkProvider)
         XCTAssertNil(networkService.api)
     }
-    
+
     func testFactoryInit() {
         networkService = ImageNetworkService.networkService()
         XCTAssertNotNil(networkService.networkProvider)
         XCTAssertNotNil(networkService.api)
     }
-    
+
     func testConnectorNoAPI() {
         let connector = MockConnector()
         networkService = ImageNetworkService(networkProvider: connector, api: nil)
@@ -59,12 +59,12 @@ class ImageNetworkServiceTests: XCTestCase {
         }
         XCTAssertTrue(connector.didCallDownloadData, "unexpected download not called")
     }
-    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }

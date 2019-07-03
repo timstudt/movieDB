@@ -15,14 +15,14 @@ final class VideoCollectionPresenter: Presenter {
     // MARK: - Module
     private let loadMovies: GetMovies.usecase
     private let disposeBag: DisposeBag
-    
+
     init(
         loadMovies: @escaping GetMovies.usecase = GetMovies().execute,
         disposeBag: DisposeBag = .init()) {
         self.loadMovies = loadMovies
         self.disposeBag = disposeBag
     }
-    
+
     // MARK: - ViewDataSource
     override func loadData() {
         loadMovies()

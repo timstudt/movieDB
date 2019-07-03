@@ -24,8 +24,7 @@ public extension ReusableCell {
 //    associatedtype M
 //}
 //
-public class CollectionViewDataSource<CellConfiguratorType: NSObject>:
-    NSObject,
+public class CollectionViewDataSource<CellConfiguratorType: NSObject>: NSObject,
     UICollectionViewDataSource
     where CellConfiguratorType: UICollectionViewCellConfigurable {
 
@@ -42,22 +41,22 @@ public class CollectionViewDataSource<CellConfiguratorType: NSObject>:
         super.init()
         self.setup()
     }
-    
+
     func setup() {
         collectionView?.register(
             CellConfiguratorType.Cell.self,
             forCellWithReuseIdentifier: CellConfiguratorType.reuseIdentifier)
         collectionView?.dataSource = self
     }
-    
+
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data?.count ?? 0
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CellConfiguratorType.reuseIdentifier,
