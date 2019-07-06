@@ -19,5 +19,7 @@ extension MovieDBAPI { }
 //// MARK: - Services
 
 extension MovieService { }
-// sourcery:end
 
+extension NetworkTask { }
+
+// sourcery:end

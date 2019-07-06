@@ -9,10 +9,14 @@
 import XCTest
 import RxBlocking
 
+//swiftlint:disable file_length
+
 struct MockAPI: API {
+    //swiftlint:disable force_unwrapping
     var baseURL: URL { return URL(string: "http://www.google.com")! }
 }
 
+// Test Data
 extension MovieModel {
     static var batman: MovieModel {
         return MovieModel(id: 1, name: "Batman", caption: "relklfs dlfkdlfk", imagePath: nil)
@@ -36,43 +40,18 @@ struct TestDataSource {
     }
 }
 
-//private class MockMovieNetworkService: NetworkService<MockAPI>, MovieService {
-//    let testDataSource = TestDataSource()
-//
-//    var didCallFetch = false
-//    var didCallFetchID = false
-//    var didCallSearch = false
-//
-//    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-//        didCallFetch = true
-//        completion?((testDataSource.videos(), testDataSource.error()))
-//    }
-//    func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
-//        didCallFetchID = true
-//    }
-//    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-//        didCallSearch = true
-//    }
-//}
-
-class MockNetworkTask: NetworkTask {
-    func cancel() { }
-    func resume() { }
-    func suspend() { }
-}
-
 class MockConnector: NetworkProvider, ImageDownloadRequestable {
     var logger: NetworkLoggable?
     var didCallSendData = false
     var didCallSendArray = false
     var didCallDownloadData = false
-    
+
     func send(request: URLRequest,
               completion: @escaping (((data: Data?, error: Error?)) -> Void))
         -> NetworkTask {
         didCallSendData = true
         completion((nil, nil))
-        return MockNetworkTask()
+        return NetworkTaskMock()
     }
     func send<T>(request: URLRequest,
                  serializer: Serializable?,
@@ -80,7 +59,7 @@ class MockConnector: NetworkProvider, ImageDownloadRequestable {
         -> NetworkTask where T: Decodable {
         didCallSendData = true
         completion((nil, nil))
-        return MockNetworkTask()
+        return NetworkTaskMock()
     }
     func download(request: URLRequest,
                   progress: @escaping (Progress) -> Void,
@@ -88,15 +67,15 @@ class MockConnector: NetworkProvider, ImageDownloadRequestable {
         -> NetworkTask {
         didCallDownloadData = true
         completion((nil, nil))
-        return MockNetworkTask()
+        return NetworkTaskMock()
     }
 }
 
 class MovieRepositoryTests: XCTestCase {
     var sut: MovieRepository!
-    
+
     // MARK: - Dependencies
-    
+
     fileprivate var networkService: MovieServiceMock!
     fileprivate var cache: MovieServiceMock!
 
@@ -122,7 +101,7 @@ class MovieRepositoryTests: XCTestCase {
         XCTAssertNotNil(sut.networkService, "unexpected cache found")
         XCTAssertNil(sut.cache, "unexpected cache found")
     }
-    
+
     func testNetworkService() {
         networkService = MovieServiceMock()
         networkService.fetchCompletionClosure = { response in
@@ -139,6 +118,7 @@ class MovieRepositoryTests: XCTestCase {
         let result = try? sut.getMovies().toBlocking().single()
         XCTAssertNotNil(result, "invalid response")
         XCTAssertNotNil(result)
+        //swiftlint:disable force_unwrapping
         XCTAssert(result! == TestDataSource().videos()!, "load data unexpected data returned")
         XCTAssertTrue(networkService._fetchCompletion.called, "expected fetch call")
     }
@@ -150,25 +130,26 @@ class MovieRepositoryTests: XCTestCase {
             response?((testDataSource.videos(), testDataSource.error()))
         }
         setupSUT()
-        
+
         XCTAssertFalse(cache._fetchCompletion.called, "unexpected fetch call")
         XCTAssertFalse(cache._fetchIdCompletion.called, "unexpected fetchID call")
         XCTAssertFalse(cache._searchQueryCompletion.called, "unexpected search call")
-        
+
         XCTAssertNoThrow(try sut.getMovies().toBlocking().single(), "")
         let result = try? sut.getMovies().toBlocking().single()
         XCTAssertNotNil(result, "invalid response")
+        //swiftlint:disable force_unwrapping
         XCTAssert(result == TestDataSource().videos()!, "load data unexpected data returned")
         XCTAssertTrue(cache._fetchCompletion.called, "expected fetch call")
     }
-    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
     private func setupSUT() {
         sut = MovieRepository(networkService: networkService,
                               dataBaseService: cache)

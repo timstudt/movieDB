@@ -3,13 +3,35 @@ disabled_rules:
   - type_name
 
 opt_in_rules:
+  - anyobject_protocol
   - empty_count
-#  - force_unwrapping
+  - empty_string
+  - empty_xctest_method
+  - explicit_init
+  - explicit_self
+  - force_unwrapping
+  - fatal_error_message
+  - first_where
+  - last_where
+  - unused_import
 
 included:
   - MovieDB
+  - Data
+  - Domain
   - MovieDBTests
   - MovieDBDataTests
 
+reporter: "xcode"
+
 function_body_length:
-  warning: 50
+  warning: 10
+  error: 20
+file_length:
+  warning: 100
+  error: 150
+
+# Rules severity
+
+redundant_void_return:
+  severity: error

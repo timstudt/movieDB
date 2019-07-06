@@ -10,11 +10,11 @@ import XCTest
 
 class MovieNetworkServiceTests: XCTestCase {
     typealias SUT = MovieNetworkService
-    
+
     var networkService: SUT!
-    
+
     // MARK: - dependencies
-    
+
     private var connector: NetworkProvider!//AlamofireConnector()
     private var defaultSerializer: Serializable!
     private var api: MovieDBNetwork.APIClient!
@@ -67,15 +67,15 @@ class MovieNetworkServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
         networkService.fetch { (data, error) in
             // Make sure we downloaded some data.
-            XCTAssertNotNil(data, "No data was downloaded.")
-            
+            XCTAssertNotNil(data, "No data was downloaded. \(error)")
+
             // Fulfill the expectation to indicate that the background task has finished successfully.
             expectation.fulfill()
         }
-        
+
         wait(for: [expectation], timeout: 4.0)
     }
-    
+
     func testConnectorAlamofire() {
         connector = URLSessionConnector()//AlamofireConnector()
         defaultSerializer = MovieDBNetwork.Serializer()
@@ -85,22 +85,22 @@ class MovieNetworkServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
         networkService.fetch { (data, error) in
             // Make sure we downloaded some data.
-            XCTAssertNotNil(data, "No data was downloaded.")
-            
+            XCTAssertNotNil(data, "No data was downloaded. \(error)")
+
             // Fulfill the expectation to indicate that the background task has finished successfully.
             expectation.fulfill()
         }
-        
+
         wait(for: [expectation], timeout: 4.0)
     }
-    
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
     private func setupSUT() {
         networkService = SUT(
             defaultSerializer: defaultSerializer,

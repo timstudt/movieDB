@@ -26,11 +26,11 @@ extension MovieRepository {
 
 final class MovieRepository {
     // MARK: - DataServices
-    
+
     let networkService: MovieService?
     let cache: MovieService?
 //    let parser: Parser<[MovieModel]>
-    
+
     init(networkService: MovieService? = nil,
          dataBaseService: MovieService? = nil) {
 //         parser: Parser<[MovieModel]> = .init()) {
@@ -47,12 +47,12 @@ final class MovieRepository {
                 single(.error(Errors.requestAfterDeinit))
                 return Disposables.create()
             }
-            
+
             strongSelf.fetchMovies(single)
             return Disposables.create()
         }
     }
-    
+
     private func fetchMovies(_ single: @escaping (SingleEvent<[MovieModel]>) -> Void) {
         let dataSource: MovieService?
         if let cache = cache {
@@ -63,12 +63,12 @@ final class MovieRepository {
             assertionFailure("unexpectedly found no data source for \(#file)")
             dataSource = nil
         }
-        
+
         dataSource?.fetch { [weak self] response in
             self?.onDidFetchResponse(response, single: single)
         }
     }
-    
+
     private func onDidFetchResponse(_ response: DataProviderResponse<[MovieModel]>, single: (SingleEvent<[MovieModel]>) -> Void) {
         if let data = response.data {
             single(.success(data))

@@ -37,7 +37,8 @@ class ModuleBuilderTests: XCTestCase {
         let output = builder?.build()
         XCTAssertNotNil(output)
         XCTAssertTrue(output == input, "Views don\t match")
-
+        //swiftlint:disable force_cast
+        //swiftlint:disable force_unwrapping
         XCTAssertTrue((output!.dataSource as! Presenter) == presenter, "dataSource not set correctly")
 //        XCTAssertTrue(builder!.presenter == presenter, "dataSource not set correctly")
     }

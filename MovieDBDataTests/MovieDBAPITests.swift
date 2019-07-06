@@ -11,8 +11,9 @@ import XCTest
 
 class MovieDBAPITests: XCTestCase {
     let testKey = "123456"
+    //swiftlint:disable force_unwrapping
     let testURL = URL(string: "www.google.com")!
-    
+
     var sut: MovieDBNetwork.APIClient!
 
     // MARK: - Dependencies
@@ -21,8 +22,8 @@ class MovieDBAPITests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        apiConfig = MovieDBNetwork.Configuration.init(APIKey: testKey, baseURL: testURL)
-        sut = MovieDBNetwork.APIClient.init(configuration: apiConfig)
+        apiConfig = MovieDBNetwork.Configuration(APIKey: testKey, baseURL: testURL)
+        sut = MovieDBNetwork.APIClient(configuration: apiConfig)
     }
 
     override func tearDown() {
