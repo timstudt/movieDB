@@ -776,25 +776,17 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
 			name = "[CP-User] Sourcery";
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/Sourcery/bin/sourcery --config ${SRCROOT}/.sourcery.yml\n";
+			shellScript = "${PODS_ROOT}/Sourcery/bin/sourcery --config ${SRCROOT}/.sourcery.yml";
 		};
 		AC143690E07C18E08AB87618 /* [CP-User] SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
 			name = "[CP-User] SwiftLint";
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
