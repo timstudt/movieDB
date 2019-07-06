@@ -28,8 +28,8 @@ extension ImageNetworkService {
 final class ImageNetworkService: NetworkService<MovieDBNetwork.APIClient>, ImageService {
 
     //    var defaultSerializer: Serializable?
-    
-    //MARK: - ImageService
+
+    // MARK: - ImageService
     func downloadImage(relativePath: String, completion: ((DataProviderResponse<Data>) -> Void)?) {
         guard let request = api?.getImage(path: relativePath) else { completion?((nil, nil)); return }
         if let imageDownloader = networkProvider as? ImageDownloadRequestable {

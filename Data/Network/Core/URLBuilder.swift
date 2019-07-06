@@ -16,11 +16,11 @@ class URLBuilder {
             add(queries: defaultQueryItems)
         }
     }
-    
+
     init(baseURL: URL) {
         components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
     }
-    
+
     @discardableResult
     func add(path: String) -> URLBuilder {
         var url = components?.url
@@ -30,7 +30,7 @@ class URLBuilder {
         }
         return self
     }
-    
+
     @discardableResult
     func add(queries: [URLQueryItem]) -> URLBuilder {
         var currentQuery = components?.queryItems
@@ -38,7 +38,7 @@ class URLBuilder {
         components?.queryItems = currentQuery ?? queries
         return self
     }
-    
+
     @discardableResult
     func add(query: URLQueryItem) -> URLBuilder {
         var currentQuery = components?.queryItems
@@ -46,7 +46,7 @@ class URLBuilder {
         components?.queryItems = currentQuery
         return self
     }
-    
+
     func build() -> URL? {
         return components?.url
     }
