@@ -16,7 +16,7 @@ final class VideoCollectionPresenter: Presenter {
     private let loadMovies: GetMovies.usecase
     private let disposeBag: DisposeBag
     private let notificationService: NotificationService
-    
+
     init(
         loadMovies: @escaping GetMovies.usecase = GetMovies().execute,
         disposeBag: DisposeBag = .init(),
@@ -25,7 +25,7 @@ final class VideoCollectionPresenter: Presenter {
         self.disposeBag = disposeBag
         self.notificationService = notificationService
     }
-    
+
     // MARK: - ViewDataSource
     override func loadData() {
         loadMovies()
@@ -40,9 +40,9 @@ final class VideoCollectionPresenter: Presenter {
     }
 
     // MARK: - private methods
-    
+
     private func sendTestNotifications() {
-        notificationService.requestPermission { [weak self] (granted) in
+        notificationService.requestPermission { [weak self] (_) in
             self?.notificationService.sendTestNotifications()
         }
     }
