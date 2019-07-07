@@ -10,6 +10,9 @@ import Foundation
 
 protocol MovieDBAPI: API { }
 
+//swiftlint:disable identifier_name
+//swiftlint:disable force_unwrapping
+
 extension MovieDBAPI {
 
     // MARK: - endpoints
@@ -31,7 +34,6 @@ extension MovieDBAPI {
     func queryQuery(_ value: String) -> URLQueryItem { return URLQueryItem(name: "query", value: value) }
 
     // MARK: - requests
-    // swiftlint:disable identifier_name
     func getMovie(id: Int) -> URLRequest {
         let urlBuilder = defaultURLBuilder
             .add(path: movieEndpoint)

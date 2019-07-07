@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.2'
+platform :ios, '12.0'
 
 def moviedb_pods
     # Pods for MovieDB
