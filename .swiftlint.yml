@@ -25,7 +25,7 @@ included:
 reporter: "xcode"
 
 function_body_length:
-  warning: 10
+  warning: 15
   error: 20
 file_length:
   warning: 100
