@@ -44,7 +44,7 @@ final class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient> {
 
 extension MovieNetworkService: MovieService {
     func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        search(query: "hello", completion: completion) //TODO
+        search(query: "hello", completion: completion) // TODO
     }
 
     // swiftlint:disable identifier_name

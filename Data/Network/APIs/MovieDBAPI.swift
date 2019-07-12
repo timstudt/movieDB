@@ -17,7 +17,7 @@ extension MovieDBAPI {
 
     // MARK: - endpoints
     var endpointVersion: String { return "3" }
-    var movieEndpoint: String { return "movie" } //TODO: make endpoint enum
+    var movieEndpoint: String { return "movie" } // TODO: make endpoint enum
     var searchEndpoint: String { return "search" }
     var configurationEndpoint: String { return "configuration" }
 

@@ -49,7 +49,7 @@ class ImageNetworkServiceTests: XCTestCase {
 
     func testConnectorAPI() {
         let connector = MockConnector()
-        networkService = ImageNetworkService(networkProvider: connector, api: MovieDBNetwork.APIClient()) //TODO use mock instead
+        networkService = ImageNetworkService(networkProvider: connector, api: MovieDBNetwork.APIClient()) // TODO use mock instead
         XCTAssertNotNil(networkService.api)
         XCTAssertNotNil(networkService.networkProvider, "")
         XCTAssertFalse(connector.didCallDownloadData, "unexpected download called")
