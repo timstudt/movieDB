@@ -61,7 +61,7 @@ class MovieDBAPITests: XCTestCase {
         let query = [
             "api_key=\(MovieDBNetwork.Configuration.defaultAPIKey)",
             "query=\(queryString)"
-            ].joined(separator: "&")
+        ].joined(separator: "&")
 
         let request = MovieDBNetwork.APIClient().searchMovie(query: queryString)
 
