@@ -11,18 +11,18 @@ import Foundation
 protocol MovieDBAPI: API { }
 
 //swiftlint:disable identifier_name
-//swiftlint:disable force_unwrapping
 
 extension MovieDBAPI {
 
     // MARK: - endpoints
+
     var endpointVersion: String { return "3" }
-    var movieEndpoint: String { return "movie" } // TODO: make endpoint enum
-    var searchEndpoint: String { return "search" }
     var configurationEndpoint: String { return "configuration" }
 
     var defaultURLBuilder: URLBuilder {
-        let builder = URLBuilder(baseURL: baseURL)
+        //swiftlint:disable force_try
+        let builder = try! URLBuilder(baseURL: baseURL)
+        //swiftlint:enable force_try
         builder
             .add(path: endpointVersion)
             .defaultQueryItems = [APIKeyQuery()]
@@ -30,29 +30,53 @@ extension MovieDBAPI {
     }
 
     // MARK: - query items
+
     func APIKeyQuery() -> URLQueryItem { return URLQueryItem(name: "api_key", value: APIKey) }
     func queryQuery(_ value: String) -> URLQueryItem { return URLQueryItem(name: "query", value: value) }
 
     // MARK: - requests
+
     func getMovie(id: Int) -> URLRequest {
-        let urlBuilder = defaultURLBuilder
-            .add(path: movieEndpoint)
-            .add(path: "\(id)")
-        return buildRequest(url: urlBuilder.build()!)
+        let endpoint = MovieEndpoint(id: id)
+        return parse(endpoint: endpoint,
+                     method: .get)
     }
 
     func searchMovie(query: String) -> URLRequest {
-        let urlBuilder = defaultURLBuilder
-            .add(path: searchEndpoint)
-            .add(path: movieEndpoint)
-            .add(query: queryQuery(query))
-        return buildRequest(url: urlBuilder.build()!)
+        let endpoint = SearchEndpoint(entity: .movie,
+                                      query: query)
+        return parse(endpoint: endpoint,
+                     method: .get)
     }
 
-    func getImage(path: String, size: String = "w300") -> URLRequest {
-        let urlBuilder = URLBuilder(baseURL: MovieDBNetwork.Configuration.defaultImageURL)
-            .add(path: size)
-            .add(path: path)
-        return buildRequest(url: urlBuilder.build()!)
+    func getImage(resource: String, size: String = "w300") -> URLRequest {
+        do {
+            let urlBuilder = try URLBuilder(baseURL: MovieDBNetwork.Configuration.defaultImageURL)
+                .add(path: size)
+                .add(path: resource)
+            return buildRequest(url: try urlBuilder.build())
+        } catch {
+            print(error)
+            assertionFailure("API: invalid url")
+            return .init(url: baseURL)
+        }
+    }
+
+    private func parse(endpoint: Endpoint,
+                       method: HTTPMethod,
+                       customURLBuilder: URLBuilder? = nil) -> URLRequest {
+        guard endpoint.isAllowed(method: method) else {
+            assertionFailure("API: method not allowed: \(method)")
+            return .init(url: baseURL)
+        }
+        let urlBuilder = customURLBuilder ?? defaultURLBuilder
+        do {
+            let url = try endpoint.url(builder: urlBuilder)
+            return buildRequest(url: url)
+        } catch {
+            print(error)
+            assertionFailure("API: invalid url")
+            return .init(url: baseURL)
+        }
     }
 }

@@ -31,7 +31,7 @@ final class ImageNetworkService: NetworkService<MovieDBNetwork.APIClient>, Image
 
     // MARK: - ImageService
     func downloadImage(relativePath: String, completion: ((DataProviderResponse<Data>) -> Void)?) {
-        guard let request = api?.getImage(path: relativePath) else { completion?((nil, nil)); return }
+        guard let request = api?.getImage(resource: relativePath) else { completion?((nil, nil)); return }
         if let imageDownloader = networkProvider as? ImageDownloadRequestable {
             imageDownloader.download(
                 request: request,
