@@ -9,22 +9,12 @@
 import Foundation
 import RxSwift
 
-extension MovieRepository {
+final class MovieRepository {
     enum Errors: Error {
         case requestAfterDeinit
         case malformedResponse
     }
-}
 
-extension MovieRepository {
-    static func repository() -> MovieRepository {
-        let networkService = MovieNetworkService.networkService()
-        return MovieRepository(networkService: networkService,
-                               dataBaseService: nil)
-    }
-}
-
-final class MovieRepository {
     // MARK: - DataServices
 
     let networkService: MovieService?
@@ -75,6 +65,14 @@ final class MovieRepository {
         } else if let error = response.error {
             single(.error(error))
         }
+    }
+}
+
+extension MovieRepository {
+    static func makeRepository() -> MovieRepository {
+        let networkService = MovieNetworkService.makeNetworkService()
+        return MovieRepository(networkService: networkService,
+                               dataBaseService: nil)
     }
 }
 

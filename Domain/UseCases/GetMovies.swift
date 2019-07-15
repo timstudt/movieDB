@@ -14,7 +14,7 @@ struct GetMovies {
 
     private let repository: MovieRepository
 
-    init(repository: MovieRepository = .repository()) {
+    init(repository: MovieRepository = .makeRepository()) {
         self.repository = repository
     }
 

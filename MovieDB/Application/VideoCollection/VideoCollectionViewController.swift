@@ -8,15 +8,6 @@
 
 import UIKit
 
-extension VideoCollectionViewController {
-    static func newView() -> VideoCollectionViewController {
-        let presenter = VideoCollectionPresenter()
-        // swiftlint:disable force_cast
-        return newView(presenter: presenter) as! VideoCollectionViewController
-        // swiftlint:enable force_cast
-    }
-}
-
 final class VideoCollectionViewController: View {
     // MARK: - Models
 
@@ -62,5 +53,14 @@ final class VideoCollectionViewController: View {
     private func setupViews() {
         collectionView.backgroundColor = .white
         view.addSubview(collectionView)
+    }
+}
+
+extension VideoCollectionViewController {
+    static func makeNewView() -> VideoCollectionViewController {
+        let presenter = VideoCollectionPresenter()
+        // swiftlint:disable force_cast
+        return makeNewView(presenter: presenter) as! VideoCollectionViewController
+        // swiftlint:enable force_cast
     }
 }

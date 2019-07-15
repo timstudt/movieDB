@@ -8,14 +8,6 @@
 
 import Foundation
 
-extension ImageRepository {
-    static func repository() -> ImageRepository {
-        let networkService = ImageNetworkService.networkService()
-        return ImageRepository(networkService: networkService,
-                               dataBaseService: nil)
-    }
-}
-
 final class ImageRepository {
     // MARK: - DataServices
     var networkService: ImageService?
@@ -34,5 +26,13 @@ final class ImageRepository {
         } else if let networkService = networkService {
             networkService.downloadImage(relativePath: path, completion: completion)
         }
+    }
+}
+
+extension ImageRepository {
+    static func makeRepository() -> ImageRepository {
+        let networkService = ImageNetworkService.networkService()
+        return ImageRepository(networkService: networkService,
+                               dataBaseService: nil)
     }
 }

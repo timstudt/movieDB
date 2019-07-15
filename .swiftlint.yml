@@ -4,6 +4,7 @@ disabled_rules:
 
 opt_in_rules:
   - anyobject_protocol
+  - closure_body_length
   - contains_over_first_not_nil
   - convenience_type
   - discouraged_object_literal
@@ -13,6 +14,7 @@ opt_in_rules:
   - empty_xctest_method
   - explicit_init
   - explicit_self
+  - file_types_order
   - force_unwrapping
   - fatal_error_message
   - first_where
