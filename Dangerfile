@@ -16,7 +16,6 @@ warn("Big PR") if git.lines_of_code > 500
 def run_lint()
   swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
   swiftlint.verbose = true
-  swiftlint.reporter = 'json'
   # swiftlint.lint_all_files = true
   swiftlint.lint_files
 end

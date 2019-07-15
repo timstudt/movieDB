@@ -32,7 +32,7 @@ included:
   - MovieDBTests
   - MovieDBDataTests
 
-reporter: "xcode"
+# reporter: "xcode"
 
 function_body_length:
   warning: 15
