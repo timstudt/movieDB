@@ -43,7 +43,7 @@ class MovieNetworkServiceTests: XCTestCase {
     }
 
     func testFactoryInit() {
-        networkService = SUT.networkService()
+        networkService = SUT.makeNetworkService()
         XCTAssertNotNil(networkService.networkProvider)
         XCTAssertNotNil(networkService.api)
         XCTAssertNotNil(networkService.defaultSerializer)
@@ -62,7 +62,7 @@ class MovieNetworkServiceTests: XCTestCase {
 
     // MARK: - integration tests
     func testConnector() {
-        networkService = SUT.networkService()
+        networkService = SUT.makeNetworkService()
         XCTAssertNotNil(networkService.networkProvider, "")
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
         networkService.fetch { (data, error) in

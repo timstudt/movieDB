@@ -10,7 +10,7 @@ import XCTest
 import RxBlocking
 
 //swiftlint:disable file_length
-
+//swiftlint:disable file_types_order
 struct MockAPI: API {
     //swiftlint:disable force_unwrapping
     var baseURL: URL { return URL(string: "http://www.google.com")! }
@@ -97,7 +97,7 @@ class MovieRepositoryTests: XCTestCase {
     }
 
     func testRepositoryFactoryMethod() {
-        sut = MovieRepository.repository()
+        sut = MovieRepository.makeRepository()
         XCTAssertNotNil(sut.networkService, "unexpected cache found")
         XCTAssertNil(sut.cache, "unexpected cache found")
     }

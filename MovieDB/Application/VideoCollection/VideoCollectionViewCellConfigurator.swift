@@ -14,7 +14,7 @@ final class VideoCollectionViewCellConfigurator: NSObject, UICollectionViewCellC
 
     private let imageRepo: ImageRepository
 
-    init(imageRepository: ImageRepository = .repository()) {
+    init(imageRepository: ImageRepository = .makeRepository()) {
         self.imageRepo = imageRepository
         super.init()
     }

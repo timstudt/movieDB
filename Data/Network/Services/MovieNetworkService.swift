@@ -8,17 +8,6 @@
 
 import Foundation
 
-extension MovieNetworkService {
-    static func networkService() -> MovieNetworkService {
-        let connector = URLSessionConnector()//AlamofireConnector()
-        let networkService = MovieNetworkService(
-            defaultSerializer: MovieDBNetwork.Serializer(),
-            networkProvider: connector,
-            api: MovieDBNetwork.APIClient())
-        return networkService
-    }
-}
-
 /**
  MovieNetworkService - implements the MovieService and makes the calls to the MovieDB API using the specified NetworkService
  */
@@ -74,5 +63,16 @@ extension MovieNetworkService: MovieService {
                 let error = response.1
                 completion?((outputData, error))
         }
+    }
+}
+
+extension MovieNetworkService {
+    static func makeNetworkService() -> MovieNetworkService {
+        let connector = URLSessionConnector()//AlamofireConnector()
+        let networkService = MovieNetworkService(
+            defaultSerializer: MovieDBNetwork.Serializer(),
+            networkProvider: connector,
+            api: MovieDBNetwork.APIClient())
+        return networkService
     }
 }

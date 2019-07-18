@@ -8,21 +8,21 @@
 
 import UIKit
 
-extension View {
-    static func newView(presenter: Presenter = Presenter(),
-                        builder: ModuleBuilder = ModuleBuilder()) -> View {
-        let view = self.init()
-        return builder
-            .add(view: view)
-            .add(presenter: presenter)
-            .build()
-    }
-}
-
 class View: UIViewController, PresenterOutput {
     // MARK: - Module
     var dataSource: ViewDataSource?
 
     // MARK: - PresenterOutput
     func render(state: ViewStateProtocol) { }
+}
+
+extension View {
+    static func makeNewView(presenter: Presenter = Presenter(),
+                            builder: ModuleBuilder = ModuleBuilder()) -> View {
+        let view = self.init()
+        return builder
+            .add(view: view)
+            .add(presenter: presenter)
+            .build()
+    }
 }

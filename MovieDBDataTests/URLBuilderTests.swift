@@ -9,6 +9,8 @@
 import XCTest
 
 // swiftlint:disable force_unwrapping
+// swiftlint:disable force_try
+
 class URLBuilderTests: XCTestCase {
 
     var builder: URLBuilder!
@@ -16,7 +18,7 @@ class URLBuilderTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        builder = URLBuilder(baseURL: testURL)
+        builder = try! URLBuilder(baseURL: testURL)
     }
 
     override func tearDown() {
@@ -25,35 +27,35 @@ class URLBuilderTests: XCTestCase {
     }
 
     func testInit() {
-        XCTAssertNotNil(builder.build(), "unexpected return nil")
-        XCTAssertEqual(builder.build(), testURL, "unexpected url returned")
+        XCTAssertNotNil(try! builder.build(), "unexpected return nil")
+        XCTAssertEqual(try! builder.build(), testURL, "unexpected url returned")
     }
 
     func testPath() {
         builder.add(path: "hello")
         //swiftlint:disable force_unwrapping
         let expectedURL = URL(string: "\(testURL.absoluteURL)/hello")!
-        XCTAssertEqual(builder.build(), expectedURL, "unexpected url returned")
+        XCTAssertEqual(try! builder.build(), expectedURL, "unexpected url returned")
     }
 
     func testQuery() {
         builder.add(queries: [URLQueryItem(name: "query", value: "hello")])
         let expectedURL = URL(string: "\(testURL.absoluteURL)?query=hello")!
-        XCTAssertEqual(builder.build(), expectedURL, "unexpected url returned")
+        XCTAssertEqual(try! builder.build(), expectedURL, "unexpected url returned")
     }
 
     func testQueries() {
         builder.add(queries: [URLQueryItem(name: "query", value: "hello")])
         builder.add(queries: [URLQueryItem(name: "name", value: "tim")])
         let expectedURL = URL(string: "\(testURL.absoluteURL)?query=hello&name=tim")!
-        XCTAssertEqual(builder.build(), expectedURL, "unexpected url returned")
+        XCTAssertEqual(try! builder.build(), expectedURL, "unexpected url returned")
     }
 
     func testPAthAndQuery() {
         builder.add(queries: [URLQueryItem(name: "query", value: "hello")])
         builder.add(path: "hello")
         let expectedURL = URL(string: "\(testURL.absoluteURL)/hello?query=hello")!
-        XCTAssertEqual(builder.build(), expectedURL, "unexpected url returned")
+        XCTAssertEqual(try! builder.build(), expectedURL, "unexpected url returned")
     }
 
     func testURLBuilderPerformance() {
@@ -61,7 +63,7 @@ class URLBuilderTests: XCTestCase {
             builder.add(queries: [URLQueryItem(name: "query", value: "hello")])
             builder.add(queries: [URLQueryItem(name: "name", value: "tim")])
             builder.add(path: "hello")
-            _ = builder.build()
+            _ = try! builder.build()
         }
     }
 

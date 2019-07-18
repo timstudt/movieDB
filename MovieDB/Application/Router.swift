@@ -26,7 +26,7 @@ struct Router {
         var nextView: View!
         switch type {
         case .videoCollection:
-            nextView = VideoCollectionViewController.newView()
+            nextView = VideoCollectionViewController.makeNewView()
         }
         current = nextView
         return nextView
