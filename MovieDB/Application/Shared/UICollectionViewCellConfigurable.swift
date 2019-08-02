@@ -16,4 +16,4 @@ public protocol UICellConfigurable {
 
 public protocol UICollectionViewCellConfigurable: UICellConfigurable,
     ReusableCell
-    where Cell: UICollectionViewCell { }
+where Cell: UICollectionViewCell { }

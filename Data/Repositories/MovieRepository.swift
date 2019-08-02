@@ -1,6 +1,5 @@
 //
 //  VideoDataProvider.swift
-//  videoplayer
 //
 //  Created by Tim Studt on 13/03/2018.
 //  Copyright © 2018 Tim Studt. All rights reserved.
@@ -8,6 +7,25 @@
 
 import Foundation
 import RxSwift
+
+// TODO: delete mock
+final class MovieServiceDataBaseMock: MovieService {
+    private var mockData: [MovieModel] {
+        let names: [Int] = Array(0..<7)
+        return names.map { .init(id: 1, name: "movie\($0)", caption: "blabla", imagePath: nil)}
+    }
+    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+        completion?((mockData, nil))
+    }
+
+    func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
+        completion?((mockData.first, nil))
+    }
+
+    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+        completion?((mockData, nil))
+    }
+}
 
 final class MovieRepository {
     enum Errors: Error {
@@ -72,7 +90,7 @@ extension MovieRepository {
     static func makeRepository() -> MovieRepository {
         let networkService = MovieNetworkService.makeNetworkService()
         return MovieRepository(networkService: networkService,
-                               dataBaseService: nil)
+                               dataBaseService: nil)//MovieServiceDataBaseMock())
     }
 }
 

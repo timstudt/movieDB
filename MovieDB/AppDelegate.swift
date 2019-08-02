@@ -1,6 +1,5 @@
 //
 //  AppDelegate.swift
-//  videoplayer
 //
 //  Created by Tim Studt on 13/03/2018.
 //  Copyright © 2018 Tim Studt. All rights reserved.
@@ -15,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        window?.rootViewController = Router.show(type: .videoCollection)
+        window?.rootViewController = Router.show(type: .movieCollection)
         window?.makeKeyAndVisible()
         return true
     }
