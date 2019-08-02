@@ -31,6 +31,16 @@ Builds and archives MovieDB, set clean:false for incremental build
 fastlane ios all_tests
 ```
 
+### ios update_dependencies
+```
+fastlane ios update_dependencies
+```
+
+### ios check_dependencies
+```
+fastlane ios check_dependencies
+```
+
 
 ----
 

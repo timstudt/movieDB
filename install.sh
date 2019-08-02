@@ -41,4 +41,4 @@ install_gems
 install_bundler
 # install_packages
 install_pods
-list_simulators
+# list_simulators

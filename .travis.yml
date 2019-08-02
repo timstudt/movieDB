@@ -2,7 +2,7 @@ language: objective-c
 cache:
 - bundler
 - cocoapods
-osx_image: xcode10.2
+osx_image: xcode11
 git:
   depth: 10
 install:

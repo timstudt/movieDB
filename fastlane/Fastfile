@@ -14,7 +14,7 @@
 # update_fastlane
 
 default_platform(:ios)
-xcversion(version: "10.2.1")
+xcversion(version: "11.0")
 
 def change_log_since_last_tag
   # http://git-scm.com/docs/pretty-formats
@@ -61,6 +61,21 @@ platform :ios do
   # desc "Runs all the tests"
   lane :all_tests do
     scan()
+  end
+
+  lane :update_dependencies do
+    cocoapods(
+      use_bundle_exec:true,
+      try_repo_update_on_error:true
+    )
+  end
+
+  lane :check_dependencies do
+    sh("bundle", "outdated")
+    sh("bundle", "exec", "pod", "outdated")
+    # cocoapods(
+    #   show_outdated:true #map to 'pod outdated' Show outdated project dependencies
+    # )
   end
   # desc "Run Unit Tests"
   # lane :utests do |options|
