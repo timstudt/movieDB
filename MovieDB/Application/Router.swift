@@ -1,6 +1,5 @@
 //
 //  Router.swift
-//  videoplayer
 //
 //  Created by Tim Studt on 13/03/2018.
 //  Copyright © 2018 Tim Studt. All rights reserved.
@@ -10,7 +9,7 @@ import UIKit
 
 struct Router {
     enum ViewType {
-        case videoCollection
+        case movieCollection
     }
 
     static let shared = Router()
@@ -25,8 +24,8 @@ struct Router {
     mutating func show(type: ViewType) -> View {
         var nextView: View!
         switch type {
-        case .videoCollection:
-            nextView = VideoCollectionViewController.makeNewView()
+        case .movieCollection:
+            nextView = MovieCollectionViewController.makeNewView()
         }
         current = nextView
         return nextView

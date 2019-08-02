@@ -1,6 +1,5 @@
 //
-//  VideoCollectionViewCell.swift
-//  videoplayer
+//  MovieCollectionViewCell.swift
 //
 //  Created by Tim Studt on 13/03/2018.
 //  Copyright © 2018 Tim Studt. All rights reserved.
@@ -8,7 +7,7 @@
 
 import UIKit
 
-final class VideoCollectionViewCell: UICollectionViewCell {
+final class MovieCollectionViewCell: UICollectionViewCell {
     // MARK: - subviews
     let titleLabel = UILabel()
     let imageView = UIImageView()

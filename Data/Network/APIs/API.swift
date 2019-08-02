@@ -25,9 +25,11 @@ public extension API {
     var allHTTPHeaderFields: [String: String] { return [String: String]() }
 
     func buildRequest(url: URL, httpMethod: HTTPMethod = .get) -> URLRequest {
-        var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
-        request.httpMethod = httpMethod.rawValue
-        request.allHTTPHeaderFields = allHTTPHeaderFields
-        return request
+        return URLRequestBuilder(url: url)
+            .add(method: httpMethod)
+            .add(cachePolicy: cachePolicy)
+            .add(timeoutInterval: timeoutInterval)
+            .add(allHeaderFields: allHTTPHeaderFields)
+            .build()
     }
 }

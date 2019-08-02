@@ -15,21 +15,25 @@ import UIKit
 //}
 //
 public class CollectionViewDataSource<CellConfiguratorType: NSObject>: NSObject,
-    UICollectionViewDataSource
-    where CellConfiguratorType: UICollectionViewCellConfigurable {
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout
+where
+    CellConfiguratorType: UICollectionViewCellConfigurable {
 
     var data: [CellConfiguratorType.Model]? {
         didSet { collectionView?.reloadData() }
     }
 
+    weak var collectionView: UICollectionView? {
+        didSet { setup() }
+    }
     var cellConfigurator: CellConfiguratorType?
-    weak var collectionView: UICollectionView?
 
-    init(collectionView: UICollectionView, cellConfigurator: CellConfiguratorType?) {
-        self.collectionView = collectionView
+    init(
+        cellConfigurator: CellConfiguratorType?
+    ) {
         self.cellConfigurator = cellConfigurator
         super.init()
-        self.setup()
     }
 
     func setup() {
@@ -59,8 +63,24 @@ public class CollectionViewDataSource<CellConfiguratorType: NSObject>: NSObject,
         }
         return cell
     }
-}
 
+//    // MARK: - UICollectionViewDelegateFlowLayout
+//
+//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return grid.insets
+//    }
+//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return grid.itemSize
+//    }
+//
+//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return grid.minimumLineSpacing
+//    }
+//
+//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return grid.minimumInteritemSpacing
+//    }
+}
 //class CollectionViewCellFactory<CellType: UICollectionViewCell> {
 //    func cell<T>(collectionView: UICollectionView, data:T, indexPath: IndexPath) -> UICollectionViewCell {
 //        return CellType

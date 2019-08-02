@@ -17,7 +17,7 @@ extension MovieDBNetwork {
         var cachePolicy: URLRequest.CachePolicy { return URLRequest.CachePolicy.useProtocolCachePolicy }
         var timeoutInterval: TimeInterval { return 20.0 }
 
-        init(configuration: Configuration = MovieDBNetwork.Configuration()) {
+        init(configuration: Configuration = .default) {
             self.APIKey = configuration.APIKey
             self.baseURL = configuration.baseURL
             assert(!APIKey.isEmpty, "ERROR: API key not set")
@@ -25,15 +25,17 @@ extension MovieDBNetwork {
     }
 
     struct Configuration {
-        static let defaultAPIKey = MovieDBKeys().movieDBApiKey
         //swiftlint:disable force_unwrapping
-        static let defaultBaseURL = URL(string: "https://api.themoviedb.org")!
+        static var `default`: Configuration {
+            return .init(APIKey: MovieDBKeys().movieDBApiKey,
+                         baseURL: URL(string: "https://api.themoviedb.org")!)
+        }
         static let defaultImageURL = URL(string: "https://image.tmdb.org/t/p")! //NOTE: get from configuration API instead of hardcoding
 
-        var APIKey: String
-        var baseURL: URL
+        let APIKey: String
+        let baseURL: URL
 
-        init(APIKey: String = defaultAPIKey, baseURL: URL = defaultBaseURL) {
+        init(APIKey: String, baseURL: URL) {
             self.APIKey = APIKey
             self.baseURL = baseURL
         }
