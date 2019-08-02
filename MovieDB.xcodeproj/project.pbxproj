@@ -89,6 +89,7 @@
 		6AB9BAFB207A210800212497 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB9BAF9207A210800212497 /* NetworkError.swift */; };
 		6AB9BAFD207A344400212497 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB9BAFC207A344400212497 /* NetworkTask.swift */; };
 		6AB9BAFE207A344400212497 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB9BAFC207A344400212497 /* NetworkTask.swift */; };
+		6AC3D95122F4ED9100E9D52F /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7B63322F36AD900AFFD09 /* URLRequestBuilder.swift */; };
 		6AD7B63422F36AD900AFFD09 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7B63322F36AD900AFFD09 /* URLRequestBuilder.swift */; };
 		6AE6BF43207BFC9F002E551A /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE6BF42207BFC9F002E551A /* CollectionViewDataSource.swift */; };
 		6AF0E0E2206FC2DD00978877 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0E0E1206FC2DD00978877 /* ResponseModel.swift */; };
@@ -927,6 +928,7 @@
 				6A4A2D8620710BD3008BF540 /* MovieRepository.swift in Sources */,
 				6A84AF9B209916B20012AA84 /* ImageRepository.swift in Sources */,
 				6A4A2D81206FD357008BF540 /* MovieDBAPI.swift in Sources */,
+				6AC3D95122F4ED9100E9D52F /* URLRequestBuilder.swift in Sources */,
 				6A4A2D8520710BC2008BF540 /* MovieRepositoryTests.swift in Sources */,
 				6A4A2D8820710C9C008BF540 /* NetworkService.swift in Sources */,
 				6A5CABD320724DBC007B53DC /* ListService.swift in Sources */,

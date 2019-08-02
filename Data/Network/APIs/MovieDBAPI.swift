@@ -36,6 +36,13 @@ extension MovieDBAPI {
 
     // MARK: - requests
 
+//    func request(for endpoint: Endpoint) -> URLRequest {
+//        let builder = urlRequestBuilder(url: url(for: endpoint))
+//        return builder
+//            .add(method: endpoint.method)
+//            .build()
+//    }
+//
     func getMovie(id: Int) -> URLRequest {
         let endpoint = MovieEndpoint(id: id)
         return parse(endpoint: endpoint,

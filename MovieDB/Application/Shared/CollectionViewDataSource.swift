@@ -63,23 +63,6 @@ where
         }
         return cell
     }
-
-//    // MARK: - UICollectionViewDelegateFlowLayout
-//
-//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return grid.insets
-//    }
-//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return grid.itemSize
-//    }
-//
-//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return grid.minimumLineSpacing
-//    }
-//
-//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return grid.minimumInteritemSpacing
-//    }
 }
 //class CollectionViewCellFactory<CellType: UICollectionViewCell> {
 //    func cell<T>(collectionView: UICollectionView, data:T, indexPath: IndexPath) -> UICollectionViewCell {
