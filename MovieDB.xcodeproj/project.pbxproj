@@ -663,6 +663,7 @@
 					6A4A2D74206FD337008BF540 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 6A839580205861B600CD0CDD;
 					};
 					6A839580205861B600CD0CDD = {
 						CreatedOnToolsVersion = 9.2;
@@ -1075,6 +1076,7 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieDB.app/MovieDB";
 			};
 			name = Debug;
 		};
@@ -1096,6 +1098,7 @@
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieDB.app/MovieDB";
 			};
 			name = Release;
 		};
