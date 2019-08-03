@@ -16,15 +16,15 @@ protocol DataRequestable {
     @discardableResult
     func send(
         request: URLRequest,
-        completion: @escaping (DataProviderResponse<Data>) -> Void)
-        -> NetworkTask
+        completion: @escaping (DataProviderResponse<Data>) -> Void
+    ) -> NetworkTask
 
     @discardableResult
     func send<T: Decodable>(
         request: URLRequest,
         serializer: Serializable?,
-        completion: @escaping (DataProviderResponse<[T]>) -> Void)
-        -> NetworkTask
+        completion: @escaping (DataProviderResponse<[T]>) -> Void
+    ) -> NetworkTask
 }
 
 protocol ImageDownloadRequestable {
@@ -32,6 +32,6 @@ protocol ImageDownloadRequestable {
     func download(
         request: URLRequest,
         progress: @escaping (Progress) -> Void,
-        completion: @escaping (DataProviderResponse<Data>) -> Void)
-        -> NetworkTask
+        completion: @escaping (DataProviderResponse<Data>) -> Void
+    ) -> NetworkTask
 }

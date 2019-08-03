@@ -1,6 +1,5 @@
 //
 //  View.swift
-//  videoplayer
 //
 //  Created by Tim Studt on 13/03/2018.
 //  Copyright © 2018 Tim Studt. All rights reserved.
@@ -17,8 +16,10 @@ class View: UIViewController, PresenterOutput {
 }
 
 extension View {
-    static func makeNewView(presenter: Presenter = Presenter(),
-                            builder: ModuleBuilder = ModuleBuilder()) -> View {
+    static func makeNewView(
+        presenter: Presenter,
+        builder: ModuleBuilder = ModuleBuilder()
+    ) -> View {
         let view = self.init()
         return builder
             .add(view: view)

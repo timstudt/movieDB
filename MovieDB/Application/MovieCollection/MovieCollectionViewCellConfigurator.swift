@@ -1,5 +1,5 @@
 //
-//  VideoCollectionViewCellConfigurator.swift
+//  MovieCollectionViewCellConfigurator.swift
 //  MovieDB
 //
 //  Created by Tim Studt on 11/04/2018.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-final class VideoCollectionViewCellConfigurator: NSObject, UICollectionViewCellConfigurable {
-    typealias Cell = VideoCollectionViewCell
+final class MovieCollectionViewCellConfigurator: NSObject, UICollectionViewCellConfigurable {
+    typealias Cell = MovieCollectionViewCell
     typealias Model = MovieModel
 
     private let imageRepo: ImageRepository
@@ -19,7 +19,7 @@ final class VideoCollectionViewCellConfigurator: NSObject, UICollectionViewCellC
         super.init()
     }
 
-    func configure(_ cell: VideoCollectionViewCell, with model: MovieModel) {
+    func configure(_ cell: MovieCollectionViewCell, with model: MovieModel) {
         cell.titleLabel.text = model.name
         if let imagePath = model.imagePath {
             imageRepo.loadImageData(path: imagePath) { [weak cell] (response) in

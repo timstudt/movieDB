@@ -1,6 +1,5 @@
 //
 //  VideoNetworkService.swift
-//  videoplayer
 //
 //  Created by Tim Studt on 20/03/2018.
 //  Copyright © 2018 Tim Studt. All rights reserved.

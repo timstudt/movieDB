@@ -7,7 +7,6 @@
 //
 
 import XCTest
-//@testable import MovieDB
 
 class MovieDBAPITests: XCTestCase {
     let testKey = "123456"
@@ -35,8 +34,8 @@ class MovieDBAPITests: XCTestCase {
 
     func testDefaultConfig() {
         let defaultAPIClient = MovieDBNetwork.APIClient()
-        XCTAssert(defaultAPIClient.APIKey == MovieDBNetwork.Configuration.defaultAPIKey, "invalid api key init")
-        XCTAssert(defaultAPIClient.baseURL == MovieDBNetwork.Configuration.defaultBaseURL, "invalid base URL init")
+        XCTAssert(defaultAPIClient.APIKey == MovieDBNetwork.Configuration.default.APIKey, "invalid api key init")
+        XCTAssert(defaultAPIClient.baseURL == MovieDBNetwork.Configuration.default.baseURL, "invalid base URL init")
     }
 
     func testConfig() {
@@ -59,7 +58,7 @@ class MovieDBAPITests: XCTestCase {
     func testSearchMoviesRequests() {
         let queryString = "test"
         let query = [
-            "api_key=\(MovieDBNetwork.Configuration.defaultAPIKey)",
+            "api_key=\(MovieDBNetwork.Configuration.default.APIKey)",
             "query=\(queryString)"
         ].joined(separator: "&")
 
