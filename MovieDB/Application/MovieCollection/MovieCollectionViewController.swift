@@ -6,33 +6,37 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class MovieCollectionViewController: View {
     // MARK: - Models
+    let queryText = BehaviorRelay<String>(value: "") // does not emit completed nor error
 
     // MARK: - subiews
-
     lazy var collectionView: UICollectionView = {
         let collectionViewLayout = layout(for: traitCollection)
         return .init(frame: view.bounds,
                      collectionViewLayout: collectionViewLayout)
     }()
 
-    // MARK: - data sources
+    // MARK: - subcontrollers
+    let searchController = UISearchController(searchResultsController: nil)
 
+    // MARK: - data sources
     let collectionViewDataSource: MovieCollectionViewDataSource = {
         return .init(
             cellConfigurator: MovieCollectionViewCellConfigurator()
         )
     }()
 
-    // MARK: - Constants
+    private let disposeBag = DisposeBag()
 
     // MARK: - ViewController life cycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupSearchController()
         setupConstraints()
         dataSource?.loadData()
     }
@@ -44,18 +48,17 @@ final class MovieCollectionViewController: View {
     }
 
     // MARK: - View override
-
     override func render(state: ViewStateProtocol) {
         guard let state = state as? MovieCollectionViewState else { return }
         collectionViewDataSource.data = state.data
     }
 
     // MARK: - private methods
-
     private func setupViews() {
         collectionViewDataSource.collectionView = collectionView
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.contentInsetAdjustmentBehavior = .always
         view.addSubview(collectionView)
     }
 
@@ -66,6 +69,28 @@ final class MovieCollectionViewController: View {
             collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+
+    private func setupSearchController() {
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Movies"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        setupSearchBarBindings()
+    }
+
+    private func setupSearchBarBindings() {
+        searchController.searchBar
+            .rx.text
+            .orEmpty
+            .asDriver().drive(queryText)
+            .disposed(by: disposeBag)
+
+        searchController.searchBar
+            .rx.cancelButtonClicked
+            .map { "" }
+            .bind(to: queryText)
+            .disposed(by: disposeBag)
     }
 
     private func layout(
@@ -86,13 +111,6 @@ final class MovieCollectionViewController: View {
 }
 
 extension MovieCollectionViewController {
-    static func makeNewView() -> MovieCollectionViewController {
-        let presenter = MovieCollectionPresenter()
-        // swiftlint:disable force_cast
-        return makeNewView(presenter: presenter) as! MovieCollectionViewController
-        // swiftlint:enable force_cast
-    }
-
     static func makeCompactFlowLayout() -> UICollectionViewLayout {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.estimatedItemSize = CGSize(width: 80, height: 135)

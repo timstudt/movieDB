@@ -11,11 +11,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var appRouter: AppRouter!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        window?.rootViewController = Router.show(type: .movieCollection)
-        window?.makeKeyAndVisible()
+        appRouter = AppRouter(window: window)
+        appRouter.show(scene: .movieCollection)
+
         return true
     }
 

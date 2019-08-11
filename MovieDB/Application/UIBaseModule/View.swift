@@ -12,6 +12,7 @@ class View: UIViewController, PresenterOutput {
     var dataSource: ViewDataSource?
 
     // MARK: - PresenterOutput
+
     func render(state: ViewStateProtocol) { }
 }
 

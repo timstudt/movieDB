@@ -34,6 +34,12 @@ final class MovieCollectionViewCell: UICollectionViewCell {
         stackView.frame = bounds
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = nil
+        imageView.image = nil
+    }
+
     // MARK: - setup
     private func setupViews() {
         setupBorder()

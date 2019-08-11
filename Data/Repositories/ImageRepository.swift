@@ -24,7 +24,7 @@ final class ImageRepository {
         if let _ = cache {
 //            cache.downloadImage(relativePath: path, completion: completion)
         } else if let networkService = networkService {
-            networkService.downloadImage(relativePath: path, completion: completion)
+            networkService.downloadImage(relativePath: path, completion: completion) // TODO: use RxSwift
         }
     }
 }

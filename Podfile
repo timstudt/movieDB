@@ -4,8 +4,8 @@ platform :ios, '12.0'
 def moviedb_pods
     # Pods for MovieDB
     pod 'Alamofire'
-    pod 'RxSwift',    '~> 5.0'
-    # pod 'SwiftLint'
+    pod 'RxSwift', '~> 5'
+    pod 'RxCocoa', '~> 5'
     # pod 'lottie-ios'
     # pod 'Firebase'
 end

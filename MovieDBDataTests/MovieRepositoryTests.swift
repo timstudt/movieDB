@@ -104,43 +104,41 @@ class MovieRepositoryTests: XCTestCase {
 
     func testNetworkService() {
         networkService = MovieServiceMock()
-        networkService.fetchCompletionClosure = { response in
+        networkService.searchQueryCompletionClosure = { (query, response) in
             let testDataSource = TestDataSource()
             response?((testDataSource.videos(), testDataSource.error()))
         }
         setupSUT()
 
-        XCTAssertFalse(networkService._fetchCompletion.called, "unexpected fetch call")
         XCTAssertFalse(networkService._fetchIdCompletion.called, "unexpected fetchID call")
         XCTAssertFalse(networkService._searchQueryCompletion.called, "unexpected search call")
 
-        XCTAssertNoThrow(try sut.getMovies().toBlocking().single(), "")
-        let result = try? sut.getMovies().toBlocking().single()
+        XCTAssertNoThrow(try sut.searchMovies().toBlocking().single(), "")
+        let result = try? sut.searchMovies(query: "test").toBlocking().single()
         XCTAssertNotNil(result, "invalid response")
         XCTAssertNotNil(result)
         //swiftlint:disable force_unwrapping
         XCTAssert(result! == TestDataSource().videos()!, "load data unexpected data returned")
-        XCTAssertTrue(networkService._fetchCompletion.called, "expected fetch call")
+        XCTAssertTrue(networkService._searchQueryCompletion.called, "expected fetch call")
     }
 
     func testCache() {
         cache = MovieServiceMock()
-        cache.fetchCompletionClosure = { response in
+        cache.searchQueryCompletionClosure = { (query, response) in
             let testDataSource = TestDataSource()
             response?((testDataSource.videos(), testDataSource.error()))
         }
         setupSUT()
 
-        XCTAssertFalse(cache._fetchCompletion.called, "unexpected fetch call")
         XCTAssertFalse(cache._fetchIdCompletion.called, "unexpected fetchID call")
         XCTAssertFalse(cache._searchQueryCompletion.called, "unexpected search call")
 
-        XCTAssertNoThrow(try sut.getMovies().toBlocking().single(), "")
-        let result = try? sut.getMovies().toBlocking().single()
+        XCTAssertNoThrow(try sut.searchMovies().toBlocking().single(), "")
+        let result = try? sut.searchMovies(query: "test").toBlocking().single()
         XCTAssertNotNil(result, "invalid response")
         //swiftlint:disable force_unwrapping
         XCTAssert(result == TestDataSource().videos()!, "load data unexpected data returned")
-        XCTAssertTrue(cache._fetchCompletion.called, "expected fetch call")
+        XCTAssertTrue(cache._searchQueryCompletion.called, "expected fetch call")
     }
 
     func testPerformanceExample() {

@@ -14,9 +14,6 @@ final class MovieServiceDataBaseMock: MovieService {
         let names: [Int] = Array(0..<7)
         return names.map { .init(id: 1, name: "movie\($0)", caption: "blabla", imagePath: nil)}
     }
-    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        completion?((mockData, nil))
-    }
 
     func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
         completion?((mockData.first, nil))
@@ -27,7 +24,7 @@ final class MovieServiceDataBaseMock: MovieService {
     }
 }
 
-final class MovieRepository {
+final class MovieRepository: MovieRepositoryProtocol {
     enum Errors: Error {
         case requestAfterDeinit
         case malformedResponse
@@ -49,35 +46,56 @@ final class MovieRepository {
 
     // MARK: - DataSource implementation
 
+    @available(*, deprecated, message: "use searchMovies:query")
     func getMovies() -> Single<[MovieModel]> {
         return Single<[MovieModel]>.create { [weak self] (single) -> Disposable in
+            let disposable = Disposables.create()
             guard let strongSelf = self else {
                 single(.error(Errors.requestAfterDeinit))
-                return Disposables.create()
+                return disposable
             }
 
-            strongSelf.fetchMovies(single)
-            return Disposables.create()
+            strongSelf.fetchMovies(
+                query: "Hello",
+                single: single
+            )
+            return disposable
         }
     }
 
-    private func fetchMovies(_ single: @escaping (SingleEvent<[MovieModel]>) -> Void) {
-        let dataSource: MovieService?
-        if let cache = cache {
-            dataSource = cache
-        } else if let networkService = networkService {
-            dataSource = networkService
-        } else {
-            assertionFailure("unexpectedly found no data source for \(#file)")
-            dataSource = nil
-        }
+    func searchMovies(
+        query: String? = nil
+    ) -> Single<[MovieModel]> {
+        return Single<[MovieModel]>.create { [weak self] (single) -> Disposable in
+            let disposable = Disposables.create()
+            guard let strongSelf = self else {
+                single(.error(Errors.requestAfterDeinit))
+                return disposable
+            }
 
-        dataSource?.fetch { [weak self] response in
-            self?.onDidFetchResponse(response, single: single)
+            strongSelf.fetchMovies(
+                query: query,
+                single: single
+            )
+            return disposable
         }
     }
 
-    private func onDidFetchResponse(_ response: DataProviderResponse<[MovieModel]>, single: (SingleEvent<[MovieModel]>) -> Void) {
+    private func fetchMovies(
+        query: String? = nil,
+        single: @escaping (SingleEvent<[MovieModel]>) -> Void
+    ) {
+        networkService?.search(
+            query: query
+        ) { [weak self] response in
+            self?.map(response, single: single)
+        }
+    }
+
+    private func map(
+        _ response: DataProviderResponse<[MovieModel]>,
+        single: (SingleEvent<[MovieModel]>
+    ) -> Void) {
         if let data = response.data {
             single(.success(data))
         } else if let error = response.error {

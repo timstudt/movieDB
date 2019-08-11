@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import RxSwift
 
 /**
  MovieNetworkService - implements the MovieService and makes the calls to the MovieDB API using the specified NetworkService
  */
 final class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient> {
+    enum Error: Swift.Error {
+        case invalidQuery, missingAPI
+    }
     let defaultSerializer: Serializable?
 
     init(defaultSerializer: Serializable?,
@@ -21,44 +25,39 @@ final class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient> {
     }
 
     // MARK: - mapping
-    private func mapped(movie: MovieDBNetwork.Movie) -> MovieModel {
-        let mapped = MovieModel(id: movie.id,
-                                name: movie.title,
-                                caption: movie.overview,
-                                imagePath: movie.posterPath)
-        return mapped
+
+    private func map(movie: MovieDBNetwork.Movie) -> MovieModel {
+        return .init(id: movie.id,
+                     name: movie.title,
+                     caption: movie.overview,
+                     imagePath: movie.posterPath)
     }
 }
 
 extension MovieNetworkService: MovieService {
-    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        search(query: "hello", completion: completion) // TODO
-    }
-
     // swiftlint:disable identifier_name
     func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
-        guard let request = api?.getMovie(id: id) else { completion?((nil, nil)); return }
+        guard let request = api?.getMovie(id: id) else { completion?((nil, Error.missingAPI)); return }
         networkProvider?.send(
             request: request,
             serializer: defaultSerializer) { (_: DataProviderResponse<[MovieDBNetwork.Movie]>) in
-            print("")
             completion?((nil, nil)) // TODO
         }
     }
     // swiftlint:enable identifier_name
 
     func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        guard let query = query,
-            let request = api?.searchMovie(query: query)
-            else { completion?((nil, nil)); return }
+        guard let query = query, !query.isEmpty else {
+            completion?((nil, Error.invalidQuery)); return
+        }
+        guard let request = api?.searchMovie(query: query) else {
+            completion?((nil, Error.missingAPI)); return }
 
-        networkProvider?
-            .send(
+        networkProvider?.send(
                 request: request,
                 serializer: defaultSerializer
             ) { (response: DataProviderResponse<[MovieDBNetwork.Movie]>) in
-                print("")
-                let outputData: [MovieModel]? = response.0?.map { self.mapped(movie: $0) }
+                let outputData: [MovieModel]? = response.0?.map { self.map(movie: $0) }
                 let error = response.1
                 completion?((outputData, error))
         }
