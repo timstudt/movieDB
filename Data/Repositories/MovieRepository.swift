@@ -85,7 +85,17 @@ final class MovieRepository: MovieRepositoryProtocol {
         query: String? = nil,
         single: @escaping (SingleEvent<[MovieModel]>) -> Void
     ) {
-        networkService?.search(
+        let dataSource: MovieService?
+        if let cache = cache {
+            dataSource = cache
+        } else if let networkService = networkService {
+            dataSource = networkService
+        } else {
+            assertionFailure("unexpectedly found no data source for \(#file)")
+            dataSource = nil
+        }
+
+        dataSource?.search(
             query: query
         ) { [weak self] response in
             self?.map(response, single: single)
