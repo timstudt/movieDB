@@ -95,6 +95,7 @@
 		6AEFB24622FF7A9F0035868E /* MovieRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEFB24522FF7A9F0035868E /* MovieRepositoryProtocol.swift */; };
 		6AEFB2482300A5C50035868E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEFB2472300A5C50035868E /* Coordinator.swift */; };
 		6AEFB24A2300A5F40035868E /* MovieCollectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEFB2492300A5F40035868E /* MovieCollectionCoordinator.swift */; };
+		6AEFB24B2301521B0035868E /* MovieRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEFB24522FF7A9F0035868E /* MovieRepositoryProtocol.swift */; };
 		6AF0E0E2206FC2DD00978877 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0E0E1206FC2DD00978877 /* ResponseModel.swift */; };
 		6AF0E0E4206FC33000978877 /* MovieNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0E0E3206FC33000978877 /* MovieNetworkModel.swift */; };
 		6AF4926B2078D8FD00332996 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF4926A2078D8FD00332996 /* NetworkLogger.swift */; };
@@ -931,6 +932,7 @@
 			files = (
 				6A4A2D8C20710CCE008BF540 /* MovieModel.swift in Sources */,
 				6A5CABD9207250A6007B53DC /* URLSessionConnector.swift in Sources */,
+				6AEFB24B2301521B0035868E /* MovieRepositoryProtocol.swift in Sources */,
 				2221063422DC72200081AD04 /* SearchEndpoint.swift in Sources */,
 				6A4A2D9020710D61008BF540 /* NetworkProvider.swift in Sources */,
 				6A4A2D8720710C93008BF540 /* DataService.swift in Sources */,
