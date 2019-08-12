@@ -141,13 +141,6 @@ class MovieRepositoryTests: XCTestCase {
         XCTAssertTrue(cache._searchQueryCompletion.called, "expected fetch call")
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
     private func setupSUT() {
         sut = MovieRepository(networkService: networkService,
                               dataBaseService: cache)

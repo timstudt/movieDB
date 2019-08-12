@@ -46,23 +46,6 @@ final class MovieRepository: MovieRepositoryProtocol {
 
     // MARK: - DataSource implementation
 
-    @available(*, deprecated, message: "use searchMovies:query")
-    func getMovies() -> Single<[MovieModel]> {
-        return Single<[MovieModel]>.create { [weak self] (single) -> Disposable in
-            let disposable = Disposables.create()
-            guard let strongSelf = self else {
-                single(.error(Errors.requestAfterDeinit))
-                return disposable
-            }
-
-            strongSelf.fetchMovies(
-                query: "Hello",
-                single: single
-            )
-            return disposable
-        }
-    }
-
     func searchMovies(
         query: String? = nil
     ) -> Single<[MovieModel]> {
