@@ -65,9 +65,9 @@ class MovieNetworkServiceTests: XCTestCase {
         networkService = SUT.makeNetworkService()
         XCTAssertNotNil(networkService.networkProvider, "")
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
-        networkService.fetch { (data, error) in
+        networkService.search(query: "h") { (data, error) in
             // Make sure we downloaded some data.
-            XCTAssertNotNil(data, "No data was downloaded. \(error)")
+            XCTAssertNotNil(data, "No data was downloaded. \(error!)")
 
             // Fulfill the expectation to indicate that the background task has finished successfully.
             expectation.fulfill()
@@ -83,9 +83,9 @@ class MovieNetworkServiceTests: XCTestCase {
         setupSUT()
         XCTAssertNotNil(networkService.networkProvider, "")
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
-        networkService.fetch { (data, error) in
+        networkService.search(query: "h") { (data, error) in
             // Make sure we downloaded some data.
-            XCTAssertNotNil(data, "No data was downloaded. \(error)")
+            XCTAssertNotNil(data, "No data was downloaded. \(error!)")
 
             // Fulfill the expectation to indicate that the background task has finished successfully.
             expectation.fulfill()

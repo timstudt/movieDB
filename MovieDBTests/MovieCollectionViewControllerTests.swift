@@ -30,7 +30,6 @@ class MovieCollectionViewControllerTests: XCTestCase {
     }
 
     func testFactory() {
-        let sut = SUT.makeNewView()
         XCTAssertTrue(sut.dataSource is MovieCollectionPresenter)
     }
 }

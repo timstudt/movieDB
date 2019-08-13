@@ -10,9 +10,9 @@ import Foundation
 class ViewState<T>: ViewStateProtocol {
     var isLoading: Bool
     var error: Error?
-    var data: [T]?
+    var data: T?
 
-    init(isLoading: Bool = false, error: Error? = nil, data: [T]? = nil) {
+    init(isLoading: Bool = false, error: Error? = nil, data: T? = nil) {
         self.isLoading = isLoading
         self.error = error
         self.data = data

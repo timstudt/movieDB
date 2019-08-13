@@ -39,7 +39,7 @@ def run_xcov()
     scheme: 'MovieDB',
     workspace: 'MovieDB.xcworkspace',
     include_targets: 'MovieDB.app',
-    minimum_coverage_percentage: 60.0,
+    minimum_coverage_percentage: 55.0,
     include_test_targets: false,
     ignore_file_path: '.xcovignore',
     output_directory: 'danger_output/xcov_output'

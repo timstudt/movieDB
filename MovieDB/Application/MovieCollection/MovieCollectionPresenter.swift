@@ -12,19 +12,48 @@ final class MovieCollectionPresenter: Presenter {
     typealias Response = Single<[MovieModel]>
 
     // MARK: - Module
-    private let loadMovies: GetMovies.usecase
+    private let searchMovies: SearchMovies.usecase
     private let disposeBag: DisposeBag
+    private let queryDebounceInterval: DispatchTimeInterval = .milliseconds(300)
 
     init(
-        loadMovies: @escaping GetMovies.usecase = GetMovies().execute,
+        getMovies: @escaping SearchMovies.usecase = SearchMovies().execute,
         disposeBag: DisposeBag = .init()) {
-        self.loadMovies = loadMovies
+        self.searchMovies = getMovies
         self.disposeBag = disposeBag
     }
 
     // MARK: - ViewDataSource
+
     override func loadData() {
-        loadMovies()
+        setup()
+        loadData(for: nil)
+    }
+
+    // MARK: - private methods
+
+    private func setup() {
+        queryBinding()
+    }
+
+    private func queryBinding() {
+        guard let movieCollectionViewController = userInterface as? MovieCollectionViewController else { return }
+        movieCollectionViewController
+            .queryText
+            .debounce(queryDebounceInterval,
+                      scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .bind(onNext: { [weak self] (query) in
+                self?.loadData(for: query)
+            })
+            .disposed(by: disposeBag)
+
+    }
+
+    private func loadData(for query: String?) {
+        // TODO: load popular movies when query = nil
+        searchMovies(query)
+            .observeOn(MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] (movies) in
                 let state = MovieCollectionViewState.hasLoaded(data: movies, error: nil)
                 self?.userInterface?.render(state: state)
@@ -33,6 +62,4 @@ final class MovieCollectionPresenter: Presenter {
                 self?.userInterface?.render(state: state)
             }).disposed(by: disposeBag)
     }
-
-    // MARK: - private methods
 }

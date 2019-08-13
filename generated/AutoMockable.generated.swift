@@ -59,24 +59,6 @@ class MovieServiceMock: MovieService {
 
     //MARK: - fetch
 
-    struct FetchCompletion {
-      var callsCount = 0
-      var called: Bool { return callsCount > 0 }
-      var receivedCompletion: ((DataProviderResponse<[MovieModel]>) -> Void)?
-    }
-
-    var fetchCompletionClosure: ((((DataProviderResponse<[MovieModel]>) -> Void)?) -> Void)?
-
-    var _fetchCompletion = FetchCompletion()
-
-    func fetch(completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        _fetchCompletion.callsCount += 1
-        _fetchCompletion.receivedCompletion = completion
-        fetchCompletionClosure?(completion)
-    }
-
-    //MARK: - fetch
-
     struct FetchIdCompletion {
       var callsCount = 0
       var called: Bool { return callsCount > 0 }
