@@ -31,8 +31,13 @@ extension MovieDBAPI {
 
     // MARK: - query items
 
-    func APIKeyQuery() -> URLQueryItem { return URLQueryItem(name: "api_key", value: APIKey) }
-    func queryQuery(_ value: String) -> URLQueryItem { return URLQueryItem(name: "query", value: value) }
+    func APIKeyQuery() -> URLQueryItem {
+        return URLQueryItem(name: "api_key", value: APIKey)
+    }
+    
+    func queryQuery(_ value: String) -> URLQueryItem {
+        return URLQueryItem(name: "query", value: value)
+    }
 
     // MARK: - requests
 

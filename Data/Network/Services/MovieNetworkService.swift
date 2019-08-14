@@ -8,7 +8,7 @@
 import Foundation
 
 /**
- MovieNetworkService - implements the MovieService and makes the calls to the MovieDB API using the specified NetworkService
+ MovieNetworkService - implements the MovieService and makes the calls to the MovieDB API using the specified NetworkProvider
  */
 final class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient> {
     enum Error: Swift.Error, CaseIterable, Equatable {

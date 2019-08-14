@@ -79,6 +79,7 @@ class MovieNetworkServiceTests: XCTestCase {
 
         wait(for: [expectation], timeout: 4.0)
     }
+    
     // MARK: - integration tests
     func testConnector() {
         networkService = SUT.makeNetworkService()
