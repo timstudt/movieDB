@@ -107,6 +107,38 @@ class MovieRepositoryTests: XCTestCase {
         networkService.searchQueryCompletionClosure = { (query, response) in
             let testDataSource = TestDataSource()
             response?((testDataSource.videos(), testDataSource.error()))
+            return NetworkTaskMock()
+        }
+        setupSUT()
+
+        XCTAssertFalse(networkService._fetchIdCompletion.called, "unexpected fetchID call")
+        XCTAssertFalse(networkService._searchQueryCompletion.called, "unexpected search call")
+
+        let expectation = self.expectation(description: "search movies")
+        var response: DataProviderResponse<[MovieModel]>!
+        let task = sut.searchMovies(query: "test") { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        XCTAssertNotNil(task, "task should not be nil")
+
+        waitForExpectations(timeout: 5)
+        XCTAssertNotNil(response.0, "invalid response")
+        XCTAssertNil(response.1)
+        //swiftlint:disable force_unwrapping
+        XCTAssert(response.0! == TestDataSource().videos()!, "load data unexpected data returned")
+        XCTAssertTrue(networkService._searchQueryCompletion.called, "expected fetch call")
+    }
+}
+
+extension MovieRepositoryTests {
+    func testNetworkServiceRx() {
+        networkService = MovieServiceMock()
+        networkService.searchQueryCompletionClosure = { (query, response) in
+            let testDataSource = TestDataSource()
+            response?((testDataSource.videos(), testDataSource.error()))
+            return NetworkTaskMock()
         }
         setupSUT()
 
@@ -122,11 +154,12 @@ class MovieRepositoryTests: XCTestCase {
         XCTAssertTrue(networkService._searchQueryCompletion.called, "expected fetch call")
     }
 
-    func testCache() {
+    func testCacheRx() {
         cache = MovieServiceMock()
         cache.searchQueryCompletionClosure = { (query, response) in
             let testDataSource = TestDataSource()
             response?((testDataSource.videos(), testDataSource.error()))
+            return NetworkTaskMock()
         }
         setupSUT()
 
@@ -145,4 +178,5 @@ class MovieRepositoryTests: XCTestCase {
         sut = MovieRepository(networkService: networkService,
                               dataBaseService: cache)
     }
+
 }

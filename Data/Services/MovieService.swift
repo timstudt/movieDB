@@ -11,5 +11,5 @@ import Foundation
 protocol MovieService {
     // swiftlint:disable identifier_name
     func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?)
-    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?)
+    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) -> NetworkTask?
 }

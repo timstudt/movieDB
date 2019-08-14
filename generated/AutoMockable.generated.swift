@@ -81,16 +81,17 @@ class MovieServiceMock: MovieService {
       var callsCount = 0
       var called: Bool { return callsCount > 0 }
       var receivedArguments: (query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?)?
+      var returnValue: NetworkTask?
     }
 
-    var searchQueryCompletionClosure: ((String?, ((DataProviderResponse<[MovieModel]>) -> Void)?) -> Void)?
+    var searchQueryCompletionClosure: ((String?, ((DataProviderResponse<[MovieModel]>) -> Void)?) -> NetworkTask?)?
 
     var _searchQueryCompletion = SearchQueryCompletion()
 
-    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) -> NetworkTask? {
         _searchQueryCompletion.callsCount += 1
         _searchQueryCompletion.receivedArguments = (query: query, completion: completion)
-        searchQueryCompletionClosure?(query, completion)
+        return searchQueryCompletionClosure.map({ $0(query, completion) }) ?? _searchQueryCompletion.returnValue
     }
 }
 // MARK: - NetworkTask
