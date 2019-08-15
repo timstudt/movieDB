@@ -11,4 +11,6 @@ import Foundation
 enum NetworkError: Error {
     case decodingFailed
     case missingSerializer
+    case invalidStatusCode(Int)
+    case unexpectedResponseType
 }

@@ -8,6 +8,9 @@
 
 import XCTest
 
+//swiftlint:disable file_length
+//swiftlint:disable file_types_order
+//swiftlint:disable force_unwrapping
 class MovieNetworkServiceTests: XCTestCase {
     typealias SUT = MovieNetworkService
 
@@ -60,18 +63,37 @@ class MovieNetworkServiceTests: XCTestCase {
 //        XCTAssertTrue(mockConnector.didCallSendData, "")
 //    }
 
+    func testInvalidQuery() {
+        networkService = SUT.makeNetworkService()
+
+        let expectation = XCTestExpectation(description: "invalid query")
+        let task = networkService.search(query: "") { (data, error) in
+            XCTAssertNil(data, "data should be nil. \(error!)")
+            XCTAssertEqual(error as? MovieNetworkService.Error, MovieNetworkService.Error.invalidQuery, "error should be .invalidQuery. got \(error!)")
+
+            // Fulfill the expectation to indicate that the background task has finished successfully.
+            expectation.fulfill()
+        }
+
+        XCTAssertNil(task, "task should be nil")
+
+        wait(for: [expectation], timeout: 4.0)
+    }
+    
     // MARK: - integration tests
     func testConnector() {
         networkService = SUT.makeNetworkService()
         XCTAssertNotNil(networkService.networkProvider, "")
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
-        networkService.search(query: "h") { (data, error) in
+        let task = networkService.search(query: "h") { (data, error) in
             // Make sure we downloaded some data.
             XCTAssertNotNil(data, "No data was downloaded. \(error!)")
 
             // Fulfill the expectation to indicate that the background task has finished successfully.
             expectation.fulfill()
         }
+
+        XCTAssertNotNil(task, "task should not be nil")
 
         wait(for: [expectation], timeout: 4.0)
     }
@@ -83,7 +105,7 @@ class MovieNetworkServiceTests: XCTestCase {
         setupSUT()
         XCTAssertNotNil(networkService.networkProvider, "")
         let expectation = XCTestExpectation(description: "Fetch movies using url session")
-        networkService.search(query: "h") { (data, error) in
+        let task = networkService.search(query: "h") { (data, error) in
             // Make sure we downloaded some data.
             XCTAssertNotNil(data, "No data was downloaded. \(error!)")
 
@@ -91,7 +113,10 @@ class MovieNetworkServiceTests: XCTestCase {
             expectation.fulfill()
         }
 
+        XCTAssertNotNil(task, "task should not be nil")
+
         wait(for: [expectation], timeout: 4.0)
+
     }
 
     func testPerformanceExample() {

@@ -6,23 +6,22 @@
 //
 
 import Foundation
-import RxSwift
 
 // TODO: delete mock
-final class MovieServiceDataBaseMock: MovieService {
-    private var mockData: [MovieModel] {
-        let names: [Int] = Array(0..<7)
-        return names.map { .init(id: 1, name: "movie\($0)", caption: "blabla", imagePath: nil)}
-    }
-
-    func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
-        completion?((mockData.first, nil))
-    }
-
-    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
-        completion?((mockData, nil))
-    }
-}
+//final class MovieServiceDataBaseMock: MovieService {
+//    private var mockData: [MovieModel] {
+//        let names: [Int] = Array(0..<7)
+//        return names.map { .init(id: 1, name: "movie\($0)", caption: "blabla", imagePath: nil)}
+//    }
+//
+//    func fetch(id: Int, completion: ((DataProviderResponse<MovieModel>) -> Void)?) {
+//        completion?((mockData.first, nil))
+//    }
+//
+//    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+//        completion?((mockData, nil))
+//    }
+//}
 
 final class MovieRepository: MovieRepositoryProtocol {
     enum Errors: Error {
@@ -47,27 +46,9 @@ final class MovieRepository: MovieRepositoryProtocol {
     // MARK: - DataSource implementation
 
     func searchMovies(
-        query: String? = nil
-    ) -> Single<[MovieModel]> {
-        return Single<[MovieModel]>.create { [weak self] (single) -> Disposable in
-            let disposable = Disposables.create()
-            guard let strongSelf = self else {
-                single(.error(Errors.requestAfterDeinit))
-                return disposable
-            }
-
-            strongSelf.fetchMovies(
-                query: query,
-                single: single
-            )
-            return disposable
-        }
-    }
-
-    private func fetchMovies(
         query: String? = nil,
-        single: @escaping (SingleEvent<[MovieModel]>) -> Void
-    ) {
+        completion: ((DataProviderResponse<[MovieModel]>) -> Void)?
+    ) -> NetworkTask? {
         let dataSource: MovieService?
         if let cache = cache {
             dataSource = cache
@@ -78,22 +59,10 @@ final class MovieRepository: MovieRepositoryProtocol {
             dataSource = nil
         }
 
-        dataSource?.search(
-            query: query
-        ) { [weak self] response in
-            self?.map(response, single: single)
-        }
-    }
-
-    private func map(
-        _ response: DataProviderResponse<[MovieModel]>,
-        single: (SingleEvent<[MovieModel]>
-    ) -> Void) {
-        if let data = response.data {
-            single(.success(data))
-        } else if let error = response.error {
-            single(.error(error))
-        }
+        return dataSource?.search(
+            query: query,
+            completion: completion
+        )
     }
 }
 

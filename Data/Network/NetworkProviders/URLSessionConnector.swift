@@ -10,8 +10,13 @@ import Foundation
 
 struct URLSessionConnector: NetworkProvider {
     var logger: NetworkLoggable?
+    
     private let session: URLSession = .shared
-
+    private var acceptableStatusCodes: [Int] {
+        return Array(200..<300)
+    }
+    
+    
     init(logger: NetworkLoggable? = NetworkLogger()) {
         self.logger = logger
     }
@@ -37,11 +42,17 @@ struct URLSessionConnector: NetworkProvider {
         let task = session
             .dataTask(with: request) { (data, response, error) in
                 self.logger?.log(response: response)
-                let result: DataProviderResponse<[T]> =
-                    self.mapped(data: data,
-                                error: error,
-                                serializer: serializer)
-                completion(result)
+                do {
+                    try self.validate(response: response)
+                    let result: DataProviderResponse<[T]> =
+                        self.mapped(data: data,
+                                    error: error,
+                                    serializer: serializer)
+                    completion(result)
+                } catch let validationError {
+                    completion((nil, validationError))
+                    return
+                }
             }
         task.resume()
         return task
@@ -65,6 +76,15 @@ struct URLSessionConnector: NetworkProvider {
             }
         }
         return DataProviderResponse(outputData, outputError)
+    }
+    
+    private func validate(response: URLResponse?) throws {
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw(NetworkError.unexpectedResponseType)
+        }
+        guard acceptableStatusCodes.contains(httpResponse.statusCode) else {
+            throw(NetworkError.invalidStatusCode(httpResponse.statusCode))
+        }
     }
 }
 

@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import RxSwift
 
 /**
- MovieNetworkService - implements the MovieService and makes the calls to the MovieDB API using the specified NetworkService
+ MovieNetworkService - implements the MovieService and makes the calls to the MovieDB API using the specified NetworkProvider
  */
 final class MovieNetworkService: NetworkService<MovieDBNetwork.APIClient> {
-    enum Error: Swift.Error {
+    enum Error: Swift.Error, CaseIterable, Equatable {
         case invalidQuery, missingAPI
     }
     let defaultSerializer: Serializable?
@@ -46,14 +45,21 @@ extension MovieNetworkService: MovieService {
     }
     // swiftlint:enable identifier_name
 
-    func search(query: String?, completion: ((DataProviderResponse<[MovieModel]>) -> Void)?) {
+    /// Search movies by query string
+    /// - Parameter query: String -  when nil or empty returns error
+    /// - Parameter completion: handler called with result of search request
+    /// - returns: a reference to the task
+    func search(
+        query: String?,
+        completion: ((DataProviderResponse<[MovieModel]>) -> Void)?
+    ) -> NetworkTask? {
         guard let query = query, !query.isEmpty else {
-            completion?((nil, Error.invalidQuery)); return
+            completion?((nil, Error.invalidQuery)); return nil
         }
         guard let request = api?.searchMovie(query: query) else {
-            completion?((nil, Error.missingAPI)); return }
+            completion?((nil, Error.missingAPI)); return nil }
 
-        networkProvider?.send(
+        return networkProvider?.send(
                 request: request,
                 serializer: defaultSerializer
             ) { (response: DataProviderResponse<[MovieDBNetwork.Movie]>) in
