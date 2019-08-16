@@ -13,6 +13,7 @@ install_bundler()
 {
   bundle install
   bundle
+  echo "$(<Gemfile.lock)" # test
 }
 
 # install Danger-swift
