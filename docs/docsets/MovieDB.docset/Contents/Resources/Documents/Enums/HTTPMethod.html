@@ -4,87 +4,116 @@
     <title>HTTPMethod Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
+
     <a name="//apple_ref/swift/Enum/HTTPMethod" class="dashAnchor"></a>
+
     <a title="HTTPMethod Enumeration Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">MovieDB Docs</a> (5% documented)</p>
-        <p class="header-right"><a href="https://github.com/timstudt/movieDB"><img src="../img/gh.png"/>View on GitHub</a></p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">MovieDB Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        HTTPMethod Enumeration Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          MovieDB 0.1.0 Docs
+        </a>
+         (2% documented)
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/timstudt/movieDB">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">MovieDB Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      HTTPMethod Enumeration Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/CollectionViewDataSource.html">CollectionViewDataSource</a>
+                <a class="nav-group-task-link" href="../Classes/CollectionViewDataSource.html">CollectionViewDataSource</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes.html#/s:7MovieDB14NetworkServiceC">NetworkService</a>
+                <a class="nav-group-task-link" href="../Classes.html#/s:7MovieDB14NetworkServiceC">NetworkService</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes.html#/s:7MovieDB17URLRequestBuilderC">URLRequestBuilder</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Enums.html">Enumerations</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+                <a class="nav-group-task-link" href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Result.html">Result</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Extensions.html">Extensions</a>
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/MovieModel.html">MovieModel</a>
+                <a class="nav-group-task-link" href="../Extensions/Observable.html">Observable</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Protocols.html">Protocols</a>
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/API.html">API</a>
+                <a class="nav-group-task-link" href="../Protocols/API.html">API</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/ReusableCell.html">ReusableCell</a>
+                <a class="nav-group-task-link" href="../Protocols/ReusableCell.html">ReusableCell</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/UICellConfigurable.html">UICellConfigurable</a>
+                <a class="nav-group-task-link" href="../Protocols/UICellConfigurable.html">UICellConfigurable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols.html#/s:7MovieDB32UICollectionViewCellConfigurableP">UICollectionViewCellConfigurable</a>
+                <a class="nav-group-task-link" href="../Protocols.html#/s:7MovieDB32UICollectionViewCellConfigurableP">UICollectionViewCellConfigurable</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Typealiases.html">Type Aliases</a>
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:7MovieDB20DataProviderResponsea">DataProviderResponse</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:7MovieDB20DataProviderResponsea">DataProviderResponse</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             <h1>HTTPMethod</h1>
               <div class="declaration">
                 <div class="language">
@@ -94,16 +123,19 @@
               </div>
             <p>Undocumented</p>
 
-          </section>
-          <section class="section task-group-section">
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
             <div class="task-group">
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB10HTTPMethodO3getA2CmF"></a>
+                    <a name="/s:7MovieDB10HTTPMethodO3getyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/get" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB10HTTPMethodO3getA2CmF">get</a>
+                    <a class="token" href="#/s:7MovieDB10HTTPMethodO3getyA2CmF">get</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -128,9 +160,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB10HTTPMethodO4postA2CmF"></a>
+                    <a name="/s:7MovieDB10HTTPMethodO4postyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/post" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB10HTTPMethodO4postA2CmF">post</a>
+                    <a class="token" href="#/s:7MovieDB10HTTPMethodO4postyA2CmF">post</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -155,9 +187,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB10HTTPMethodO3putA2CmF"></a>
+                    <a name="/s:7MovieDB10HTTPMethodO3putyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/put" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB10HTTPMethodO3putA2CmF">put</a>
+                    <a class="token" href="#/s:7MovieDB10HTTPMethodO3putyA2CmF">put</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -182,9 +214,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB10HTTPMethodO5patchA2CmF"></a>
+                    <a name="/s:7MovieDB10HTTPMethodO5patchyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/patch" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB10HTTPMethodO5patchA2CmF">patch</a>
+                    <a class="token" href="#/s:7MovieDB10HTTPMethodO5patchyA2CmF">patch</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -209,9 +241,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB10HTTPMethodO6deleteA2CmF"></a>
+                    <a name="/s:7MovieDB10HTTPMethodO6deleteyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/delete" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB10HTTPMethodO6deleteA2CmF">delete</a>
+                    <a class="token" href="#/s:7MovieDB10HTTPMethodO6deleteyA2CmF">delete</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -235,14 +267,15 @@
                 </li>
               </ul>
             </div>
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>Copyright © 2018 Tim Studt. All rights reserved.</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
       </article>
     </div>
+    <section class="footer">
+      <p>Copyright © 2018 Tim Studt. All rights reserved.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>

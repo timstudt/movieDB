@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>API Protocol Reference</title>
+    <title>Result Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Protocol/API" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Enum/Result" class="dashAnchor"></a>
 
-    <a title="API Protocol Reference"></a>
+    <a title="Result Enumeration Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">MovieDB Reference</a>
       <img class="carat" src="../img/carat.png" />
-      API Protocol Reference
+      Result Enumeration Reference
     </p>
 
     <div class="content-wrapper">
@@ -114,10 +114,10 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>API</h1>
+            <h1>Result</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">API</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
 
                 </div>
               </div>
@@ -133,13 +133,10 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB3APIP6APIKeySSvp"></a>
-                    <a name="//apple_ref/swift/Property/APIKey" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB3APIP6APIKeySSvp">APIKey</a>
+                    <a name="/s:7MovieDB6ResultO7successyACyxGxcAEmlF"></a>
+                    <a name="//apple_ref/swift/Element/success(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultO7successyACyxGxcAEmlF">success(_:)</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -149,16 +146,11 @@
                         <p>Undocumented</p>
 
                       </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        <p>Undocumented</p>
-
-                      </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">APIKey</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">success</span><span class="p">(</span><span class="kt">T</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -168,9 +160,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB3APIP7baseURL10Foundation0E0Vvp"></a>
-                    <a name="//apple_ref/swift/Property/baseURL" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB3APIP7baseURL10Foundation0E0Vvp">baseURL</a>
+                    <a name="/s:7MovieDB6ResultO7failureyACyxGs5Error_pcAEmlF"></a>
+                    <a name="//apple_ref/swift/Element/failure(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultO7failureyACyxGs5Error_pcAEmlF">failure(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -185,7 +177,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">URL</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">failure</span><span class="p">(</span><span class="kt">Error</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -195,13 +187,10 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB3APIP11cachePolicySo017NSURLRequestCacheE0Vvp"></a>
-                    <a name="//apple_ref/swift/Property/cachePolicy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB3APIP11cachePolicySo017NSURLRequestCacheE0Vvp">cachePolicy</a>
+                    <a name="/s:7MovieDB6ResultOyACyxGxcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultOyACyxGxcfc">init(_:)</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -211,16 +200,11 @@
                         <p>Undocumented</p>
 
                       </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        <p>Undocumented</p>
-
-                      </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cachePolicy</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="o">.</span><span class="kt">CachePolicy</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -230,13 +214,10 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB3APIP15timeoutIntervalSdvp"></a>
-                    <a name="//apple_ref/swift/Property/timeoutInterval" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB3APIP15timeoutIntervalSdvp">timeoutInterval</a>
+                    <a name="/s:7MovieDB6ResultOyACyxGs5Error_pcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultOyACyxGs5Error_pcfc">init(_:)</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -246,16 +227,11 @@
                         <p>Undocumented</p>
 
                       </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        <p>Undocumented</p>
-
-                      </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -265,13 +241,10 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB3APIP19allHTTPHeaderFieldsSDyS2SGvp"></a>
-                    <a name="//apple_ref/swift/Property/allHTTPHeaderFields" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB3APIP19allHTTPHeaderFieldsSDyS2SGvp">allHTTPHeaderFields</a>
+                    <a name="/s:7MovieDB6ResultO6failedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/failed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultO6failedSbvp">failed</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -281,16 +254,11 @@
                         <p>Undocumented</p>
 
                       </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        <p>Undocumented</p>
-
-                      </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">allHTTPHeaderFields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">failed</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -300,13 +268,10 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7MovieDB3APIP12buildRequest3url10httpMethod10Foundation10URLRequestVAG3URLV_AA10HTTPMethodOtF"></a>
-                    <a name="//apple_ref/swift/Method/buildRequest(url:httpMethod:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7MovieDB3APIP12buildRequest3url10httpMethod10Foundation10URLRequestVAG3URLV_AA10HTTPMethodOtF">buildRequest(url:httpMethod:)</a>
+                    <a name="/s:7MovieDB6ResultO8succededSbvp"></a>
+                    <a name="//apple_ref/swift/Property/succeded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultO8succededSbvp">succeded</a>
                     </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -316,8 +281,30 @@
                         <p>Undocumented</p>
 
                       </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">succeded</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7MovieDB6ResultO5errors5Error_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/error" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultO5errors5Error_pSgvp">error</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
                         <p>Undocumented</p>
 
                       </div>
@@ -325,7 +312,88 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">buildRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">httpMethod</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7MovieDB6ResultO5valuexSgvp"></a>
+                    <a name="//apple_ref/swift/Property/value" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultO5valuexSgvp">value</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7MovieDB6ResultO3mapyACyqd__Gqd__xXElF"></a>
+                    <a name="//apple_ref/swift/Method/map(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultO3mapyACyqd__Gqd__xXElF">map(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">map</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">transform</span><span class="p">:</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">U</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7MovieDB6ResultO4bindyACyqd__GAExXElF"></a>
+                    <a name="//apple_ref/swift/Method/bind(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7MovieDB6ResultO4bindyACyqd__GAExXElF">bind(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">fun</span><span class="p">:</span> <span class="p">(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
