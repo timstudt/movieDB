@@ -8,10 +8,6 @@
 
 run `install.sh` to setup build environment and open `MovieDB.xcworkspace` with Xcode11.x
 
-## Documentation
-
-Full documentation for the latest release is available [here](https://cdn.rawgit.com/timstudt/movieDB/master/docs/index.html).
-
 ## 3rd Party Libs
 - **Github Apps**
   - **CodeCov** - measures code coverage for unit tests
