@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'travis'
-#gem 'jazzy'
+gem 'jazzy', '0.10.0' #using Fastlane
 gem "fastlane"
 
 gem "cocoapods"

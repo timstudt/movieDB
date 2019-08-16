@@ -4,6 +4,10 @@
 [![docs](https://cdn.rawgit.com/timstudt/movieDB/master/docs/badge.svg)](https://cdn.rawgit.com/timstudt/movieDB/master/docs/index.html)
 [![codebeat badge](https://codebeat.co/badges/563bdbae-0ac9-47ee-9ca6-4affd9062d39)](https://codebeat.co/projects/github-com-timstudt-moviedb-master)
 
+## Installation
+
+run `install.sh` to setup build environment and open `MovieDB.xcworkspace` with Xcode11.x
+
 ## Documentation
 
 Full documentation for the latest release is available [here](https://cdn.rawgit.com/timstudt/movieDB/master/docs/index.html).

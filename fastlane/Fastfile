@@ -68,6 +68,10 @@ platform :ios do
   #   sh "xcodebuild -scheme MovieDBDataTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4' test | xcpretty;"
   # end
 
+  lane :generate_docs do
+    jazzy(config: ".jazzy.yaml")
+  end
+
   # error do |lane, exception|
   #    slack(
   #      message: exception.message,
