@@ -1,5 +1,6 @@
 language: objective-c
 cache:
+- brew
 - bundler
 - cocoapods
 osx_image: xcode10.2
@@ -18,14 +19,18 @@ after_success:
 - bundle exec fastlane generate_docs
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: $DANGER_GITHUB_API_TOKEN  # Set in the settings page of your repository, as a secure variable
-  local-dir: docs
+  # target_branch: "master" #default to gh-pages
+  verbose: true
+  skip_cleanup: true
+  keep_history: true
+  github_token: $DANGER_GITHUB_API_TOKEN  # Set in the settings page of your repository, as a secure variable
+  local_dir: docs
   on:
-    branch: master
+    branch: master_orig
 branches:
   only:
   - master
+  - master_orig
   - develop
 env:
   global:
