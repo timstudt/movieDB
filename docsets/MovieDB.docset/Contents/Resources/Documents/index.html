@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MovieDB  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="MovieDB  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          MovieDB 0.1.0 Docs
+        </a>
+         (2% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/timstudt/movieDB">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">MovieDB Reference</a>
+      <img class="carat" src="img/carat.png" />
+      MovieDB  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CollectionViewDataSource.html">CollectionViewDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes.html#/s:7MovieDB14NetworkServiceC">NetworkService</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes.html#/s:7MovieDB17URLRequestBuilderC">URLRequestBuilder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/Result.html">Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Observable.html">Observable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/API.html">API</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ReusableCell.html">ReusableCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/UICellConfigurable.html">UICellConfigurable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols.html#/s:7MovieDB32UICollectionViewCellConfigurableP">UICollectionViewCellConfigurable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/s:7MovieDB20DataProviderResponsea">DataProviderResponse</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='moviedb' class='heading'>movieDB</h1>
+
+<p><a href="https://travis-ci.org/timstudt/movieDB"><img src="https://travis-ci.org/timstudt/movieDB.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/gh/timstudt/movieDB/branch/master"><img src="https://codecov.io/gh/timstudt/movieDB/branch/master/graphs/badge.svg" alt="codecov.io"></a>
+<a href="https://cdn.rawgit.com/timstudt/movieDB/master/docs/index.html"><img src="https://cdn.rawgit.com/timstudt/movieDB/master/docs/badge.svg" alt="docs"></a>
+<a href="https://codebeat.co/projects/github-com-timstudt-moviedb-master"><img src="https://codebeat.co/badges/563bdbae-0ac9-47ee-9ca6-4affd9062d39" alt="codebeat badge"></a></p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>run <code>install.sh</code> to setup build environment and open <code>MovieDB.xcworkspace</code> with Xcode11.x</p>
+<h2 id='3rd-party-libs' class='heading'>3rd Party Libs</h2>
+
+<ul>
+<li><p><strong>Github Apps</strong></p>
+
+<ul>
+<li><strong>CodeCov</strong> - measures code coverage for unit tests</li>
+<li><strong>Travis CI</strong> - CI for iOS projects on Github</li>
+<li><strong>CodeBeat</strong> - code quality check</li>
+</ul></li>
+<li><p><strong>Bundler</strong> -</p>
+
+<ul>
+<li><em>Gemfile</em></li>
+<li>installed Gems:</li>
+<li><strong>Travis</strong> - CLI to run locally and access Travis-CI
+
+<ul>
+<li><em>.travis.yml</em></li>
+</ul></li>
+<li><strong>Jazzy</strong> (Realm) - autogenerates docs - <a href="https://github.com/realm/jazzy">see Repo</a>
+
+<ul>
+<li><em>.jazzy.yaml</em></li>
+<li>docs/*</li>
+</ul></li>
+<li><strong>Fastlane</strong> - CLI build/test/screenshots/deliver tool
+
+<ul>
+<li><em>fastlane/Fastfile</em></li>
+<li>screenshots/*</li>
+</ul></li>
+<li><strong>xcode-install</strong> - CLI for Xcode tools</li>
+<li><strong>xcpretty</strong> - pretty/readable console print out for xcode output</li>
+<li>~<strong>xctool</strong> - FB tool to run all test targets~</li>
+<li><strong>Danger</strong> - automatic evaluation of Pull Requests  <a href="https://github.com/danger/danger">Danger</a></li>
+<li><strong>Cocoapods</strong> - dependency management
+
+<ul>
+<li><em>Podfile</em></li>
+<li>Pods/*</li>
+</ul></li>
+<li><em>Podfile</em></li>
+<li>installed Pods:</li>
+<li><strong>Alamofire</strong> - network layer for Swift projects</li>
+<li><strong>Cocoapods-Keys</strong> - saver way to handle API keys, private keys in xcode projects</li>
+<li><strong>RxSwift</strong> - Reactive programming in Swift</li>
+<li><strong>Sourcery</strong> - autogenerates boiler plate code (mocks, equatable, constructors)
+
+<ul>
+<li><em>.sourcery.yml</em></li>
+</ul></li>
+<li><strong>SwiftLint</strong> -  a tool to enforce Swift style and conventions - <a href="https://github.com/realm/SwiftLint">see Repo</a>
+
+<ul>
+<li><em>.swiftlint.yml</em></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p><strong><em>To Add</em></strong></p>
+
+<ul>
+<li><strong><em>Lottie</em></strong></li>
+<li><strong><em>Firebase</em></strong> - Google dev suite for tracking, notifications, crash reports&hellip;
+(- <strong><em>Taplytics</em></strong> - A/B-Testing)</li>
+<li><strong><em>Quick &amp; Nimble</em></strong> - lib for unit tests</li>
+</ul>
+<h2 id='screenshots' class='heading'>Screenshots</h2>
+
+<p>generated screenshot for iPhone X; see <em>fastlane screenshots</em> lane</p>
+
+<p><img src="screenshots/en-US/iPhone%20X-0Launch.png" alt="screen"></p>
+<h2 id='related-articles-about-ios-app-architecture' class='heading'>related articles about iOS App Architecture</h2>
+
+<ul>
+<li><a href="https://agostini.tech/2017/03/27/using-dependency-injection/">agostini: Data Layer example iOS</a></li>
+<li><a href="https://hackernoon.com/introducing-clean-swift-architecture-vip-770a639ad7bf">Dejan Atanasov: Clean architecture in Swift</a></li>
+<li><a href="https://jobandtalent.engineering/ios-architecture-an-state-container-based-approach-4f1a9b00b82e">jobandtalent: View States in Swift</a></li>
+</ul>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>Copyright © 2018 Tim Studt. All rights reserved.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
