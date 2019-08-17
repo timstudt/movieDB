@@ -26,11 +26,11 @@ deploy:
   github_token: $DANGER_GITHUB_API_TOKEN  # Set in the settings page of your repository, as a secure variable
   local_dir: docs
   on:
-    branch: master_orig
+    branch: orig_master
 branches:
   only:
   - master
-  - master_orig
+  - orig_master
   - develop
 env:
   global:
