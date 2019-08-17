@@ -88,7 +88,6 @@ install_bundler()
 {
   echo "*** installing Gems with Bundler..."
   bundle install
-  bundle
 }
 
 # install Danger-swift
