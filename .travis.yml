@@ -19,18 +19,17 @@ after_success:
 - bundle exec fastlane generate_docs
 deploy:
   provider: pages
-  # target_branch: "master" #default to gh-pages
+  target_branch: "gh-pages"
   verbose: true
   skip_cleanup: true
-  keep_history: true
+  keep_history: false # NOTE: set true when not using gh-pages as target
   github_token: $DANGER_GITHUB_API_TOKEN  # Set in the settings page of your repository, as a secure variable
   local_dir: docs
   on:
-    branch: orig_master
+    branch: master
 branches:
   only:
   - master
-  - orig_master
   - develop
 env:
   global:
