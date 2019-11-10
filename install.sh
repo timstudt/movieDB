@@ -1,12 +1,15 @@
 #!/bin/sh
 
-RUBY_VERSION=2.4.5
+RUBY_VERSION=2.4.5 #$RBENV_VERSION
 MIN_GEM_VERSION=2.5.0
 BUNDLER_VERSION=2.0.2
+# RUBY_PATH=~/.gem/ruby/2.4.0/bin
+
+set -eo pipefail
 
 current_ruby_version()
 {
-  echo "`rbenv version | sed 's/[[:alpha:]|(|[:space:]]//g'`"
+  echo "`rbenv version | sed 's/[^0-9.]*\([0-9.]*\).*/\1/'`"
 }
 
 current_bundler_version()
@@ -20,10 +23,13 @@ install_brew()
   echo "*** current homebrew: $HOMEBREW_VERSION"
   if [[ -z $HOMEBREW_VERSION ]]; then
     echo "*** installing homebrew..."
-    : | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    : | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    chown -R $(whoami) /usr/local/Homebrew
   else
     echo "   --> all good"
+    brew update || brew update
   fi
+  # brew doctor
 }
 
 install_custom_ruby()
@@ -34,22 +40,22 @@ install_custom_ruby()
   if [[ -z $RBENV_VERSION ]]; then
     echo "*** installing rbenv..."
     brew install rbenv
+    echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+    source ~/.bash_profile
   else
     echo "   --> all good"
+    brew outdated rbenv || brew upgrade rbenv
   fi
-
-  eval "$(rbenv init -)"
-
 
   VERSION=$( current_ruby_version )
   echo "*** current ruby version: $VERSION"
 
-  if [[ -z $VERSION ]]; then
+  if [[ $VERSION != $RUBY_VERSION ]]; then
     echo "*** installing ruby verions: $RUBY_VERSION"
-    rbenv install $RUBY_VERSION
+    rbenv install $RUBY_VERSION # installs ruby-build as dependency
     rbenv rehash #updates the shim for the bundle binary
     rbenv local $RUBY_VERSION #use version in current path
-    export PATH="~/.rbenv/versions/$RUBY_VERSION/bin:$PATH"
+    # export PATH="~/.rbenv/versions/$RUBY_VERSION/bin:$PATH"
   else
     echo "   --> all good"
   fi
@@ -77,7 +83,8 @@ install_gems()
   echo "*** current Bundler version: $CURRENT_BUNDLER_VERSION"
   if [[ $CURRENT_BUNDLER_VERSION < $BUNDLER_VERSION ]]; then
     echo "*** installing Bundler..."
-    gem install bundler $BUNDLER_VERSION
+    gem install bundler $BUNDLER_VERSION #--user-install #NOTE: when not using rbenv
+    # export PATH="$RUBY_PATH:$PATH"
   else
     echo "   --> all good"
   fi
