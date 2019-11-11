@@ -3,6 +3,7 @@
 RUBY_VERSION=2.4.5 #$RBENV_VERSION
 MIN_GEM_VERSION=2.5.0
 BUNDLER_VERSION=2.0.2
+XCODE_SELECT_VERSION=2370
 # RUBY_PATH=~/.gem/ruby/2.4.0/bin
 
 set -eo pipefail
@@ -15,6 +16,11 @@ current_ruby_version()
 current_bundler_version()
 {
   echo "`bundle -v | sed 's/[[:alpha:]|(|[:space:]]//g'`"
+}
+
+current_xcode_version()
+{
+  echo "`xcode-select -v | sed 's/[^0-9]*//g'`"
 }
 
 install_brew()
@@ -90,6 +96,18 @@ install_gems()
   fi
 }
 
+# install xocde cli
+install_xcode_select()
+{
+  CURRENT_XCODE_VERSION=$( current_xcode_version )
+  echo "*** current Xcode cli version: $CURRENT_XCODE_VERSION"
+  if [[ $CURRENT_XCODE_VERSION != $XCODE_SELECT_VERSION ]]; then
+    echo "*** installing xcode-select"
+    `xcode-select --install`
+  else
+    echo "   --> all good"
+  fi
+}
 # install Bundler - see Gemfile
 install_bundler()
 {
@@ -122,6 +140,7 @@ install_pods()
 set -o pipefail
 echo "*** installing build environment..."
 install_brew
+install_xcode_select
 install_custom_ruby
 install_gems
 install_bundler
