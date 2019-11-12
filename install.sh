@@ -101,7 +101,7 @@ install_xcode_select()
 {
   CURRENT_XCODE_VERSION=$( current_xcode_version )
   echo "*** current Xcode cli version: $CURRENT_XCODE_VERSION"
-  if [[ $CURRENT_XCODE_VERSION != $XCODE_SELECT_VERSION ]]; then
+  if [[ $CURRENT_XCODE_VERSION -z ]]; then
     echo "*** installing xcode-select"
     `xcode-select --install || true`
   else
