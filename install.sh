@@ -25,7 +25,7 @@ current_xcode_version()
 
 install_brew()
 {
-  HOMEBREW_VERSION=`brew -v`
+  HOMEBREW_VERSION=`brew -v || true`
   echo "*** current homebrew: $HOMEBREW_VERSION"
   if [[ -z $HOMEBREW_VERSION ]]; then
     echo "*** installing homebrew..."
@@ -40,7 +40,7 @@ install_brew()
 
 install_custom_ruby()
 {
-  RBENV_VERSION=`rbenv -v`
+  RBENV_VERSION=`rbenv -v || true`
   echo "*** current ruby env version: $RBENV_VERSION"
 
   if [[ -z $RBENV_VERSION ]]; then
