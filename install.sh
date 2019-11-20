@@ -58,10 +58,8 @@ install_custom_ruby()
 
   if [[ $VERSION != $RUBY_VERSION ]]; then
     echo "*** installing ruby verions: $RUBY_VERSION"
-    rbenv install $RUBY_VERSION # installs ruby-build as dependency
+    rbenv install # installs version from .ruby-version; + ruby-build as dependency
     rbenv rehash #updates the shim for the bundle binary
-    rbenv local $RUBY_VERSION #use version in current path
-    # export PATH="~/.rbenv/versions/$RUBY_VERSION/bin:$PATH"
   else
     echo "   --> all good"
   fi
@@ -75,6 +73,7 @@ install_gems()
 
   echo "*** ruby version: $CURRENT_RUBY_VERSION"
   echo "*** gem version: $CURRENT_GEM_VERSION"
+  echo "*** gem install path: `gem env home`"
 
   if [[ $CURRENT_GEM_VERSION < $MIN_GEM_VERSION ]]
   then
@@ -89,8 +88,7 @@ install_gems()
   echo "*** current Bundler version: $CURRENT_BUNDLER_VERSION"
   if [[ $CURRENT_BUNDLER_VERSION < $BUNDLER_VERSION ]]; then
     echo "*** installing Bundler..."
-    gem install bundler $BUNDLER_VERSION #--user-install #NOTE: when not using rbenv
-    # export PATH="$RUBY_PATH:$PATH"
+    gem install bundler $BUNDLER_VERSION || true
   else
     echo "   --> all good"
   fi
@@ -101,7 +99,7 @@ install_xcode_select()
 {
   CURRENT_XCODE_VERSION=$( current_xcode_version )
   echo "*** current Xcode cli version: $CURRENT_XCODE_VERSION"
-  if [[ $CURRENT_XCODE_VERSION -z ]]; then
+  if [[ -z $CURRENT_XCODE_VERSION ]]; then
     echo "*** installing xcode-select"
     `xcode-select --install || true`
   else
