@@ -6,7 +6,7 @@
 
 scheme("MovieDB")
 
-devices(["iPhone X"])
+devices(["iPhone 8"])
 
 # skip_detect_devices(true)
 

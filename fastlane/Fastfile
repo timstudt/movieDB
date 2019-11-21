@@ -60,7 +60,10 @@ platform :ios do
 
   # desc "Runs all the tests"
   lane :all_tests do
-    scan()
+    scan(
+      code_coverage: true,
+      thread_sanitizer: true
+    )
   end
   # desc "Run Unit Tests"
   # lane :utests do |options|
