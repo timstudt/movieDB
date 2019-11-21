@@ -75,6 +75,13 @@ install_gems()
   echo "*** gem version: $CURRENT_GEM_VERSION"
   echo "*** gem install path: `gem env home`"
 
+  if [[ $CURRENT_RUBY_VERSION < $RUBY_VERSION ]]
+  then
+    install_custom_ruby
+  else
+    echo "   --> all good"
+  fi
+
   if [[ $CURRENT_GEM_VERSION < $MIN_GEM_VERSION ]]
   then
     echo "*** upgrading ruby gems..."
@@ -139,7 +146,6 @@ set -o pipefail
 echo "*** installing build environment..."
 install_brew
 install_xcode_select
-install_custom_ruby
 install_gems
 install_bundler
 # install_packages
