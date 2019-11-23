@@ -13,6 +13,11 @@ current_ruby_version()
   echo "`rbenv version | sed 's/[^0-9.]*\([0-9.]*\).*/\1/'`"
 }
 
+ruby_version_exists()
+{
+  current_ruby_version | grep $RUBY_VERSION
+}
+
 current_bundler_version()
 {
   echo "`bundle -v | sed 's/[[:alpha:]|(|[:space:]]//g'`"
@@ -58,7 +63,8 @@ install_custom_ruby()
 
   if [[ $VERSION != $RUBY_VERSION ]]; then
     echo "*** installing ruby verions: $RUBY_VERSION"
-    rbenv install # installs version from .ruby-version; + ruby-build as dependency
+    rbenv install -s # installs version from .ruby-version; + ruby-build as dependency
+    rbenv local $RUBY_VERSION
     rbenv rehash #updates the shim for the bundle binary
   else
     echo "   --> all good"
@@ -74,13 +80,6 @@ install_gems()
   echo "*** ruby version: $CURRENT_RUBY_VERSION"
   echo "*** gem version: $CURRENT_GEM_VERSION"
   echo "*** gem install path: `gem env home`"
-
-  if [[ $CURRENT_RUBY_VERSION < $RUBY_VERSION ]]
-  then
-    install_custom_ruby
-  else
-    echo "   --> all good"
-  fi
 
   if [[ $CURRENT_GEM_VERSION < $MIN_GEM_VERSION ]]
   then
@@ -146,6 +145,7 @@ set -o pipefail
 echo "*** installing build environment..."
 install_brew
 install_xcode_select
+install_custom_ruby
 install_gems
 install_bundler
 # install_packages
