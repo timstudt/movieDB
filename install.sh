@@ -117,6 +117,7 @@ install_bundler()
 {
   echo "*** installing Gems with Bundler..."
   bundle install
+  # rbenv rehash
 }
 
 # install Danger-swift

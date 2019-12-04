@@ -31,6 +31,11 @@ Builds and archives MovieDB, set clean:false for incremental build
 fastlane ios all_tests
 ```
 
+### ios outdated
+```
+fastlane ios outdated
+```
+
 ### ios generate_docs
 ```
 fastlane ios generate_docs

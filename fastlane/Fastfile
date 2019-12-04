@@ -65,6 +65,11 @@ platform :ios do
       thread_sanitizer: true
     )
   end
+
+  lane :outdated do
+    `bundle outdated`
+    `bundle exec pod outdated`
+  end
   # desc "Run Unit Tests"
   # lane :utests do |options|
   #   sh "xcodebuild -scheme MovieDBTests -workspace MovieDB.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.4' test | xcpretty;"
