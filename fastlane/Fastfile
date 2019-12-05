@@ -66,6 +66,13 @@ platform :ios do
     )
   end
 
+  lane :review_pr do
+    danger(
+      github_api_token: ENV["DANGER_GITHUB_API_TOKEN"],
+      verbose: true
+    )
+  end
+
   lane :outdated do
     `bundle outdated`
     `bundle exec pod outdated`
