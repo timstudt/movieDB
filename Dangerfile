@@ -16,8 +16,8 @@ warn("Big PR") if git.lines_of_code > 500
 def run_lint()
   swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
   swiftlint.verbose = true
-  swiftlint.lint_all_files = true
   swiftlint.lint_files
+  # swiftlint.lint_all_files = true
 end
 
 # Xcode summary
@@ -30,7 +30,7 @@ def run_xcode_summary()
   }
   # Comment on each lines
   # xcode_summary.inline_mode = true
-  xcode_summary.report 'build/reports/errors.json'
+  xcode_summary.report 'build/reports/xcode_errors.json'
 end
 
 # Test Coverage report
@@ -42,7 +42,7 @@ def run_xcov()
     minimum_coverage_percentage: 55.0,
     include_test_targets: false,
     ignore_file_path: '.xcovignore',
-    output_directory: 'danger_output/xcov_output'
+    output_directory: 'build/reports/xcov_output'
   )
 end
 

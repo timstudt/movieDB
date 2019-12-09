@@ -62,7 +62,9 @@ platform :ios do
   lane :all_tests do
     scan(
       code_coverage: true,
-      thread_sanitizer: true
+      thread_sanitizer: true,
+      output_directory: ENV["REPORT_PATH"],
+      xcargs: "-showBuildTimingSummary"
     )
   end
 
