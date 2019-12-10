@@ -12,12 +12,12 @@ warn("Big PR") if git.lines_of_code > 500
 # fail("fdescribe left in tests") if `grep -r fdescribe specs/ `.length > 1
 # fail("fit left in tests") if `grep -r fit specs/ `.length > 1
 
-# Run SwiftLint
+# Run SwiftLint on diff
 def run_lint()
   swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
   swiftlint.verbose = true
+  swiftlint.lint_all_files = false
   swiftlint.lint_files
-  # swiftlint.lint_all_files = true
 end
 
 # Xcode summary
@@ -35,15 +35,18 @@ end
 
 # Test Coverage report
 def run_xcov()
-  xcov.report(
+  report = xcov.produce_report(
     scheme: 'MovieDB',
     workspace: 'MovieDB.xcworkspace',
-    include_targets: 'MovieDB.app',
+    # include_targets: 'MovieDB.app',
+    only_project_targets: true,
     minimum_coverage_percentage: 55.0,
     include_test_targets: false,
-    ignore_file_path: '.xcovignore',
-    output_directory: 'build/reports/xcov_output'
+    markdown_report: true,
+    ignore_file_path: '.xcovignore'
   )
+  File.open("build/reports/xcov_report.md", 'w') { |file| file.write(report.markdown_value) }
+  xcov.output_report(report)
 end
 
 # MAIN

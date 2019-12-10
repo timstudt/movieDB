@@ -13,7 +13,7 @@ run `install.sh` to setup build environment and open `MovieDB.xcworkspace` with 
   - **CodeCov** - measures code coverage for unit tests
   - **Travis CI** - CI for iOS projects on Github
   - **CodeBeat** - code quality check
-
+  - **bitrise** - CI/CD for mobile projects
 
 - **Bundler** -
   - *Gemfile*
@@ -30,6 +30,8 @@ run `install.sh` to setup build environment and open `MovieDB.xcworkspace` with 
     - **xcpretty** - pretty/readable console print out for xcode output
     - ~**xctool** - FB tool to run all test targets~
     - **Danger** - automatic evaluation of Pull Requests  [Danger](https://github.com/danger/danger)
+      - SwiftLint
+      - xcov - [see Repo](https://github.com/fastlane-community/xcov)
     - **Cocoapods** - dependency management
       - *Podfile*
       - Pods/*

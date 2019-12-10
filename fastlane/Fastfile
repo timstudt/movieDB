@@ -68,6 +68,20 @@ platform :ios do
     )
   end
 
+  lane :generate_reports do
+    lint_project()
+  end
+
+  lane :lint_project do
+    swiftlint(
+      mode: :lint,                            # SwiftLint mode: :lint (default) or :autocorrect
+      executable: "Pods/SwiftLint/swiftlint", # The SwiftLint binary path (optional). Important if you've installed it via CocoaPods
+      output_file: "#{ENV["REPORT_PATH"]}/swiftlint.result.html",   # The path of the output file (optional)
+      reporter: "html",                       # The custom reporter to use (optional)
+      config_file: ".swiftlint.yml",       # The path of the configuration file (optional)
+    )
+  end
+
   lane :review_pr do
     danger(
       github_api_token: ENV["DANGER_GITHUB_API_TOKEN"],
