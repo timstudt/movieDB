@@ -34,6 +34,10 @@ def workspace
   return "MovieDB.xcworkspace"
 end
 
+def main_scheme
+  return "MovieDB"
+end
+
 platform :ios do
   desc "Generate new localized screenshots"
   lane :screenshots do
@@ -69,7 +73,19 @@ platform :ios do
   end
 
   lane :generate_reports do
+    generate_cov_report()
     lint_project()
+  end
+
+  lane :generate_cov_report do
+    xcov(
+      workspace: workspace,
+      scheme: main_scheme,
+      only_project_targets: true,
+      minimum_coverage_percentage: 60.0,
+      ignore_file_path: '.xcovignore',
+      output_directory: ENV["REPORT_PATH"]
+  )
   end
 
   lane :lint_project do

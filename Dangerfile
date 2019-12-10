@@ -40,12 +40,12 @@ def run_xcov()
     workspace: 'MovieDB.xcworkspace',
     # include_targets: 'MovieDB.app',
     only_project_targets: true,
-    minimum_coverage_percentage: 55.0,
+    minimum_coverage_percentage: 60.0,
     include_test_targets: false,
-    markdown_report: true,
+    html_report: true,
     ignore_file_path: '.xcovignore'
   )
-  File.open("build/reports/xcov_report.md", 'w') { |file| file.write(report.markdown_value) }
+  File.open("build/reports/xcov_report_diff.html", 'w') { |file| file.write(report.html_value) }
   xcov.output_report(report)
 end
 
