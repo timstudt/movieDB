@@ -1,250 +1,2063 @@
 {
   "warnings": [
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
-      "line": null,
-      "symbol": "API",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 11,
       "symbol": "API",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 12,
       "symbol": "API.APIKey",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 13,
       "symbol": "API.baseURL",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 14,
       "symbol": "API.cachePolicy",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 15,
       "symbol": "API.timeoutInterval",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 16,
       "symbol": "API.allHTTPHeaderFields",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 18,
       "symbol": "API.buildRequest(url:httpMethod:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
+      "line": 21,
+      "symbol": "API",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 22,
       "symbol": "API.APIKey",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 23,
       "symbol": "API.cachePolicy",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 24,
       "symbol": "API.timeoutInterval",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 25,
       "symbol": "API.allHTTPHeaderFields",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/API.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/API.swift",
       "line": 27,
       "symbol": "API.buildRequest(url:httpMethod:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
-      "line": null,
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/Endpoint.swift",
+      "line": 11,
+      "symbol": "Endpoint",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/Endpoint.swift",
+      "line": 12,
+      "symbol": "Endpoint.allowedMethods",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/Endpoint.swift",
+      "line": 13,
+      "symbol": "Endpoint.isAllowed(method:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/Endpoint.swift",
+      "line": 14,
+      "symbol": "Endpoint.url(builder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/Endpoint.swift",
+      "line": 17,
+      "symbol": "Endpoint",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/Endpoint.swift",
+      "line": 18,
+      "symbol": "Endpoint.isAllowed(method:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/MovieEndpoint.swift",
+      "line": 11,
+      "symbol": "MovieEndpoint",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/MovieEndpoint.swift",
+      "line": 13,
+      "symbol": "MovieEndpoint.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/MovieEndpoint.swift",
+      "line": 14,
+      "symbol": "MovieEndpoint.path",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/MovieEndpoint.swift",
+      "line": 15,
+      "symbol": "MovieEndpoint.allowedMethods",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/MovieEndpoint.swift",
+      "line": 17,
+      "symbol": "MovieEndpoint.url(builder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/SearchEndpoint.swift",
+      "line": 11,
+      "symbol": "SearchEndpoint",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/SearchEndpoint.swift",
+      "line": 12,
+      "symbol": "SearchEndpoint.Entity",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/SearchEndpoint.swift",
+      "line": 13,
+      "symbol": "SearchEndpoint.Entity.movie",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/SearchEndpoint.swift",
+      "line": 16,
+      "symbol": "SearchEndpoint.entity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/SearchEndpoint.swift",
+      "line": 17,
+      "symbol": "SearchEndpoint.query",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/SearchEndpoint.swift",
+      "line": 18,
+      "symbol": "SearchEndpoint.allowedMethods",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/Endpoints/SearchEndpoint.swift",
+      "line": 22,
+      "symbol": "SearchEndpoint.url(builder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 11,
+      "symbol": "MovieDBAPI",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 15,
       "symbol": "MovieDBAPI",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 19,
+      "symbol": "MovieDBAPI.endpointVersion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 20,
+      "symbol": "MovieDBAPI.configurationEndpoint",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 22,
+      "symbol": "MovieDBAPI.defaultURLBuilder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 34,
+      "symbol": "MovieDBAPI.APIKeyQuery()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 38,
+      "symbol": "MovieDBAPI.queryQuery(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 51,
+      "symbol": "MovieDBAPI.getMovie(id:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 57,
+      "symbol": "MovieDBAPI.searchMovie(query:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPI.swift",
+      "line": 64,
+      "symbol": "MovieDBAPI.getImage(resource:size:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 13,
+      "symbol": "MovieDBNetwork.APIClient",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 14,
+      "symbol": "MovieDBNetwork.APIClient.APIKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 15,
+      "symbol": "MovieDBNetwork.APIClient.baseURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 16,
+      "symbol": "MovieDBNetwork.APIClient.allHTTPHeaderFields",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 17,
+      "symbol": "MovieDBNetwork.APIClient.cachePolicy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 18,
+      "symbol": "MovieDBNetwork.APIClient.timeoutInterval",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 20,
+      "symbol": "MovieDBNetwork.APIClient.init(configuration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 27,
+      "symbol": "MovieDBNetwork.Configuration",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 29,
+      "symbol": "MovieDBNetwork.Configuration.default",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 33,
+      "symbol": "MovieDBNetwork.Configuration.defaultImageURL",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 35,
+      "symbol": "MovieDBNetwork.Configuration.APIKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 36,
+      "symbol": "MovieDBNetwork.Configuration.baseURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/APIs/MovieDBAPIClient.swift",
+      "line": 38,
+      "symbol": "MovieDBNetwork.Configuration.init(APIKey:baseURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
       "line": 11,
       "symbol": "HTTPMethod",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
       "line": 12,
       "symbol": "HTTPMethod.get",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
       "line": 13,
       "symbol": "HTTPMethod.post",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
       "line": 14,
       "symbol": "HTTPMethod.put",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
       "line": 15,
       "symbol": "HTTPMethod.patch",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/HTTPMethod.swift",
       "line": 16,
       "symbol": "HTTPMethod.delete",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Domain/Models/MovieModel.swift",
-      "line": null,
-      "symbol": "MovieModel",
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkError.swift",
+      "line": 11,
+      "symbol": "NetworkError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkError.swift",
+      "line": 12,
+      "symbol": "NetworkError.decodingFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkError.swift",
+      "line": 13,
+      "symbol": "NetworkError.missingSerializer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkError.swift",
+      "line": 14,
+      "symbol": "NetworkError.invalidStatusCode(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkError.swift",
+      "line": 15,
+      "symbol": "NetworkError.unexpectedResponseType",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkLogger.swift",
+      "line": 11,
+      "symbol": "NetworkLoggable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkLogger.swift",
+      "line": 12,
+      "symbol": "NetworkLoggable.log(response:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkLogger.swift",
+      "line": 15,
+      "symbol": "NetworkLoggable",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/Domain/Service/DataService.swift",
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkLogger.swift",
+      "line": 16,
+      "symbol": "NetworkLoggable.log(response:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkLogger.swift",
+      "line": 19,
+      "symbol": "NetworkLoggable.log(message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkLogger.swift",
+      "line": 24,
+      "symbol": "NetworkLogger",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkProvider.swift",
       "line": 11,
+      "symbol": "NetworkProvider",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkProvider.swift",
+      "line": 12,
+      "symbol": "NetworkProvider.logger",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkProvider.swift",
+      "line": 15,
+      "symbol": "DataRequestable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkProvider.swift",
+      "line": 17,
+      "symbol": "DataRequestable.send(request:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkProvider.swift",
+      "line": 23,
+      "symbol": "DataRequestable.send(request:serializer:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkProvider.swift",
+      "line": 30,
+      "symbol": "ImageDownloadRequestable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkProvider.swift",
+      "line": 32,
+      "symbol": "ImageDownloadRequestable.download(request:progress:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkTask.swift",
+      "line": 11,
+      "symbol": "NetworkTask",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkTask.swift",
+      "line": 12,
+      "symbol": "NetworkTask.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkTask.swift",
+      "line": 13,
+      "symbol": "NetworkTask.resume()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/NetworkTask.swift",
+      "line": 14,
+      "symbol": "NetworkTask.suspend()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/Serializer.swift",
+      "line": 12,
+      "symbol": "MovieDBNetwork.Serializer",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/Serializer.swift",
+      "line": 13,
+      "symbol": "MovieDBNetwork.Serializer.serialize(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/Serializer.swift",
+      "line": 27,
+      "symbol": "Serializable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/Serializer.swift",
+      "line": 28,
+      "symbol": "Serializable.serialize(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/Serializer.swift",
+      "line": 31,
+      "symbol": "Serializable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/Serializer.swift",
+      "line": 32,
+      "symbol": "Serializable.serialize(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 11,
+      "symbol": "URLBuilder",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 12,
+      "symbol": "URLBuilder.Error",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 13,
+      "symbol": "URLBuilder.Error.invalidBaseURL",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 14,
+      "symbol": "URLBuilder.Error.unresolvableURL",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 17,
+      "symbol": "URLBuilder.components",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 18,
+      "symbol": "URLBuilder.defaultQueryItems",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 25,
+      "symbol": "URLBuilder.init(baseURL:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 34,
+      "symbol": "URLBuilder.add(path:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 44,
+      "symbol": "URLBuilder.add(queries:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 52,
+      "symbol": "URLBuilder.add(query:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLBuilder.swift",
+      "line": 59,
+      "symbol": "URLBuilder.build()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 11,
+      "symbol": "URLRequestBuilder",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 12,
+      "symbol": "URLRequestBuilder.urlRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 14,
+      "symbol": "URLRequestBuilder.init(url:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 19,
+      "symbol": "URLRequestBuilder.add(method:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 25,
+      "symbol": "URLRequestBuilder.add(cachePolicy:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 31,
+      "symbol": "URLRequestBuilder.add(timeoutInterval:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 37,
+      "symbol": "URLRequestBuilder.add(headerFields:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 45,
+      "symbol": "URLRequestBuilder.add(allHeaderFields:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Core/URLRequestBuilder.swift",
+      "line": 50,
+      "symbol": "URLRequestBuilder.build()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/MovieNetworkModel.swift",
+      "line": 12,
+      "symbol": "MovieDBNetwork.Movie",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/MovieNetworkModel.swift",
+      "line": 14,
+      "symbol": "MovieDBNetwork.Movie.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/MovieNetworkModel.swift",
+      "line": 15,
+      "symbol": "MovieDBNetwork.Movie.voteAverage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/MovieNetworkModel.swift",
+      "line": 16,
+      "symbol": "MovieDBNetwork.Movie.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/MovieNetworkModel.swift",
+      "line": 17,
+      "symbol": "MovieDBNetwork.Movie.overview",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/MovieNetworkModel.swift",
+      "line": 18,
+      "symbol": "MovieDBNetwork.Movie.posterPath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/ResponseModel.swift",
+      "line": 11,
+      "symbol": "MovieDBNetwork",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/ResponseModel.swift",
+      "line": 11,
+      "symbol": "MovieDBNetwork",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/ResponseModel.swift",
+      "line": 11,
+      "symbol": "MovieDBNetwork",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/ResponseModel.swift",
+      "line": 12,
+      "symbol": "MovieDBNetwork",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/ResponseModel.swift",
+      "line": 14,
+      "symbol": "MovieDBNetwork.Response.page",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/ResponseModel.swift",
+      "line": 15,
+      "symbol": "MovieDBNetwork.Response.totalPages",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/ResponseModel.swift",
+      "line": 16,
+      "symbol": "MovieDBNetwork.Response.totalResults",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Models/MovieDB/ResponseModel.swift",
+      "line": 17,
+      "symbol": "MovieDBNetwork.Response.results",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 11,
+      "symbol": "AlamofireConnector",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 13,
+      "symbol": "AlamofireConnector.logger",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 14,
+      "symbol": "AlamofireConnector.sessionManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 16,
+      "symbol": "AlamofireConnector.init(logger:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 21,
+      "symbol": "AlamofireConnector.send(request:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 34,
+      "symbol": "AlamofireConnector.send(request:serializer:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 48,
+      "symbol": "AlamofireConnector",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 49,
+      "symbol": "AlamofireConnector.download(request:progress:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 65,
+      "symbol": "Alamofire.DataRequest.responseDataParser(logger:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 78,
+      "symbol": "Alamofire.DataRequest.responseSerialization(serializer:logger:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/AlamofireConnector.swift",
+      "line": 93,
+      "symbol": "Alamofire.DataRequest.log(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/URLSessionConnector.swift",
+      "line": 11,
+      "symbol": "URLSessionConnector",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/URLSessionConnector.swift",
+      "line": 12,
+      "symbol": "URLSessionConnector.logger",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/URLSessionConnector.swift",
+      "line": 20,
+      "symbol": "URLSessionConnector.init(logger:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/URLSessionConnector.swift",
+      "line": 25,
+      "symbol": "URLSessionConnector.send(request:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/NetworkProviders/URLSessionConnector.swift",
+      "line": 38,
+      "symbol": "URLSessionConnector.send(request:serializer:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/ImageNetworkService.swift",
+      "line": 12,
+      "symbol": "ImageNetworkService.networkService()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/ImageNetworkService.swift",
+      "line": 33,
+      "symbol": "ImageNetworkService.downloadImage(relativePath:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/MovieNetworkService.swift",
+      "line": 14,
+      "symbol": "MovieNetworkService.Error",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/MovieNetworkService.swift",
+      "line": 15,
+      "symbol": "MovieNetworkService.Error.invalidQuery",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/MovieNetworkService.swift",
+      "line": 15,
+      "symbol": "MovieNetworkService.Error.missingAPI",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/MovieNetworkService.swift",
+      "line": 17,
+      "symbol": "MovieNetworkService.defaultSerializer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/MovieNetworkService.swift",
+      "line": 19,
+      "symbol": "MovieNetworkService.init(defaultSerializer:networkProvider:api:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/MovieNetworkService.swift",
+      "line": 38,
+      "symbol": "MovieNetworkService.fetch(id:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/MovieNetworkService.swift",
+      "line": 74,
+      "symbol": "MovieNetworkService.makeNetworkService()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/NetworkService.swift",
+      "line": 14,
+      "symbol": "NetworkService.api",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/NetworkService.swift",
+      "line": 15,
+      "symbol": "NetworkService.networkProvider",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Network/Services/NetworkService.swift",
+      "line": 17,
+      "symbol": "NetworkService.init(networkProvider:api:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/ImageRepository.swift",
+      "line": 11,
+      "symbol": "ImageRepository",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/ImageRepository.swift",
+      "line": 13,
+      "symbol": "ImageRepository.networkService",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/ImageRepository.swift",
+      "line": 14,
+      "symbol": "ImageRepository.cache",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/ImageRepository.swift",
+      "line": 16,
+      "symbol": "ImageRepository.init(networkService:dataBaseService:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/ImageRepository.swift",
+      "line": 23,
+      "symbol": "ImageRepository.loadImageData(path:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/ImageRepository.swift",
+      "line": 32,
+      "symbol": "ImageRepository",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/ImageRepository.swift",
+      "line": 33,
+      "symbol": "ImageRepository.makeRepository()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 26,
+      "symbol": "MovieRepository",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 27,
+      "symbol": "MovieRepository.Errors",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 28,
+      "symbol": "MovieRepository.Errors.requestAfterDeinit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 29,
+      "symbol": "MovieRepository.Errors.malformedResponse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 34,
+      "symbol": "MovieRepository.networkService",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 35,
+      "symbol": "MovieRepository.cache",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 38,
+      "symbol": "MovieRepository.init(networkService:dataBaseService:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 48,
+      "symbol": "MovieRepository.searchMovies(query:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 69,
+      "symbol": "MovieRepository",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/MovieRepository.swift",
+      "line": 70,
+      "symbol": "MovieRepository.makeRepository()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Repositories/Rx/MovieRepository+Rx.swift",
+      "line": 14,
+      "symbol": "MovieRepositoryProtocol.searchMovies(query:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/DataService.swift",
+      "line": 10,
       "symbol": "DataProviderResponse",
       "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
-      "line": null,
-      "symbol": "ReusableCell",
+      "file": "/Users/tim/repos/movieDB/Data/Services/DataService.swift",
+      "line": 12,
+      "symbol": "DataMapper",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/DataService.swift",
+      "line": 14,
+      "symbol": "DataService",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/DataService.swift",
+      "line": 15,
+      "symbol": "DataService.loadData(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/ImageService.swift",
+      "line": 11,
+      "symbol": "ImageService",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/ImageService.swift",
+      "line": 12,
+      "symbol": "ImageService.downloadImage(relativePath:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/ListService.swift",
+      "line": 11,
+      "symbol": "ListService",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/ListService.swift",
+      "line": 12,
+      "symbol": "ListService.fetch(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/ListService.swift",
+      "line": 14,
+      "symbol": "ListService.fetch(id:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/ListService.swift",
+      "line": 15,
+      "symbol": "ListService.search(query:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/MovieService.swift",
+      "line": 11,
+      "symbol": "MovieService",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/MovieService.swift",
+      "line": 13,
+      "symbol": "MovieService.fetch(id:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Data/Services/MovieService.swift",
+      "line": 14,
+      "symbol": "MovieService.search(query:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Models/MovieModel.swift",
+      "line": 10,
+      "symbol": "MovieModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Models/MovieModel.swift",
+      "line": 12,
+      "symbol": "MovieModel.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Models/MovieModel.swift",
+      "line": 14,
+      "symbol": "MovieModel.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Models/MovieModel.swift",
+      "line": 15,
+      "symbol": "MovieModel.caption",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Models/MovieModel.swift",
+      "line": 16,
+      "symbol": "MovieModel.imagePath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Observable+CompletionBlock.swift",
+      "line": 5,
+      "symbol": "Observable.from(completionBasedFunction:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/RepositoryProtocols/MovieRepositoryProtocol.swift",
+      "line": 13,
+      "symbol": "MovieRepositoryProtocol.searchMovies(query:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 4,
+      "symbol": "Result",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 5,
+      "symbol": "Result.success(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 6,
+      "symbol": "Result.failure(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 8,
+      "symbol": "Result.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 12,
+      "symbol": "Result.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 16,
+      "symbol": "Result.failed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 23,
+      "symbol": "Result.succeded",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 27,
+      "symbol": "Result.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 36,
+      "symbol": "Result.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 45,
+      "symbol": "Result.map(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/Result.swift",
+      "line": 52,
+      "symbol": "Result.bind(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/UseCases/SearchMovies.swift",
+      "line": 14,
+      "symbol": "SearchMovies.usecase",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/Domain/UseCases/SearchMovies.swift",
+      "line": 18,
+      "symbol": "SearchMovies.init(repository:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/AppDelegate.swift",
+      "line": 11,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/AppDelegate.swift",
+      "line": 13,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/AppDelegate.swift",
+      "line": 14,
+      "symbol": "AppDelegate.appRouter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/AppDelegate.swift",
+      "line": 16,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/AppRouter.swift",
+      "line": 10,
+      "symbol": "AppRouter",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/AppRouter.swift",
+      "line": 11,
+      "symbol": "AppRouter.Scene",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/AppRouter.swift",
+      "line": 12,
+      "symbol": "AppRouter.Scene.movieCollection",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/AppRouter.swift",
+      "line": 15,
+      "symbol": "AppRouter.root",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/AppRouter.swift",
+      "line": 16,
+      "symbol": "AppRouter.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/AppRouter.swift",
+      "line": 19,
+      "symbol": "AppRouter.init(window:root:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/AppRouter.swift",
+      "line": 25,
+      "symbol": "AppRouter.show(scene:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionCoordinator.swift",
+      "line": 11,
+      "symbol": "MovieCollectionCoordinator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionCoordinator.swift",
+      "line": 12,
+      "symbol": "MovieCollectionCoordinator.rootView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionCoordinator.swift",
+      "line": 13,
+      "symbol": "MovieCollectionCoordinator.movieCollectionView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionCoordinator.swift",
+      "line": 20,
+      "symbol": "MovieCollectionCoordinator.init(rootView:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionCoordinator.swift",
+      "line": 26,
+      "symbol": "MovieCollectionCoordinator.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionPresenter.swift",
+      "line": 11,
+      "symbol": "MovieCollectionPresenter",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionPresenter.swift",
+      "line": 12,
+      "symbol": "MovieCollectionPresenter.Response",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionPresenter.swift",
+      "line": 19,
+      "symbol": "MovieCollectionPresenter.init(getMovies:disposeBag:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionPresenter.swift",
+      "line": 28,
+      "symbol": "MovieCollectionPresenter.loadData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCell.swift",
+      "line": 10,
+      "symbol": "MovieCollectionViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCell.swift",
+      "line": 12,
+      "symbol": "MovieCollectionViewCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCell.swift",
+      "line": 13,
+      "symbol": "MovieCollectionViewCell.imageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCell.swift",
+      "line": 23,
+      "symbol": "MovieCollectionViewCell.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCell.swift",
+      "line": 28,
+      "symbol": "MovieCollectionViewCell.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCell.swift",
+      "line": 32,
+      "symbol": "MovieCollectionViewCell.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCell.swift",
+      "line": 37,
+      "symbol": "MovieCollectionViewCell.prepareForReuse()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCellConfigurator.swift",
+      "line": 11,
+      "symbol": "MovieCollectionViewCellConfigurator",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCellConfigurator.swift",
+      "line": 12,
+      "symbol": "MovieCollectionViewCellConfigurator.Cell",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCellConfigurator.swift",
+      "line": 13,
+      "symbol": "MovieCollectionViewCellConfigurator.Model",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCellConfigurator.swift",
+      "line": 17,
+      "symbol": "MovieCollectionViewCellConfigurator.init(imageRepository:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewCellConfigurator.swift",
+      "line": 22,
+      "symbol": "MovieCollectionViewCellConfigurator.configure(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 12,
+      "symbol": "MovieCollectionViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 14,
+      "symbol": "MovieCollectionViewController.queryText",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 17,
+      "symbol": "MovieCollectionViewController.collectionView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 24,
+      "symbol": "MovieCollectionViewController.searchController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 27,
+      "symbol": "MovieCollectionViewController.collectionViewDataSource",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 36,
+      "symbol": "MovieCollectionViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 44,
+      "symbol": "MovieCollectionViewController.willTransition(to:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 51,
+      "symbol": "MovieCollectionViewController.render(state:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 113,
+      "symbol": "MovieCollectionViewController",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 114,
+      "symbol": "MovieCollectionViewController.makeCompactFlowLayout()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewController.swift",
+      "line": 124,
+      "symbol": "MovieCollectionViewController.makeRegularFlowLayout()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewDataSource.swift",
+      "line": 11,
+      "symbol": "MovieCollectionViewDataSource",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewState.swift",
+      "line": 10,
+      "symbol": "MovieCollectionViewState",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewState.swift",
+      "line": 11,
+      "symbol": "MovieCollectionViewState.loading()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/MovieCollection/MovieCollectionViewState.swift",
+      "line": 15,
+      "symbol": "MovieCollectionViewState.hasLoaded(data:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 17,
+      "symbol": "CollectionViewDataSource",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 23,
+      "symbol": "CollectionViewDataSource.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 27,
+      "symbol": "CollectionViewDataSource.collectionView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 30,
+      "symbol": "CollectionViewDataSource.cellConfigurator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 32,
+      "symbol": "CollectionViewDataSource.init(cellConfigurator:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 39,
+      "symbol": "CollectionViewDataSource.setup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 46,
+      "symbol": "CollectionViewDataSource.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 50,
+      "symbol": "CollectionViewDataSource.collectionView(_:numberOfItemsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "line": 54,
+      "symbol": "CollectionViewDataSource.collectionView(_:cellForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/ReusableCell.swift",
       "line": 11,
       "symbol": "ReusableCell",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/ReusableCell.swift",
       "line": 12,
       "symbol": "ReusableCell.reuseIdentifier",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/ReusableCell.swift",
+      "line": 15,
+      "symbol": "ReusableCell",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/ReusableCell.swift",
       "line": 16,
       "symbol": "ReusableCell.reuseIdentifier",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
-      "line": 27,
-      "symbol": "CollectionViewDataSource",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
-      "line": 53,
-      "symbol": "CollectionViewDataSource.numberOfSections(in:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
-      "line": 57,
-      "symbol": "CollectionViewDataSource.collectionView(_:numberOfItemsInSection:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/CollectionViewDataSource.swift",
-      "line": 61,
-      "symbol": "CollectionViewDataSource.collectionView(_:cellForItemAt:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
       "line": 11,
       "symbol": "UICellConfigurable",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
       "line": 12,
       "symbol": "UICellConfigurable.Cell",
       "symbol_kind": "source.lang.swift.decl.associatedtype",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
       "line": 13,
       "symbol": "UICellConfigurable.Model",
       "symbol_kind": "source.lang.swift.decl.associatedtype",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
       "line": 14,
       "symbol": "UICellConfigurable.configure(_:with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/timstudt/work/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/Shared/UICollectionViewCellConfigurable.swift",
       "line": 17,
       "symbol": "UICollectionViewCellConfigurable",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Coordinator.swift",
+      "line": 11,
+      "symbol": "Coordinator",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Coordinator.swift",
+      "line": 12,
+      "symbol": "Coordinator.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleBuilder.swift",
+      "line": 10,
+      "symbol": "ModuleBuilder",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleBuilder.swift",
+      "line": 11,
+      "symbol": "ModuleBuilder.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleBuilder.swift",
+      "line": 12,
+      "symbol": "ModuleBuilder.presenter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleBuilder.swift",
+      "line": 15,
+      "symbol": "ModuleBuilder.add(view:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleBuilder.swift",
+      "line": 21,
+      "symbol": "ModuleBuilder.add(presenter:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleBuilder.swift",
+      "line": 26,
+      "symbol": "ModuleBuilder.build()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleProtocols.swift",
+      "line": 10,
+      "symbol": "ViewStateProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleProtocols.swift",
+      "line": 11,
+      "symbol": "ViewStateProtocol.isLoading",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleProtocols.swift",
+      "line": 12,
+      "symbol": "ViewStateProtocol.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleProtocols.swift",
+      "line": 15,
+      "symbol": "PresenterOutput",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleProtocols.swift",
+      "line": 16,
+      "symbol": "PresenterOutput.render(state:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleProtocols.swift",
+      "line": 19,
+      "symbol": "ViewDataSource",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ModuleProtocols.swift",
+      "line": 20,
+      "symbol": "ViewDataSource.loadData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Presenter.swift",
+      "line": 10,
+      "symbol": "Presenter",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Presenter.swift",
+      "line": 13,
+      "symbol": "Presenter.userInterface",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Presenter.swift",
+      "line": 17,
+      "symbol": "Presenter.loadData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/View.swift",
+      "line": 10,
+      "symbol": "View",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/View.swift",
+      "line": 12,
+      "symbol": "View.dataSource",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/View.swift",
+      "line": 16,
+      "symbol": "View.render(state:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/View.swift",
+      "line": 19,
+      "symbol": "View",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/View.swift",
+      "line": 20,
+      "symbol": "View.makeNewView(presenter:builder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ViewState.swift",
+      "line": 10,
+      "symbol": "ViewState",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ViewState.swift",
+      "line": 11,
+      "symbol": "ViewState.isLoading",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ViewState.swift",
+      "line": 12,
+      "symbol": "ViewState.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ViewState.swift",
+      "line": 13,
+      "symbol": "ViewState.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/ViewState.swift",
+      "line": 15,
+      "symbol": "ViewState.init(isLoading:error:data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/timstudt/work/repos/movieDB"
+  "source_directory": "/Users/tim/repos/movieDB"
 }

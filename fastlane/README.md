@@ -36,6 +36,11 @@ fastlane ios all_tests
 fastlane ios generate_reports
 ```
 
+### ios generate_cov_report
+```
+fastlane ios generate_cov_report
+```
+
 ### ios lint_project
 ```
 fastlane ios lint_project

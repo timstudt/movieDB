@@ -35,7 +35,6 @@ Pods/
 *.xcworkspace
 
 #Fastlane
-#fastlane/*
 fastlane/report*
 fastlane/keys
 fastlane/Appfile
