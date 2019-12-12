@@ -1,0 +1,28 @@
+version: 2 # use version 2.0 of CircleCI
+jobs: # a basic unit of work in a run
+  build: # runs not using `Workflows` must have a `build` job as entry point
+    macos:  # indicate that we are using the macOS executor
+      xcode: "11.2.1" # indicate our selected version of Xcode
+    steps: # a series of commands to run
+      - checkout  # pull down code from your version control system.
+      - run:
+          name: Bootstrap
+          command: sh install.sh
+      - run:
+          name: Run Unit Tests
+          command: bundle exec fastlane all_tests
+      - run:
+          name: Build Application
+          command: xcodebuild -scheme MovieDB -workspace MovieDB.xcworkspace -sdk iphonesimulator13.2 -destination "platform=iOS Simulator,name=iPhone 8,OS=12.4" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ENABLE_TESTABILITY=YES clean build | xcpretty;
+      # - run:
+      #     name: Generate reports
+      #     command: bundle exec danger #dry_run
+      - store_test_results:
+          path: build/reports
+      # - run:
+      #     # compress Xcode's build output so that it can be stored as an artifact
+      #     name: Compress app for storage
+      #     command: zip -r app.zip build/Release/circleci-demo-macos.app
+    # - store_artifacts: # store this build output. Read more: https://circleci.com/docs/2.0/artifacts/
+    #       path: app.zip
+    #       destination: app
