@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class MovieCollectionViewController: View {
+final class MovieCollectionViewController: BaseView {
     // MARK: - Models
     let queryText = BehaviorRelay<String>(value: "") // does not emit completed nor error
 

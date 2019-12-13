@@ -17,7 +17,7 @@ def run_lint()
   swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
   swiftlint.verbose = true
   swiftlint.lint_all_files = false
-  swiftlint.lint_files
+  swiftlint.lint_files inline_mode: true
 end
 
 # Xcode summary

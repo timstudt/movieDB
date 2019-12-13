@@ -28,7 +28,7 @@ class ModuleBuilderTests: XCTestCase {
     }
 
     func testBuild() {
-        let input = View()
+        let input = BaseView()
         let presenter = Presenter()
         builder?.add(view: input)
         XCTAssertNotNil(builder?.view, "view is nil")

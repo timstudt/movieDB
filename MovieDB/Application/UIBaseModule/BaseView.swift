@@ -7,7 +7,7 @@
 
 import UIKit
 
-class View: UIViewController, PresenterOutput {
+class BaseView: UIViewController, PresenterOutput {
     // MARK: - Module
     var dataSource: ViewDataSource?
 
@@ -16,11 +16,11 @@ class View: UIViewController, PresenterOutput {
     func render(state: ViewStateProtocol) { }
 }
 
-extension View {
+extension BaseView {
     static func makeNewView(
         presenter: Presenter,
         builder: ModuleBuilder = ModuleBuilder()
-    ) -> View {
+    ) -> BaseView {
         let view = self.init()
         return builder
             .add(view: view)

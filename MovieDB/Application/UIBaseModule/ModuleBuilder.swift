@@ -8,11 +8,11 @@
 import Foundation
 
 class ModuleBuilder {
-    var view: View!
+    var view: BaseView!
     var presenter: Presenter?
 
     @discardableResult
-    func add(view: View) -> Self {
+    func add(view: BaseView) -> Self {
         self.view = view
         return self
     }
@@ -23,7 +23,7 @@ class ModuleBuilder {
         return self
     }
 
-    func build() -> View {
+    func build() -> BaseView {
         view.dataSource = presenter
         presenter?.userInterface = view
         return view
