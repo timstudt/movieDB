@@ -77,6 +77,8 @@ GEM
       no_proxy_fix
       octokit (~> 4.7)
       terminal-table (~> 1)
+    danger-lock_dependency_versions (0.0.3)
+      danger-plugin-api (~> 1.0)
     danger-plugin-api (1.0.0)
       danger (> 2.0)
     danger-swiftlint (0.22.0)
@@ -323,6 +325,7 @@ DEPENDENCIES
   cocoapods
   cocoapods-keys
   danger
+  danger-lock_dependency_versions
   danger-swiftlint
   danger-xcodebuild
   danger-xcov

@@ -49,7 +49,12 @@ def run_xcov()
   xcov.output_report(report)
 end
 
+def run_lock_dependency_check()
+  lock_dependency_versions.check(warning: false)
+end
+
 # MAIN
 run_lint()
 # run_xcode_summary() #buggy
 run_xcov()
+run_lock_dependency_check()

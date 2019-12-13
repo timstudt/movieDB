@@ -17,6 +17,7 @@ gem 'danger'
 gem 'danger-xcov'
 gem 'danger-xcodebuild'
 gem 'danger-swiftlint'
+gem 'danger-lock_dependency_versions'
 # gem 'danger-slather'
 # gem 'danger-xcode_summary'
 # danger-synx
