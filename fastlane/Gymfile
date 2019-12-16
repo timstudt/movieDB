@@ -10,4 +10,4 @@ workspace("MovieDB.xcworkspace")
 
 destination("generic/platform=iOS")
 
-output_directory("./")
+output_directory(ENV["REPORT_PATH"])

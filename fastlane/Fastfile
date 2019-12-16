@@ -51,9 +51,9 @@ platform :ios do
     change_log = change_log_since_last_tag
 
     #cert
-    sigh(force: true,
-         adhoc: true
-    )
+    # sigh(force: true,
+    #      adhoc: true
+    # )
 
     gym(
       export_method: "ad-hoc",
