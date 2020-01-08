@@ -12,6 +12,8 @@ theme: fullwidth
 
 min_acl: internal
 
+documentation: docs/*.md
+
 exclude:
   - generated/**
   - SourceryTemplates/**
