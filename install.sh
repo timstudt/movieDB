@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RUBY_VERSION=2.4.5 #$RBENV_VERSION
+RUBY_VERSION=2.6.3 #$RBENV_VERSION
 MIN_GEM_VERSION=2.5.0
 BUNDLER_VERSION=2.1.4
 XCODE_SELECT_VERSION=2370
@@ -74,7 +74,7 @@ install_custom_ruby()
 # install Gems
 install_gems()
 {
-  CURRENT_RUBY_VERSION=`ruby --version`
+  CURRENT_RUBY_VERSION=`ruby -v`
   CURRENT_GEM_VERSION=`gem --version`
 
   echo "*** ruby version: $CURRENT_RUBY_VERSION"
@@ -95,7 +95,7 @@ install_gems()
   if [[ $CURRENT_BUNDLER_VERSION < $BUNDLER_VERSION ]]; then
     echo "*** installing Bundler..."
     gem install bundler $BUNDLER_VERSION || true
-    bundle update --bundler
+    # bundle update --bundler
   else
     echo "   --> all good"
   fi
@@ -117,7 +117,7 @@ install_xcode_select()
 install_bundler()
 {
   echo "*** installing Gems with Bundler..."
-  bundle install
+  bundle install --path vendor/bundle
   # rbenv rehash
 }
 
@@ -146,8 +146,8 @@ install_pods()
 set -o pipefail
 echo "*** installing build environment..."
 install_brew
-install_xcode_select
-install_custom_ruby
+# install_xcode_select
+# install_custom_ruby
 install_gems
 install_bundler
 # install_packages
