@@ -16,7 +16,7 @@ script:
 - bundle exec danger #dry_run
 after_success:
 - bash <(curl -s https://codecov.io/bash)
-- bundle exec fastlane generate_docs
+- sh generate-docs.sh
 deploy:
   provider: pages
   target_branch: "gh-pages"

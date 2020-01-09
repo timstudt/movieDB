@@ -2,7 +2,7 @@
 
 RUBY_VERSION=2.4.5 #$RBENV_VERSION
 MIN_GEM_VERSION=2.5.0
-BUNDLER_VERSION=2.0.2
+BUNDLER_VERSION=2.1.4
 XCODE_SELECT_VERSION=2370
 # RUBY_PATH=~/.gem/ruby/2.4.0/bin
 
@@ -95,6 +95,7 @@ install_gems()
   if [[ $CURRENT_BUNDLER_VERSION < $BUNDLER_VERSION ]]; then
     echo "*** installing Bundler..."
     gem install bundler $BUNDLER_VERSION || true
+    bundle update --bundler
   else
     echo "   --> all good"
   fi
