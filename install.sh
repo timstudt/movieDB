@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RUBY_VERSION=2.6.3 #$RBENV_VERSION
+RUBY_VERSION=2.6.5 #$RBENV_VERSION
 MIN_GEM_VERSION=2.5.0
 BUNDLER_VERSION=2.1.4
 XCODE_SELECT_VERSION=2370
@@ -92,10 +92,11 @@ install_gems()
 
   CURRENT_BUNDLER_VERSION=$( current_bundler_version )
   echo "*** current Bundler version: $CURRENT_BUNDLER_VERSION"
-  if [[ $CURRENT_BUNDLER_VERSION < $BUNDLER_VERSION ]]; then
-    echo "*** installing Bundler..."
+  if [[ -z $CURRENT_BUNDLER_VERSION ]]; then
     gem install bundler $BUNDLER_VERSION || true
-    # bundle update --bundler
+  elif [[ $CURRENT_BUNDLER_VERSION < $BUNDLER_VERSION ]]; then
+    echo "*** installing Bundler..."
+    bundle update --bundler
   else
     echo "   --> all good"
   fi
