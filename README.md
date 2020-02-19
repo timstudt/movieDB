@@ -1,5 +1,6 @@
 # movieDB
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/69558ebebfb448268be114e51d5e59ab)](https://app.codacy.com/manual/timstudt/movieDB?utm_source=github.com&utm_medium=referral&utm_content=timstudt/movieDB&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://app.bitrise.io/app/723504d1a6209d2a/status.svg?token=v50jaMCSRO84AXOvEyocoQ&branch=master)](https://app.bitrise.io/app/723504d1a6209d2a) [![codecov.io](https://codecov.io/gh/timstudt/movieDB/branch/master/graphs/badge.svg)](https://codecov.io/gh/timstudt/movieDB/branch/master)
 [![docs](https://cdn.rawgit.com/timstudt/movieDB/master/docs/badge.svg)](https://cdn.rawgit.com/timstudt/movieDB/master/docs/index.html)
 [![codebeat badge](https://codebeat.co/badges/563bdbae-0ac9-47ee-9ca6-4affd9062d39)](https://codebeat.co/projects/github-com-timstudt-moviedb-master)
