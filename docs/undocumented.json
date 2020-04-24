@@ -1863,16 +1863,16 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Coordinator.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Coordinating.swift",
       "line": 11,
-      "symbol": "Coordinator",
+      "symbol": "Coordinating",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Coordinator.swift",
+      "file": "/Users/tim/repos/movieDB/MovieDB/Application/UIBaseModule/Coordinating.swift",
       "line": 12,
-      "symbol": "Coordinator.start()",
+      "symbol": "Coordinating.start()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },

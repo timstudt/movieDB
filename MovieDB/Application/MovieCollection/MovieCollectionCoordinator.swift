@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MovieCollectionCoordinator: Coordinator {
+final class MovieCollectionCoordinator: Coordinating {
     let rootView: UINavigationController
     lazy var movieCollectionView: MovieCollectionViewController = {
         let presenter = MovieCollectionPresenter()

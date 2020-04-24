@@ -14,7 +14,7 @@
 # update_fastlane
 
 default_platform(:ios)
-xcversion(version: "~>11.2.0")
+xcversion(version: "~>11.4.1")
 
 def change_log_since_last_tag
   # http://git-scm.com/docs/pretty-formats

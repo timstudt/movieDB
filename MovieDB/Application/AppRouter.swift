@@ -14,7 +14,7 @@ struct AppRouter {
 
     let root: UINavigationController
     var window: UIWindow?
-    private var coordinator: Coordinator!
+    private var coordinator: Coordinating!
 
     init(window: UIWindow?,
          root: UINavigationController = .init()) {
@@ -29,7 +29,7 @@ struct AppRouter {
     }
 
     // TODO not scalable; remove enum
-    private func coordinator(for scene: Scene) -> Coordinator {
+    private func coordinator(for scene: Scene) -> Coordinating {
         switch scene {
         case .movieCollection:
             return MovieCollectionCoordinator(rootView: root)

@@ -39,3 +39,6 @@ fastlane/report*
 fastlane/keys
 fastlane/Appfile
 *.mobileprovision
+
+#Bundler local install
+vendor/
