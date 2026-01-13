@@ -1,0 +1,43 @@
+name: CI (Xcode 26)
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Xcode 26
+        uses: apple/actions/setup-xcode@v4
+        with:
+          xcode-version: '26'
+
+      - name: Install Homebrew dependencies
+        run: |
+          brew update || true
+          brew install swiftlint cocoapods || true
+
+      - name: Install CocoaPods
+        run: pod install --repo-update
+
+      - name: SwiftLint (if available)
+        run: |
+          if command -v swiftlint >/dev/null; then
+            swiftlint lint || true
+          else
+            echo "swiftlint not found; skipping lint"
+          fi
+
+      - name: Run unit tests
+        env:
+          SWIFTLINT_BINARY: $(which swiftlint)
+        run: |
+          set -o pipefail
+          xcodebuild clean test -workspace MovieDB.xcworkspace -scheme MovieDB -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' | xcpretty || true

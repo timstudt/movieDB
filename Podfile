@@ -1,17 +1,19 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '12.0'
+platform :ios, '18.0'
 
 def moviedb_pods
     # Pods for MovieDB
     pod 'Alamofire'
-    pod 'RxSwift', '~> 5'
-    pod 'RxCocoa', '~> 5'
+    pod 'RxSwift', '~> 6.6'
+    pod 'RxCocoa', '~> 6.6'
     # pod 'lottie-ios'
     # pod 'Firebase'
 end
 
 def project_pods
-    pod 'SwiftLint', '~> 0.33'
+    # SwiftLint: prefer installing via Homebrew for Xcode 26 (faster updates and CI-friendly).
+    # If you must use the CocoaPod, uncomment and use a recent version:
+    # pod 'SwiftLint', '~> 0.53'
     pod 'Sourcery', '~> 0.16.1'
     # pod 'Stencil', '~> 0.8.0'
 end
@@ -28,7 +30,7 @@ target 'MovieDB' do
   moviedb_pods
   project_pods
 
-  script_phase :name => 'SwiftLint', :script => '${PODS_ROOT}/SwiftLint/swiftlint', :execution_position => :before_compile
+  script_phase :name => 'SwiftLint', :script => 'SWIFTLINT_BINARY="$(which swiftlint || echo ${PODS_ROOT}/SwiftLint/swiftlint)" && $SWIFTLINT_BINARY', :execution_position => :before_compile
 
   plugin 'cocoapods-keys', {
     :project => "MovieDB",

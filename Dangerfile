@@ -14,7 +14,8 @@ warn("Big PR") if git.lines_of_code > 500
 
 # Run SwiftLint on diff
 def run_lint()
-  swiftlint.binary_path = './Pods/SwiftLint/swiftlint'
+  binary = `which swiftlint`.strip
+  swiftlint.binary_path = binary.empty? ? './Pods/SwiftLint/swiftlint' : binary
   swiftlint.verbose = true
   swiftlint.lint_all_files = false
   swiftlint.lint_files
